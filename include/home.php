@@ -13,8 +13,8 @@
         <div id="logo"> <!--Logo-->
         </div>
     
-    </a>    
-    
+    </a>   
+        
     <?php
 	
 		$pagHome = "SELECT * FROM `pagina` LIMIT 1,4"; // Assegnazione Query Pagina DB
@@ -23,17 +23,34 @@
 	
 		if( $countPagHome >= 1  ):
 	
-			$i = 1;
+			$i = 1; // Inizializzazione Contatore
 			
-			while ($nomePagHome = $rPagHome->fetch_array()): 
+			while ($nomePagHome = $rPagHome->fetch_array()): // Finchè sono presenti record
+			
+			   	$sqlImgHome = "SELECT * FROM `immagine` WHERE immagine_id = ".$nomePagHome["pagina_immagine_id"]." ORDER BY immagine_id DESC LIMIT 0,1  ";
+				$rImgHome = $mysqli->query($sqlImgHome);
+				$countImgHome =  $rImgHome->num_rows;
+				$immagineLabelHome = null;
+				
+				if( $countImgHome >= 1):
+				
+					 while ($immagineHome = $rImgHome->fetch_array()):
+					  
+					   $immagineLabelHome = $immagineHome["immagine_label"];
+					 
+					 endwhile;
+			
+				endif;
 			
 				if ($i == 1) {
 	
 	?>
     
+    <!--Inizio Projects-->
+    
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); "> <!--Box Sezione-->
         
             <div class="box_sfondo"> <!--Sfondo-->
             
@@ -49,14 +66,19 @@
     
     </a>
     
+    <!--Fine Projects-->
+    
     <?php
 	
 				} elseif ($i == 2) {
 					
 	?>
+    
+    <!--Inizio Activities-->
+    
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
         
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); "> <!--Box Sezione-->
         
             <div class="box_sfondo"> <!--Sfondo-->
             
@@ -71,15 +93,20 @@
         </div>
     
     </a>
-     <?php
+    
+    <!--Fine Activities-->
+    
+    <?php
 	
 				} elseif ($i == 3) {
 					
 	?>
     
-     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
+    <!--Inizio Showroom-->
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+    <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
+    
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); "> <!--Box Sezione-->
         
             <div class="box_sfondo"> <!--Sfondo-->
             
@@ -94,14 +121,20 @@
         </div>
     
     </a>
+    
+    <!--Fine Showroom-->
+    
     <?php
 	
 				} elseif ($i == 4) {
 					
 	?>
-     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+    <!--Inizio Contacts-->
+    
+    <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
+    
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); "> <!--Box Sezione-->
         
             <div class="box_sfondo"> <!--Sfondo-->
             
@@ -116,6 +149,9 @@
         </div>
     
     </a>
+    
+    <!--Fine Contacts-->
+    
     <?php
 	
 				}

@@ -75,17 +75,23 @@
     
     <ul id="menu_voci">
     
-       <?php while ($menu = $rMenu->fetch_array()): 
+       <?php 
+	   
+	   	$sqlMenuHamb = "SELECT * FROM `pagina` WHERE `pagina_dipendenza_id` = 0 AND `pagina_id` != 1 LIMIT 0,5"; // Assegnazione Query MENU Pagina Primo livello DB
+		
+		$rMenuHamb = $mysqli->query($sqlMenuHamb); // Menu
+	   
+	   	while ($menuHamb = $rMenuHamb->fetch_array()): 
 	     
 		 if( $pag == "" ): ?>
          
-          <?php if(  $menu["pagina_id"] == 31  ): else: ?>
+          <?php if(  $menuHamb["pagina_id"] == 31  ): else: ?>
          
-          <a class="<?php if($menu["pagina_id"] == 1 ): echo "voce_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menu["pagina_url"]; ?>" title="<?php echo $menu["pagina_meta_title"]; ?>" rel="<?php echo $siteurl_base.$menu["pagina_url"]; ?>">
+          <a class="<?php if($menuHamb["pagina_id"] == 1 ): echo "voce_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menuHamb["pagina_url"]; ?>" title="<?php echo $menuHamb["pagina_meta_title"]; ?>" rel="<?php echo $siteurl_base.$menuHamb["pagina_url"]; ?>">
         
             <li>
             
-               <?php echo $menu["pagina_meta_title"]; ?>
+               <?php echo $menuHamb["pagina_meta_title"]; ?>
                 
             </li>
             
@@ -100,13 +106,13 @@
 	   ?> 
        
        
-       <?php if(  $menu["pagina_id"] == 31  ): else: ?>
+       <?php if(  $menuHamb["pagina_id"] == 31  ): else: ?>
         
-        <a class="<?php if($pag == $menu["pagina_id"] || $box == $menu["pagina_id"]  ): echo "voce_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menu["pagina_url"]; ?>" title="<?php echo $menu["pagina_meta_title"]; ?>" rel="<?php echo $siteurl_base.$menu["pagina_url"]; ?>">
+        <a class="<?php if($pag == $menuHamb["pagina_id"] || $box == $menuHamb["pagina_id"]  ): echo "voce_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menuHamb["pagina_url"]; ?>" title="<?php echo $menuHamb["pagina_meta_title"]; ?>" rel="<?php echo $siteurl_base.$menuHamb["pagina_url"]; ?>">
         
             <li>
             
-               <?php echo $menu["pagina_meta_title"]; ?>
+               <?php echo $menuHamb["pagina_meta_title"]; ?>
                 
             </li>
             
@@ -118,9 +124,9 @@
 		
 		    /* CONDIZIONE PAGINA POST */
 			
-			if ( $menu["pagina_dipendenza_id"]  == "post" ): 
+			if ( $menuHamb["pagina_dipendenza_id"]  == "post" ): 
 
-			 $sqlMenu2 = " SELECT * FROM `pagina` WHERE `pagina_dipendenza_id` = ".$menu["pagina_id"]." "; 
+			 $sqlMenu2 = " SELECT * FROM `pagina` WHERE `pagina_dipendenza_id` = ".$menuHamb["pagina_id"]." "; 
 			 
 			 $rMenu2 = $mysqli->query($sqlMenu2); // Menu
 			 $countMenu2 = $rMenu2->num_rows;
@@ -129,17 +135,17 @@
 		 
 		 ?>
                    
-       <!--  <span class="popUpMenu container_menu_livello_2 <?php if( $box == $menu["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
+       <!--  <span class="popUpMenu container_menu_livello_2 <?php if( $box == $menuHamb["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
                    
-         <?php while ($menu2 = $rMenu2->fetch_array()): ?>
+         <?php while ($menuHamb2 = $rMenu2->fetch_array()): ?>
               
             
               
-             <a class="voce_livello_2 <?php if( $menu2["pagina_id"] == 18 || $menu2["pagina_id"] == 19 ): else: ?> leggi-tutto <?php endif; ?> <?php if($pag == $menu2["pagina_id"]): echo "voce_livello_2_attiva"; endif; ?>" href="<?php if( $menu2["pagina_id"] == 18 ):  echo "mostre"; elseif( $menu2["pagina_id"] == 19 ):  echo "speciale-cenacolo"; elseif( $menu2["pagina_id"] == 20 ):  echo $siteurl_base."include/pop-up2.php"; else: echo $siteurl_base."include/pop-up4.php"; endif; ?>" title="<?php echo $menu2["pagina_meta_title"]; ?>" data-id="2" rel="<?php echo $menu2["pagina_id"]; ?>">
+             <a class="voce_livello_2 <?php if( $menuHamb2["pagina_id"] == 18 || $menuHamb2["pagina_id"] == 19 ): else: ?> leggi-tutto <?php endif; ?> <?php if($pag == $menuHamb2["pagina_id"]): echo "voce_livello_2_attiva"; endif; ?>" href="<?php if( $menuHamb2["pagina_id"] == 18 ):  echo "mostre"; elseif( $menuHamb2["pagina_id"] == 19 ):  echo "speciale-cenacolo"; elseif( $menuHamb2["pagina_id"] == 20 ):  echo $siteurl_base."include/pop-up2.php"; else: echo $siteurl_base."include/pop-up4.php"; endif; ?>" title="<?php echo $menuHamb2["pagina_meta_title"]; ?>" data-id="2" rel="<?php echo $menuHamb2["pagina_id"]; ?>">
         
                   <li>
               
-                      <?php echo $menu2["pagina_meta_title"]; ?>
+                      <?php echo $menuHamb2["pagina_meta_title"]; ?>
                   
                   </li>
               
@@ -157,9 +163,9 @@
 		
 		    /* CONDIZIONE PAGINA LINK */
 			
-			elseif ( $menu["pagina_dipendenza_id"]  == "link" ): 
+			elseif ( $menuHamb["pagina_dipendenza_id"]  == "link" ): 
 
-			 $sqlMenu2 = " SELECT * FROM `pagina` WHERE `pagina_dipendenza_id` = ".$menu["pagina_id"]." "; 
+			 $sqlMenu2 = " SELECT * FROM `pagina` WHERE `pagina_dipendenza_id` = ".$menuHamb["pagina_id"]." "; 
 			 
 			 $rMenu2 = $mysqli->query($sqlMenu2); // Menu
 			 $countMenu2 = $rMenu2->num_rows;
@@ -168,15 +174,15 @@
 		 
 		 ?>
                    
-        <!-- <span class="container_menu_livello_2 <?php if( $box == $menu["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
+        <!-- <span class="container_menu_livello_2 <?php if( $box == $menuHamb["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
                    
-         <?php while ($menu2 = $rMenu2->fetch_array()): ?>
+         <?php while ($menuHamb2 = $rMenu2->fetch_array()): ?>
               
-             <a class="voce_livello_2 <?php if($pag == $menu2["pagina_id"]): echo "voce_livello_2_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menu2["pagina_url"]; ?>" title="<?php echo $menu2["pagina_meta_title"]; ?>" rel="<?php echo $menu2["pagina_url"]; ?>">
+             <a class="voce_livello_2 <?php if($pag == $menuHamb2["pagina_id"]): echo "voce_livello_2_attiva"; endif; ?>" href="<?php echo $siteurl_base.$menuHamb2["pagina_url"]; ?>" title="<?php echo $menuHamb2["pagina_meta_title"]; ?>" rel="<?php echo $menuHamb2["pagina_url"]; ?>">
         
                   <li>
               
-                      <?php echo $menu2["pagina_meta_title"]; ?>
+                      <?php echo $menuHamb2["pagina_meta_title"]; ?>
                   
                   </li>
               
@@ -196,9 +202,9 @@
 		 
 			/* CONDIZIONE PAGINA ARTICOLO */
 			
-			elseif( $menu["pagina_dipendenza_id"]  == "articolo" ): 
+			elseif( $menuHamb["pagina_dipendenza_id"]  == "articolo" ): 
                     
-				$sqlArticolo2 = "SELECT * FROM `articolo` WHERE articolo_pagina_id = ".$menu["pagina_id"]." AND articolo_visibile = 1 "; // Assegnazione Query Pagina DB
+				$sqlArticolo2 = "SELECT * FROM `articolo` WHERE articolo_pagina_id = ".$menuHamb["pagina_id"]." AND articolo_visibile = 1 "; // Assegnazione Query Pagina DB
 				
 				$rArt2 = $mysqli->query($sqlArticolo2);
 				$countArticolo2 =  $rArt2->num_rows;
@@ -207,7 +213,7 @@
 				   
 		?>
                    
-      <!--  <span class="container_menu_livello_2 <?php if( $pag == $menu["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
+      <!--  <span class="container_menu_livello_2 <?php if( $pag == $menuHamb["pagina_id"] ): echo "voce_attiva2"; endif; ?>">
        
        	<?php while ($articolo2 = $rArt2->fetch_array()): ?>
        

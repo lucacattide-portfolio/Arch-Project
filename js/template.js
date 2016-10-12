@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
 	
+	inizializza(); // Invocazione Funzione Inizializzazione
 	transizioni(); // Invocazione Funzione Transizioni
 	
 });
@@ -32,6 +33,20 @@ function transizioni() {
 		}, 500);
 		
 	
+	});
+	
+}
+
+
+// Funzione Inizializzazione 
+
+function inizializza() {
+	
+	$('#progetto_slides').superslides({
+		
+		animation: "fade",
+		pagination: true,	
+		
 	});
 	
 }
