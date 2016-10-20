@@ -43,18 +43,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
+        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>
+            	<div class="box_sfondo"> <!--Sfondo-->
             
-                <h2 class="box_titolo"> <!--Titolo-->
+                	<h2 class="box_titolo"> <!--Titolo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    	<?php echo $nomePagProjects["pagina_url"]; ?>
                 
-                </h2>
-            
+                	</h2>
+                    
+            	</div>
             </div>
-                
         </div>
     
     </a>
@@ -71,18 +73,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
-            
-                <h2 class="box_titolo"> <!--Titolo-->
+ 		<div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>        
+                <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    <h2 class="box_titolo"> <!--Titolo-->
+                    
+                        <?php echo $nomePagProjects["pagina_url"]; ?>
+                    
+                    </h2>
                 
-                </h2>
-            
-            </div>
-                
+                </div>
+        	</div>
         </div>
     
     </a>
@@ -99,18 +103,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
-            
-                <h2 class="box_titolo"> <!--Titolo-->
+        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>        
+                <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    <h2 class="box_titolo"> <!--Titolo-->
+                    
+                        <?php echo $nomePagProjects["pagina_url"]; ?>
+                    
+                    </h2>
                 
-                </h2>
-            
-            </div>
-                
+                </div>
+        	</div>
         </div>
     
     </a>
@@ -127,18 +133,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
-            
-                <h2 class="box_titolo"> <!--Titolo-->
+        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>        
+                <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    <h2 class="box_titolo"> <!--Titolo-->
+                    
+                        <?php echo $nomePagProjects["pagina_url"]; ?>
+                    
+                    </h2>
                 
-                </h2>
-            
-            </div>
-                
+                </div>
+        	</div>
         </div>
     
     </a>
@@ -155,18 +163,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
-            
-                <h2 class="box_titolo"> <!--Titolo-->
+        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>        
+                <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    <h2 class="box_titolo"> <!--Titolo-->
+                    
+                        <?php echo $nomePagProjects["pagina_url"]; ?>
+                    
+                    </h2>
                 
-                </h2>
-            
-            </div>
-                
+                </div>
+        	</div>
         </div>
     
     </a>
@@ -183,18 +193,20 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagProjects["pagina_url"]; ?>" title="<?php echo $nomePagProjects["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); "> <!--Box Sezione-->
-        
-            <div class="box_sfondo"> <!--Sfondo-->
-            
-                <h2 class="box_titolo"> <!--Titolo-->
+        <div id="<?php echo $nomePagProjects["pagina_url"]; ?>" class="box_progetti"> <!--Box Sezione-->
+        	<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelProjects; ?>); ">
+                <div class="box_cornice"> <!--Cornice-->
+                </div>        
+                <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <?php echo $nomePagProjects["pagina_url"]; ?>
+                    <h2 class="box_titolo"> <!--Titolo-->
+                    
+                        <?php echo $nomePagProjects["pagina_url"]; ?>
+                    
+                    </h2>
                 
-                </h2>
-            
-            </div>
-                
+                </div>
+        	</div>
         </div>
     
     </a>

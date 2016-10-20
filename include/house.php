@@ -7,6 +7,117 @@
     	House
     
     </h7>
+    
+    <!--Inizio Download Contestuale-->
+    
+    <aside id="download_contestuale" class="deseleziona">
+    
+    	<!--Inizio Titoli-->
+        
+        <hgroup>
+        
+            <h7>
+            
+                Download Contestuale
+                
+            </h7>
+           
+    	</hgroup>
+        
+        <!--Fine Titoli-->
+        
+        <!--Inizio Voci-->
+    
+        <a class="download_contestuale" href="#" title="Documento 1" rel="casa_1">
+            
+            <span class="etichetta_download">
+            
+                Download
+            
+            </span>
+        
+        </a>
+        <a class="download_contestuale" href="#" title="Documento 2" rel="casa_1">
+        
+            <span class="etichetta_download">
+            
+                Download
+            
+            </span>    
+        </a>
+        <a class="download_contestuale" href="#" title="Documento 3" rel="casa_1">
+        
+            <span class="etichetta_download">
+            
+                Download
+            
+            </span>
+    
+        </a>
+        
+        <!--Fine Voci-->
+        
+    </aside>
+    
+    <!--Fine Download Contestuale-->
+    
+	<!--Inizio Menu Contestuale-->
+    
+    <nav id="menu_projects" class="deseleziona">
+    
+    	<!--Inizio Titoli-->
+        
+        <hgroup>
+        
+            <h7>
+            
+                Menu Contestuale
+                
+            </h7>
+            <h1 class="titolo_contestuale">
+            
+                Houses
+                
+            </h1>
+    	
+    	</hgroup>
+        
+        <!--Fine Titoli-->
+        
+        <!--Inizio Voci-->
+    
+        <a class="menu_projects" href="#" title="House 1" rel="casa_1">
+        
+            <span class="lettera">
+            
+                A1
+            
+            </span>
+        
+        </a>
+        <a class="menu_projects" href="#" title="House 2" rel="casa_2">
+        
+            <span class="lettera">
+            
+                A2
+            
+            </span>    
+        </a>
+        <a class="menu_projects" href="#" title="House 3" rel="casa_3">
+        
+            <span class="lettera">
+            
+                A3
+            
+            </span>
+    
+        </a>
+        
+        <!--Fine Voci-->
+        
+    </nav>
+    
+    <!--Fine Menu Contestuale-->
             
     <!--Inizio Slider-->
     
@@ -60,10 +171,10 @@
             
             <!--Inizio Navigazione-->
         
-            <nav class="slides-navigation">
+            <nav class="slides-navigation deseleziona">
         
+                <a href="#" class="prev">Prev</a>
                 <a href="#" class="next">Next</a>
-                <a href="#" class="prev">Previous</a>
         
             </nav>
             

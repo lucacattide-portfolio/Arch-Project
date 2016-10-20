@@ -8,17 +8,59 @@
     
     </h7>
     
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    	
+        <h3>
+        
+        	Houses
+            
+        </h3>
+    
     </div>
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    
+    	<h3>
+        
+    		Kitchen 
+            
+        </h3>
+    
     </div>
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    
+    	<h3>
+        
+        	Bathroom
+        
+        </h3>
+    
     </div>
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    
+    	<h3>
+    	
+        	Living Room
+            
+        </h3>
+    
     </div>
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    
+    	<h3>
+        
+        	Offices
+            
+        </h3>
+    
     </div>
-    <div class="sezione_rapida"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona"> <!--Sezione-->
+    
+    	<h3>
+        
+        	Various
+            
+        </h3>
+    
     </div>
 
 </nav>

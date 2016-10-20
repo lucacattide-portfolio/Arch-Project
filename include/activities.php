@@ -2,7 +2,7 @@
 
 <!--Inizio Menu Contestuale-->
     
-<a class="menu_activities" href="#" title="Incontro" rel="incontro">
+<a class="menu_activities deseleziona" href="#" title="Incontro" rel="incontro">
 
     <span class="numero">
     
@@ -16,7 +16,7 @@
     </span>
 
 </a>
-<a class="menu_activities" href="#" title="Rilievo" rel="rilievo">
+<a class="menu_activities deseleziona" href="#" title="Rilievo" rel="rilievo">
 
     <span class="numero">
     
@@ -30,7 +30,7 @@
     </span>
 
 </a>
-<a class="menu_activities" href="#" title="Progettazione Preliminare" rel="preliminare">
+<a class="menu_activities deseleziona" href="#" title="Progettazione Preliminare" rel="preliminare">
 
     <span class="numero">
     
@@ -44,7 +44,7 @@
     </span>
 
 </a>
-<a class="menu_activities" href="#" title="Progettazione Definitiva" rel="definitiva">
+<a class="menu_activities deseleziona" href="#" title="Progettazione Definitiva" rel="definitiva">
 
     <span class="numero">
     
@@ -58,7 +58,7 @@
     </span>
 
 </a>
-<a class="menu_activities" href="#" title="Progettazione Esecutiva" rel="esecutiva">
+<a class="menu_activities deseleziona" href="#" title="Progettazione Esecutiva" rel="esecutiva">
 
     <span class="numero">
     
@@ -79,52 +79,60 @@
 
 <section id="activities_summary" class="summary">
 
-    <!--Inizio Titoli-->
-    
-    <hgroup>
-    
-        <h7>
+	<!--Inizio Container-->
+
+	<div class="intestazione">
+
+        <!--Inizio Titoli-->
         
-            Summary
+        <hgroup>
+        
+            <h7>
             
-        </h7>
-        <h1 class="titolo_summary"> <!--Titolo-->
-        
-            Activities
+                Summary
+                
+            </h7>
+            <h1 class="titolo_summary"> <!--Titolo-->
             
-        </h1>
-        <h2 class="sottotitolo_summary"> <!--Sottotitolo-->
+                Activities
+                
+            </h1>
+            <h2 class="sottotitolo_summary"> <!--Sottotitolo-->
+            
+                DESIGN AND REALIZATION OF COMPLETE INTERIOR AND KITCHEN
+            
+            </h2>
         
-            DESIGN AND REALIZATION OF COMPLETE INTERIOR AND KITCHEN
+        </hgroup>
         
-        </h2>
+        <!--Fine Titoli-->
+        
+        <div class="dingbat"> <!--Dingbat-->
+        </div>
+        
+        <!--Inizio Corpo-->
+        
+        <article class="corpo_summary">
+        
+            <h7>
+            
+                Corpo
+                
+            </h7>
+            
+            <p>
+                
+                La vita non è solo una location esclusiva, ma anche l'originalità e l'unicità, la creazione del proprio stile, la ricerca della volontà di cambiamento e di espressione dei bisogni della vita interiore. Il nostro processo individuale di progettazione e consulenza architettura d'interni vi aiuterà a trovare la vostra casa.<br />Lasciatevi ispirare dai disegni dei nostri architetti d'interni e trasferire i vostri sogni in dimensioni finora non visto, passo dopo passo.
+            
+            </p>
+        
+        </article>
+        
+        <!--Fine Corpo-->
     
-    </hgroup>
-    
-    <!--Fine Titoli-->
-    
-    <div class="dingbat"> <!--Dingbat-->
     </div>
     
-    <!--Inizio Corpo-->
-    
-    <article class="corpo_summary">
-    
-        <h7>
-        
-            Corpo
-            
-        </h7>
-        
-        <p>
-            
-            La vita non è solo una location esclusiva, ma anche l'originalità e l'unicità, la creazione del proprio stile, la ricerca della volontà di cambiamento e di espressione dei bisogni della vita interiore. Il nostro processo individuale di progettazione e consulenza architettura d'interni vi aiuterà a trovare la vostra casa.<br />Lasciatevi ispirare dai disegni dei nostri architetti d'interni e trasferire i vostri sogni in dimensioni finora non visto, passo dopo passo.
-        
-        </p>
-    
-    </article>
-    
-    <!--Fine Corpo-->
+	<!--Fine Container-->
     
 </section>
 
@@ -701,7 +709,7 @@
 
 <!--Inizio Torna Su-->
 
-<aside id="torna_su">
+<aside id="torna_su" class="ruota">
 
     <h7>
     
