@@ -24,6 +24,21 @@ function inizializza() {
 	});
 	$(".slides-pagination a").empty(); // Elimina contenuto bullets
 		
+	// Custom Scroll
+	
+	$(".elenco_catalogo").mCustomScrollbar({
+		
+		axis: "y",
+		mouseWheel: { 
+		
+			enable: true, 
+			axis: "y" 
+			
+			},
+		theme: "light"
+		
+	});
+		
 	// Activities - Menu Contestuale 
     
     $(".menu_activities").each(function(index) { // Per ogni voce
@@ -56,7 +71,7 @@ function inizializza() {
 // Funzione Transizioni
 
 function transizioni() {
-		
+	
 	// Home - Box
 	
 	$(".box_link").hover(function() { // Al passaggio del mouse
@@ -75,16 +90,47 @@ function transizioni() {
 	
 	// Menu Rapido
 	
-	$(".sezione_rapida").hover(function() {
+	$(".sezione_rapida").hover(function() { // Al passaggio del mouse mostra etichette
+		
+		$("h3", this).removeClass("animated fadeOutDown");	
+		$("h3", this).addClass("animated fadeInDown");	
+		
+	}, function() { // Altrimenti nascondi
 
-		$("h3", this).removeClass("animated slideOutUp");	
-		$("h3", this).addClass("animated slideInDown");	
-		
-	}, function() {
-		
-		$("h3", this).removeClass("animated slideInDown");	
-		$("h3", this).addClass("animated slideOut");	
+		$("h3", this).removeClass("animated fadeInDown");	
+		$("h3", this).addClass("animated fadeOutDown");	
 			
+	});
+	$(".sezione_rapida").on("click tap", function() { // Al click sulla voce
+	
+		$(this).siblings().removeClass("sezione_attiva"); // Disattiva elementi precedentemente aperti
+
+		if ($(this).hasClass("sezione_attiva")) { // Se l'elemento cliccato è uguale al precedente
+			
+			$(".catalogo").removeClass("catalogo_aperto"); // Allora chiudi tutti i cataloghi
+			$("#container_cataloghi").removeClass("container_aperto"); // Chiudi tutte le categorie
+			$(".sezione_rapida").removeClass("sezione_attiva"); // Disattiva tutti gli elementi
+			
+		} else { // Altrimenti
+		
+			$(this).addClass("sezione_attiva");
+			$("#container_cataloghi").addClass("container_aperto"); // Apri le categorie
+			$(".catalogo[rel='" + $(this).attr("rel") + "']").parent().siblings().children().removeClass("catalogo_aperto"); // Nascondi cataloghi precedentemente aperti
+			$(".catalogo[rel='" + $(this).attr("rel") + "']").addClass("catalogo_aperto"); // Apri catalogo selezionato
+		
+		}
+		
+	});
+	
+	// Cataloghi
+	
+	$(".ragione_fornitore a").on("click tap", function(e) { // Al click sul fornitore
+		
+		e.preventDefault(); // Disattiva funzione standard link
+		
+		$(".ragione_fornitore a").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
+		$(this).addClass("ragione_attiva");	// Attiva fornitore selezionato
+		
 	});
 	
 	// Menu Principale - Pulsante

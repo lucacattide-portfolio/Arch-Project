@@ -3,6 +3,7 @@
 @import url("animate.css"); /* CSS Animate */
 @import url("hamburgers.min.css"); /* CSS Hamburger Icon */
 @import url("superslides.css"); /* CSS Superslides */
+@import url("jquery.mCustomScrollbar.min.css"); /* CSS Superslides */
 
 /* Inizio CSS ******************************/
 
@@ -45,6 +46,8 @@ h7 { display: none; }
 
 .visibile { opacity: 1 !important; }
 
+.clear { clear: both; }
+
 /* Links */
 
 a:link { text-decoration: none; }
@@ -62,7 +65,7 @@ a:link { text-decoration: none; }
 	-moz-box-shadow: 0px 0px 25px rgba(0, 0, 0, .7);
 	-o-box-shadow: 0px 0px 25px rgba(0, 0, 0, .7);
 	box-shadow: 0px 0px 25px rgba(0, 0, 0, .7);
-	z-index: 1000;
+	z-index: 7000;
 }
 
 /* Sezioni */
@@ -89,12 +92,22 @@ a:link { text-decoration: none; }
 
 .sezione_rapida:nth-child(7) { background-color: #ccc; }
 
-.sezione_rapida:hover
+.sezione_rapida:hover { cursor: pointer; }
+
+.sezione_rapida:hover .rollover_rapido
 {
-	cursor: pointer;
-	-webkit-box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, .7);
-	-moz-box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, .7);
-	box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, .7);
+	background-color: #fff;
+	height: 1em;
+}
+
+.sezione_rapida:hover h3 { opacity: 1; }
+
+.rollover_rapido
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
 }
 
 .sezione_rapida h3
@@ -107,21 +120,194 @@ a:link { text-decoration: none; }
 	color: #fff;
 	text-align: center;
 	margin: 0;
-/*	height: 0;
-*/	font-family: "OPTIFuturaDemiBold", sans-serif;
+	font-family: "OPTIFuturaDemiBold", sans-serif;
 	font-size: .9rem;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	padding: .5em 0;
 	overflow: hidden;
+	opacity: 0;
 }
 
-/*.sezione_rapida:hover h3
+/* Cataloghi  ******************************/
+
+/* Container */
+
+#container_cataloghi
 {
-	padding: .5em 0;
-	height: 1.2em;
+	display: block;
+	position: fixed;
+	top: 1em;
+	left: 0;
+	right: 0;
+	bottom: auto;
+	width: 100%;
+	height: 0;
+	min-height: 0;
+	background-color: #1C1C1C;
+	z-index: 6000;
+	overflow: hidden;
 }
-*/
+
+.container_aperto
+{
+	height: calc(100% - 2em) !important;
+	min-height: calc(100% - 2em) !important;
+}
+
+/* Categorie */
+
+.categoria
+{
+	display: inline-block;
+	position: relative;
+	width: 16.66%;
+	height: 100%;
+	min-height: 100%;
+	float: left;
+	overflow: hidden;
+}
+
+
+/* Catalogo */
+
+.catalogo
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 0;
+	min-height: 0;
+	overflow: hidden;
+}
+
+.catalogo_aperto
+{
+	height: 100% !important;
+	min-height: 100% !important;
+}
+
+.categoria:nth-child(odd) .catalogo { background-color: #4D4D4D; }
+
+.categoria:nth-child(even) .catalogo { background-color: #333; }
+
+/* Anteprima */
+
+.foto_catalogo
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: calc(45% - 3em);
+	background-size: cover;
+	background-attachment: scroll;
+	background-position: center;
+	backround-repeat: no-repeat;
+}
+
+/* Titolo */
+
+.titolo_categoria
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 32px);
+	margin: 0;
+	padding: .5em 16px;
+	text-align: center;
+	font-family: "OPTIFuturaDemiBold", sans-serif;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+.categoria:nth-child(2) .titolo_categoria { background-color: #000; }
+
+.categoria:nth-child(3) .titolo_categoria { background-color: #333; }
+
+.categoria:nth-child(4) .titolo_categoria { background-color: #4d4d4d; }
+
+.categoria:nth-child(5) .titolo_categoria { background-color: #666; }
+
+.categoria:nth-child(6) .titolo_categoria { background-color: #999; }
+
+.categoria:nth-child(7) .titolo_categoria { background-color: #ccc; }
+
+/* Indice */
+
+.elenco_catalogo
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: calc(60% - 3.8em);
+	overflow: hidden;
+}
+
+/* Aziende */
+
+.container_fornitori
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 32px);
+	height: auto;
+	padding: 1em 16px;
+	margin: 3em auto 5em;
+}
+
+.container_fornitori:last-child { margin-bottom: 3em; }
+
+/* Lettera */
+
+.lettera_catalogo
+{
+	display: inline-block;
+	position: relative;
+	width: calc(38% - 16px);
+	height: auto;
+	float: left;
+	font-family: "OPTIFuturaDemiBold", sans-serif;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 0;
+	padding-left: 16px;
+}
+
+/* Fornitori */
+
+.fornitori_catalogo
+{
+	display: inline-block;
+	position: relative;
+	width: 62%;
+	height: auto;
+	float: left;
+	margin: 0;
+}
+
+.ragione_fornitore
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	color: #fff;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: .9rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding-bottom: 1em;
+}
+
+.ragione_fornitore a { color: #fff; }
+
+.ragione_fornitore a:hover { opacity: .7; }
+
+.ragione_attiva { color: #C1272D !important; }
+
 /* Menu Principale ******************************/
 
 /* Hamburger */
@@ -1218,6 +1404,23 @@ a:link { text-decoration: none; }
 	transform: rotate(180deg);
 }
 
+/* Custom Scroll ******************************/
+
+.mCSB_inside>.mCSB_container { margin-right: 60px; }
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+{
+	width: 2px;
+	background-color: #808080;
+}
+
+.mCSB_scrollTools
+{
+	right: 48px;
+	height: 87%;
+	top: 7%;
+}
+
 /* House ******************************/
 
 #progetti_house
@@ -1434,7 +1637,15 @@ a:link { text-decoration: none; }
 
 .sezione_rapida { transition: all .3s ease-in-out; }
 
+.sezione_rapida .rollover_rapido { transition: all .3s ease-in-out; }
+
 .sezione_rapida h3 { transition: all .3s ease-in-out .3s; }
+
+.ragione_fornitore a { transition: all .3s ease-in-out; }
+
+#container_cataloghi { transition: all .5s ease-out; }
+
+.catalogo { transition: all .5s ease-out; }
 
 /* Inizio Mobile ******************************/
 

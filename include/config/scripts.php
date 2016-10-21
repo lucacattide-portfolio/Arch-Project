@@ -4,6 +4,10 @@
 </script>
 <script type="text/javascript" src="js/jquery.superslides.min.js" async defer> <!--Superslides-->
 </script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js" async defer> <!--Custom Scroll-->
+</script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js" async defer> <!--"-->
+</script>
 <script type="text/javascript" async defer src="js/cookies.js"> <!--Cookies-->
 </script>
 <script type="text/javascript" async defer src="js/template.js"> <!--Template-->
