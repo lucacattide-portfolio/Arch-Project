@@ -1470,6 +1470,116 @@
     </div>
         
     <!--Fine Categorie-->
+    
+    <!--Inizio Popup-->
+    
+    <div id="popup_cataloghi">
+    
+    	<h2 id="titolo_popup"> <!--Avviso-->
+        
+        	CLICCA SULLA X A DESTRA DELLO SCHERMO PER  CHIUDERE QUESTA PAGINA E TORNARE AL SITO
+        
+        </h2>
+        
+        <div id="chiudi_popup"> <!--Chiudi-->
+        </div>
+        
+        <!--Inizio Corpo-->
+        
+        <article id="summary_popup">
+        
+        	<!--Inizio Titoli-->
+        
+        	<hgroup>
+        
+        	<h7> 
+            
+            	Descrizione
+                
+            </h7>
+            <h2 id="titolo_catalogo">
+            
+            	Nome Catalogo
+            
+            </h2>
+            
+            </hgroup>
+            
+            <!--Fine Titoli-->
+            
+            <!--Inizio Descrizione-->
+            
+            <p id="descrizione_catalogo">
+            
+            	Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore 
+et dolore magna aliqua. Ut enim ad minim veniam, quisnostrum exercitationem ullam corporis 
+suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit 
+in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            
+            </p>
+            
+            <!--Fine Descrizione-->
+        
+        </article>
+        
+        <!--Fine Corpo-->
+        
+        <!--Inizio Download Contestuale-->
+    
+        <aside id="popup_download_contestuale" class="deseleziona">
+        
+            <!--Inizio Titoli-->
+            
+            <hgroup>
+            
+                <h7>
+                
+                    Download Contestuale
+                    
+                </h7>
+               
+            </hgroup>
+            
+            <!--Fine Titoli-->
+            
+            <!--Inizio Voci-->
+        
+            <a class="download_contestuale" href="#" title="Documento 1" rel="casa_1">
+                
+                <span class="etichetta_download">
+                
+                    Download
+                
+                </span>
+            
+            </a>
+            <a class="download_contestuale" href="#" title="Documento 2" rel="casa_1">
+            
+                <span class="etichetta_download">
+                
+                    Download
+                
+                </span>    
+            </a>
+            <a class="download_contestuale" href="#" title="Documento 3" rel="casa_1">
+            
+                <span class="etichetta_download">
+                
+                    Download
+                
+                </span>
+        
+            </a>
+            
+            <!--Fine Voci-->
+            
+        </aside>
+        
+        <!--Fine Download Contestuale-->
+    
+    </div>
+    
+    <!--Fine Popup-->
 
 </aside>
 
@@ -1514,7 +1624,7 @@
     
     </h7>
     
-   	<a href="<?php echo $siteurl_."home"; ?>" title="Arch & Project" tabindex="0"> 
+   	<a href="<?php echo $siteurl."home"; ?>" title="Arch & Project" tabindex="0"> 
     
         <div class="logo_menu"> <!--Logo-->
         </div>
@@ -1736,27 +1846,31 @@
 
 <!--Inizio Area Riservata-->
 
-<aside id="account">
+<a href="<?php echo $siteurl."registrazione"; ?>" title="Register">
 
-	<!--Inizio Titoli-->
-
-	<hgroup>
-
-        <h7>
-        
-            Area Riservata
-        
-        </h7>
-        <h2 class="etichetta_pulsante"> 
-        
-            Register
+    <aside id="account">
+    
+        <!--Inizio Titoli-->
+    
+        <hgroup>
+    
+            <h7>
             
-        </h2>
+                Area Riservata
+            
+            </h7>
+            <h2 class="etichetta_pulsante"> 
+            
+                Register
+                
+            </h2>
+        
+        </hgroup>
+        
+        <!--Fine Titoli-->
     
-    </hgroup>
-    
-    <!--Fine Titoli-->
+    </aside>
 
-</aside>
+</a>
 
 <!--Fine Area Riservata-->

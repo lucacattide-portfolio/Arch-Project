@@ -46,6 +46,8 @@ h7 { display: none; }
 
 .visibile { opacity: 1 !important; }
 
+.presente { display: block !important; }
+
 .clear { clear: both; }
 
 /* Links */
@@ -167,7 +169,6 @@ a:link { text-decoration: none; }
 	float: left;
 	overflow: hidden;
 }
-
 
 /* Catalogo */
 
@@ -307,6 +308,97 @@ a:link { text-decoration: none; }
 .ragione_fornitore a:hover { opacity: .7; }
 
 .ragione_attiva { color: #C1272D !important; }
+
+/* Popup */
+
+#popup_cataloghi
+{
+	display: none;
+	position: absolute;
+	width: 34%;
+	height: auto;
+	top: 35%;
+	bottom: auto;
+	left: 35%;
+	right: auto;
+	opacity: 0;
+}
+
+.posizione_sx { left: 10% !important; }
+
+.posizione_dx { left: 55% !important; }
+
+#titolo_popup
+{
+	display: block;
+	position: relative;
+	width: 62%;
+	height: auto;
+	margin: 0;
+	padding: 0 0 1em;
+	letter-spacing: 2px;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.3rem;
+	text-transform: uppercase;
+	color: #aaa;
+}
+
+#chiudi_popup
+{
+	width: 48px;
+	height: 48px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	left: auto;
+	background-image: url("../img/chiudi_popup.svg");
+	background-size: 100%;
+	background-position: 0 0;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+}
+
+#chiudi_popup:hover { cursor: pointer; }
+
+#summary_popup
+{
+	display: block;
+	position: relative;
+	padding: 2em 32px;
+	background-color: #fff;
+}
+
+#titolo_catalogo
+{
+	font-family: "OPTIFuturaDemiBold", sans-serif;
+	font-size: 1.3rem;
+	line-height: 1.5rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #000;
+	margin: 0
+}
+
+#descrizione_catalogo
+{
+	display: block;
+	position: relative;
+	padding: 1em 0 0;
+	margin: 0;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.5rem;
+	color: #000;
+	letter-spacing: 2px;
+}
+
+#popup_download_contestuale .download_contestuale
+{
+	display: inline-block;
+	float: left;
+}
 
 /* Menu Principale ******************************/
 
@@ -1033,6 +1125,40 @@ a:link { text-decoration: none; }
 	margin: 0 auto;
 }
 
+.dingbat_3
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	min-width: 163px;
+	max-width: 163px;
+	height: auto;
+	padding-bottom: 1em;
+	background-image: url("../img/dingbat_3.svg");
+	background-attachment: scroll;
+	background-size: 100%;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
+.dingbat_4
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	min-width: 163px;
+	max-width: 163px;
+	height: auto;
+	padding-bottom: 1em;
+	background-image: url("../img/dingbat_4.svg");
+	background-attachment: scroll;
+	background-size: 100%;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
 .corpo_summary
 {
 	display: block;
@@ -1587,6 +1713,665 @@ a:link { text-decoration: none; }
 	background-color: #000;
 }
 
+/* Login ******************************/
+
+#login
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background-color: #222;
+}
+
+/* Container */
+
+.autenticazione
+{
+	display: block;
+	position: relative;
+	width: 24%;
+	height: auto;
+	top: 50%;
+	transform: perspective(0px) translateY(-50%);
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Titolo */
+
+.titolo_autenticazione
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 2rem;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 0 auto 1em;
+}
+
+/* Form */
+
+#form_login input
+{
+	display: block;
+	position: relative;
+	height: auto;
+	border: 0;
+	outline: none;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 2px;
+}
+
+#email_login
+{
+	width: calc(100% - 4em);
+	margin: 2em auto .5em;
+	background-color: #000;
+	border: 0;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#password_login
+{
+	width: calc(100% - 4em);
+	margin: 1em auto;
+	background-color: #000;
+	border: 0;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#email_login:hover, #password_login:hover
+{
+	-webkit-box-shadow: 0px 0px 0px 2px #808080;
+	-moz-box-shadow: 0px 0px 0px 2px #808080;
+	box-shadow: 0px 0px 0px 2px #808080;
+}
+
+/* Eccezione Campi Obbligatori */
+
+.obbligatori
+{
+	-webkit-box-shadow: 0px 0px 0px 2px #880000 !important;
+	-moz-box-shadow: 0px 0px 0px 2px #880000 !important;
+	box-shadow: 0px 0px 0px 2px #880000 !important;
+	color: #880000 !important;
+}
+
+#entra_login
+{
+	margin: 0 auto 1em;
+	width: calc(100% - 8px);
+	text-transform: uppercase;
+	padding: 1em 16px;
+	color: #333;
+	background-color: #fff;
+}
+
+#entra_login:hover
+{
+	cursor: pointer;
+	background-color: #808080;
+	color: #000;
+}
+
+#form_login legend { display: none; }
+
+#form_login fieldset
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+/* Recupero */
+
+.recupero_password
+{
+	display: block;
+	position: relative;
+	text-align: left;
+	margin-left: 4px;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: .9rem;
+	letter-spacing: 2px;
+	color: #808080;
+}
+
+.recupero_password a
+{
+	color: #fff;
+	opacity: .7;
+}
+
+.recupero_password a:hover { opacity: 1; }
+
+.eccezioni
+{
+	margin: 2em auto 0;
+	text-align: center;
+	letter-spacing: 2px;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: .9rem;
+	color: #fff;
+}
+
+/* Recupero Password ******************************/
+
+#recupero
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background-color: #383838;
+}
+
+/* Form */
+
+#form_recupero input
+{
+	display: block;
+	position: relative;
+	height: auto;
+	border: 0;
+	outline: none;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 2px;
+}
+
+#email_recupero
+{
+	width: calc(100% - 4em);
+	margin: 2em auto 1em;
+	background-color: #000;
+	border: 0;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#password_recupero_nuova
+{
+	width: calc(100% - 4em);
+	margin: 1em auto;
+	background-color: #000;
+	border: 0;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#password_recupero_conferma
+{
+	width: calc(100% - 4em);
+	margin: 1em auto;
+	background-color: #000;
+	border: 0;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#email_recupero:hover, #password_recupero_nuova:hover, #password_recupero_conferma:hover
+{
+	-webkit-box-shadow: 0px 0px 0px 2px #808080;
+	-moz-box-shadow: 0px 0px 0px 2px #808080;
+	box-shadow: 0px 0px 0px 2px #808080;
+}
+
+#entra_recupero
+{
+	margin: 0 auto 1em;
+	width: calc(100% - 12px);
+	text-transform: uppercase;
+	padding: 1em 16px;
+	color: #000;
+	background-color: #fff;
+}
+
+#entra_recupero:hover
+{
+	cursor: pointer;
+	background-color: #808080;
+	color: #000;
+}
+
+#form_recupero legend { display: none; }
+
+#form_recupero fieldset
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+/* Registrazione ******************************/
+
+#registrazione
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background-color: #EDEDED;
+}
+
+#registrazione .titolo_autenticazione { color: #4D4D4D; }
+
+.sottotitolo_autenticazione
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.1rem;
+	color: #B1B1B1;
+	text-transform: uppercase;
+	margin: 2em auto 1em;
+}
+
+#registrazione .autenticazione { width: 48%; }
+
+/* Form */
+
+#form_registrazione input
+{
+	display: inline-block;
+	position: relative;
+	height: auto;
+	border: 0;
+	outline: none;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 2px;
+}
+
+#form_registrazione input[type="text"], #form_registrazione input[type="number"], #form_registrazione input[type="email"], #form_registrazione input[type="password"], #form_registrazione input[type="tel"]
+{
+	width: calc(50% - 4.5em);
+	background-color: #000;
+	padding: 1.5em 32px;
+	color: #fff;
+}
+
+#form_registrazione input:first-child { margin: 1em .5em 0 0; }
+
+#form_registrazione input:last-child:not([type="submit"]) { margin: 1em 0 0 .5em; }
+
+#form_registrazione input:not([type="submit"]):hover
+{
+	-webkit-box-shadow: 0px 0px 0px 2px #808080;
+	-moz-box-shadow: 0px 0px 0px 2px #808080;
+	box-shadow: 0px 0px 0px 2px #808080;
+}
+
+#form_registrazione > div { text-align: right; }
+
+#form_registrazione > div span
+{
+	width: calc(50% - 16px);
+	float: left;
+	text-align: left;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: .9rem;
+	color: #808080;
+}
+
+#form_registrazione > div span p { margin: 1em 0 0 8px; }
+
+label[for="accettazione"]:hover { cursor: pointer; }
+
+#accettazione { margin-right: 8px !important; }
+
+#entra_registrazione
+{
+	margin: 1em 4px 1em auto;
+	width: calc(50% - 16px);
+	text-transform: uppercase;
+	padding: 1em 16px;
+	color: #000;
+	background-color: #fff;
+}
+
+#entra_registrazione:hover
+{
+	cursor: pointer;
+	background-color: #808080;
+	color: #000;
+}
+
+#form_registrazione legend { display: none; }
+
+#form_registrazione fieldset
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#form_registrazione .eccezioni { color: #4D4D4D; }
+
+/* Account ******************************/
+
+#profilo
+{
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	z-index: 7000;
+	background-color: #fff;
+}
+
+/* Header */
+
+#header_profilo
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 6em);
+	height: auto;
+	background-color: #000;
+	padding: 2em 3em;
+}
+
+/* Logo */
+
+#logo_profilo
+{
+	display: inline-block;
+	position: relative;
+	width: 9%;
+	min-width: 165px;
+	height: auto;
+	padding-bottom: 3.5em;
+	background-image: url("../img/logo_profilo.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 0 0;
+}
+
+#toolbar_profilo
+{
+	display: inline-block;
+	position: relative;
+	float: right;
+	padding-top: .5em;
+}
+
+/* Logout */ 
+
+#logout
+{
+	display: inline-block;
+	position: relative;
+	border: 1px solid #ccc;
+	z-index: 1000;
+	float: left;
+	margin-right: 24px;
+}
+
+/* Chiudi */
+
+#chiudi_profilo
+{
+	width: 37px;
+	height: 37px;
+	display: inline-block;
+	position: relative;
+	background-image: url("../img/chiudi_popup.svg");
+	background-size: 100%;
+	background-position: 0 0;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+}
+
+#logout:hover, #chiudi_profilo:hover { cursor: pointer; }
+
+#logout:hover { opacity: 1; }
+
+#container_area
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+/* Area Clienti */
+
+#area_clienti
+{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 17%;
+	height: 24em;
+	background-color: #F7F7F7;
+}
+
+/* Titolo */
+
+#titolo_clienti
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.3rem;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	background-color: #CCCACA;
+	margin: 0;
+	padding: 1em 16px;
+}
+
+#container_clienti
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 4em);
+	height: calc(100% - 8.5em);
+	padding: 2em
+}
+
+/* Avatar */
+
+#avatar
+{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: calc(50% - 32px);
+	height: 7em;
+	background-size: cover;
+	background-position: center;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#cover_avatar
+{
+	display: block;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	top: auto;
+	bottom: 0;
+	left: auto;
+	right: 0;
+	background-image: url("../img/icona_modifica.svg");
+	background-size: 100%;
+	background-position: 0 0;
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+}
+
+#carica_avatar
+{
+	display: block;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	opacity: 0;
+	top: auto;
+	bottom: 0;
+	left: auto;
+	right: 0;
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+.modifica_pulsante
+{
+	display: inline-block;
+	position: relative;
+	border: 1px solid #999;
+	font-family: "GothamCondensed", sans-serif;
+	font-size: .9rem;
+	text-transform: uppercase;
+	text-align: center;
+	color: #999;
+	opacity: .7;
+	margin: 0;
+	padding: .7em 24px;
+	letter-spacing: 2px;
+	float: right;
+}
+
+.modifica_pulsante:hover
+{
+	background-color: rgba(0, 0, 0, .7);
+	cursor: pointer;
+}
+
+/* Dati */
+
+#dati_profilo
+{
+	display: block;
+	position: relative;
+	clear: both;
+	width: 100%;
+	height: auto;
+}
+
+#nome_profilo
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1rem;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 1em 0 0;
+}
+
+.info_profilo
+{
+	display: inline-block;
+	position: relative;
+	width: calc(50% - 16px);
+	height: auto;
+	padding-top: .5em;
+	padding-right: .5em;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: .9rem;
+	font-style: italic;
+	margin: 0;
+}
+
+/* File Utente */
+
+#file_utente
+{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: calc(41.5% - 2px);
+	height: 24em;
+	background-color: transparent;
+	border-left: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
+}
+
+#titolo_utente
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.3rem;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	background-color: #B2B2B2;
+	margin: 0;
+	padding: 1em 16px;
+}
+
+/* File Utente */
+
+#file_admin
+{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 41.5%;
+	height: 24em;
+	background-color: #F7F7F7;
+}
+
+#titolo_admin
+{
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.3rem;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	background-color: #CCCACA;
+	margin: 0;
+	padding: 1em 16px;
+}
+
+/* Categorie */
+
+#titolo_categorie_profilo
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 32px);
+	height: auto;
+	margin: 0;
+	padding: .5em 16px;
+	font-family: "GothamCondensedLight", sans-serif;
+	font-size: 1.3rem;
+	letter-spacing: 2px;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 /* Cookies ******************************/
 
 #banner_cookies { display: none; }
@@ -1646,6 +2431,16 @@ a:link { text-decoration: none; }
 #container_cataloghi { transition: all .5s ease-out; }
 
 .catalogo { transition: all .5s ease-out; }
+
+#form_login input { transition: all .3s ease-in-out; }
+
+#form_recupero input { transition: all .3s ease-in-out; }
+
+#form_registrazione input { transition: all .3s ease-in-out; }
+
+.recupero_password a { transition: all .3s ease-in-out; }
+
+.modifica_pulsante { transition: all .3s ease-in-out; }
 
 /* Inizio Mobile ******************************/
 

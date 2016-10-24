@@ -120,6 +120,24 @@ function transizioni() {
 		
 		}
 		
+		// Controllo Posizione Popup
+		
+		if ($(".sezione_rapida[rel='bathroom']").hasClass("sezione_attiva")) { // Se la terza sezione è attiva
+			
+			$("#popup_cataloghi").removeClass("posizione_sx"); // Allora rimuovi allineamenti precedenti
+			$("#popup_cataloghi").addClass("posizione_dx");	// Allinea la popup
+			
+		} else if ($(".sezione_rapida[rel='living_room']").hasClass("sezione_attiva") || $(".sezione_rapida[rel='offices']").hasClass("sezione_attiva") ) { // Altrimenti se la quarta o la quinta sezione sono attive
+
+			$("#popup_cataloghi").removeClass("posizione_dx"); // Allora rimuovi allineamenti precedenti
+			$("#popup_cataloghi").addClass("posizione_sx"); // Allinea la popup
+		
+		} else { // Altrimenti centra
+			
+			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx"); 
+			
+		}
+		
 	});
 	
 	// Cataloghi
@@ -130,6 +148,33 @@ function transizioni() {
 		
 		$(".ragione_fornitore a").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
 		$(this).addClass("ragione_attiva");	// Attiva fornitore selezionato
+		
+		$("#popup_cataloghi").removeClass("animated slideOutDown"); // Rimuovi animazioni chiusura
+		$("#popup_cataloghi").addClass("presente visibile animated slideInUp"); // Mostra Popup
+		
+	});
+	
+	// Popup 
+	
+	$("#chiudi_popup").on("click tap", function() { // Al click del pulsante
+		
+		$("#popup_cataloghi").removeClass("animated slideInUp"); // Anima l'uscita del popup
+		$("#popup_cataloghi").addClass("animated slideOutDown"); // Anima l'uscita del popup
+		$(".ragione_fornitore a.ragione_attiva").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
+		
+		setTimeout(function() {
+			
+			$(".catalogo").removeClass("catalogo_aperto"); // Allora chiudi tutti i cataloghi
+			$("#container_cataloghi").removeClass("container_aperto"); // Chiudi tutte le categorie
+			$(".sezione_rapida").removeClass("sezione_attiva"); // Disattiva tutti gli elementi	
+		
+		}, 500);
+		setTimeout(function() { // Nascondi e disattiva popup
+			
+			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx visibile presente");
+			
+			
+		}, 750);
 		
 	});
 	
