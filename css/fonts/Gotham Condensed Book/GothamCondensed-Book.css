@@ -1,0 +1,12 @@
+/* Webfont: GothamCondensed-Book */@font-face {
+    font-family: 'GothamCondensedBook';
+    src: url('GothamCondensed-Book.eot'); /* IE9 Compat Modes */
+    src: url('GothamCondensed-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('GothamCondensed-Book.woff') format('woff'), /* Modern Browsers */
+         url('GothamCondensed-Book.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('GothamCondensed-Book.svg#GothamCondensed-Book') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

@@ -1,0 +1,12 @@
+/* Webfont: Times-Italic */@font-face {
+    font-family: 'Times';
+    src: url('Times-Italic.eot'); /* IE9 Compat Modes */
+    src: url('Times-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Times-Italic.woff') format('woff'), /* Modern Browsers */
+         url('Times-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Times-Italic.svg#Times-Italic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
