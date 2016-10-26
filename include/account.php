@@ -72,7 +72,7 @@
                 
                 <!--Fine Avatar-->
         
-                <span class="modifica_pulsante deseleziona"> <!--Modifica-->
+                <span class="modifica_pulsante deseleziona" rel="modifica"> <!--Modifica-->
                 
                     Modifica Dati
                 
@@ -91,7 +91,7 @@
                             Dati Utente
                             
                         </h7>
-                        <h2 id="nome_profilo">
+                        <h2 id="nome_profilo" data-rel="nome_cognome">
                         
                             Nome Cognome
                             
@@ -99,42 +99,42 @@
                     
                     </hgroup>	
                     
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="email">
                     
                     	Email
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="cap">
                     
                     	CAP
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="relefono">
                     
                     	Telefono
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="ragione">
                     
                     	Ragione sociale
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="indirizzo">
                     
                     	Indirizzo
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="fiscale">
                     
                     	Codice Fiscale
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="provincia">
                     
                     	Provincia
                     
                     </p>
-                    <p class="info_profilo">
+                    <p class="info_profilo" data-rel="iva">
                     
                     	Partita IVA
                     
@@ -366,7 +366,7 @@
                 	Clicca nuovamente su un file per deselezionarlo.<br />Clicca su Elimina per cancellare definitivamente i files
                 
                 </span>
-                <span class="carica deseleziona"> <!--Carica-->
+                <span class="carica deseleziona" rel="carica"> <!--Carica-->
                 
                 	Carica file...
                 
@@ -1822,7 +1822,7 @@
 
 <!--Inizio Popup Carica-->
 
-<aside id="popup_carica" class="modale">
+<aside id="popup_carica" class="modale" rel="carica_popup">
 
 	<h7>
     
@@ -1884,10 +1884,19 @@
                     <label for="inserisci">
                     
                         Seleziona File
-                    
-                        <input form="form_carica" name="inserisci" type="file" required="required" id="inserisci" tabindex="2" title="Seleziona il file da caricare">
-                       
-                    
+                                        
+               	  		<div class="custom_input">
+                        
+                        	<span> <!--Etichetta-->
+                            	
+                                Sfoglia
+                                
+                            </span>
+                            
+                        	<input form="form_carica" name="inserisci" type="file" required="required" id="inserisci" tabindex="2" title="Seleziona il file da caricare"> 
+                        
+                    	</div>
+                                                
                     </label>
       
                 </fieldset>
@@ -1912,3 +1921,98 @@
 </aside>
 
 <!--Fine Popup Carica-->
+
+<!--Inizio Popup Modifica-->
+
+<aside id="popup_modifica" class="modale" rel="modifica_popup">
+
+	<h7>
+    
+    	Caricamento
+    
+    </h7>
+    
+    <!--Inizio Contenuti-->
+     
+    <article class="popup"> <!--Popup-->
+   
+    	<!--Inizio Titoli-->
+    	
+    	<hgroup>
+        
+            <h7>
+            
+                Modifica
+                
+            </h7>
+            <h2 class="titolo_popup">
+            
+                Modifica Dati
+                
+                <span class="chiudi_modale">
+                </span>
+                
+            </h2>
+            
+        </hgroup>
+        
+        <!--Fine Titoli-->
+        
+        <!--Inizio Corpo-->
+        
+        <div class="corpo_popup">
+        
+            <!--Inizio Form-->
+              
+            <form method="post" action="" enctype="application/x-www-form-urlencoded" id="form_modifica" autocomplete="on" accept-charset="UTF-8">
+              
+                <legend> <!--Legenda-->
+                      
+                	Modifica Dati Utente
+                          
+                </legend>
+                      
+                <!--Inizio Campi-->
+                      
+                <fieldset> 
+                
+                    <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" placeholder="Nome*"  tabindex="1" title="Inserire il nuovo nome utente">
+                    <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica" placeholder="Cognome*" tabindex="2" title="Inserire il nuovo cognome utente">
+                 	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica" placeholder="E-Mail*" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente">         
+                 	<input name="telefono_utente_admin" type="tel" id="telefono_utente_admin" form="form_modifica" placeholder="Telefono" tabindex="4" title="Inserire il nuovo telefono utente">  
+                    <input name="indirizzo_utente_admin" type="text" required="required" id="indirizzo_utente_admin" form="form_modifica" placeholder="Indirizzo*" tabindex="5" title="Inserire il nuovo indirizzo utente">  
+                    <input name="cap_utente_admin" type="text" required="required" id="cap_utente_admin" form="form_modifica" placeholder="CAP*" tabindex="5" title="Inserire il nuovo CAP utente" size="5" maxlength="5">          			<input name="provincia_utente_admin" type="text" required="required" id="provincia_utente_admin" form="form_modifica" placeholder="Provincia*" tabindex="6" title="Inserire la nuova Provincia utente">
+                    <input name="ragione_utente_admin" type="text" id="ragione_utente_admin" form="form_modifica" placeholder="Ragione sociale" tabindex="7" title="Inserire la nuova Ragione sociale utente">
+                    <input name="fiscale_utente_admin" type="text" required="required" id="fiscale_utente_admin" form="form_modifica" placeholder="Codice Fiscale*" tabindex="8" title="Inserire il nuovo Codice Fiscale utente" size="16" maxlength="16">
+                    <input name="iva_utente_admin" type="text" id="iva_utente_admin" form="form_modifica" placeholder="Partita IVA" tabindex="9" title="Inserire la nuova Partita IVA utente">
+                    <input name="password_utente_admin" type="password" required="required" id="password_utente_admin" form="form_modifica" placeholder="Password*" tabindex="10" title="Inserire la nuova Password utente">
+                    <input name="conferma_utente_admin" type="password" required="required" id="conferma_utente_admin" form="form_modifica" placeholder="Conferma Password*" tabindex="11" title="Conferma la nuova Password utente">
+                 
+                </fieldset>
+                
+                <!--Fine Campi-->
+              
+              	<hr>
+                
+                <span class="obbligatorio_utente_admin">
+                
+                	* Campi obbligatori
+                    
+                </span>
+                
+                <input type="submit" id="salva" form="form_modifica" value="Salva">
+            
+             </form> 
+            <!--Fine Form-->
+        
+        </div>
+        
+        <!--Fine Corpo-->
+    
+    </article>
+    
+    <!--Fine Contenuti-->
+
+</aside>
+
+<!--Fine Popup Modifica-->

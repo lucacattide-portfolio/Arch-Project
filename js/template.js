@@ -5,8 +5,44 @@ $(document).ready(function() {
 	inizializza(); // Invocazione Funzione Inizializzazione
 	transizioni(); // Invocazione Funzione Transizioni
 	mappa(); // Inizializzazione Funzione Mappa
+	//modifica(); // Invocazione Funzione Modifica Dati
 	
 });
+
+
+// Funzione Avatar
+
+(function($) {
+
+	$("#carica_avatar").on('change', function (e) { // Alla selezione del file
+	
+		var fileCount = $(this)[0].files.length; // Assegna la lunghezza del file (Files selezionati)
+	
+		for (var i = 0; i < fileCount; i++) { // Per ogni file presente
+	
+			if (typeof(FileReader) != "undefined") { // Se il file reader è supportato (JS attivo)
+	
+				var reader = new FileReader(); // Definisci un puntatore file
+	
+					reader.onload = function (e) { // Al caricamento del documento
+					
+						$("#avatar").prop("style","background-image:url("+ e.target.result +")"); // Sostituisci avatar
+					
+					}
+	
+					reader.readAsDataURL($(this)[0].files[i]); // Carica il file da path
+	
+			} else { // Altrimenti errore
+	
+				alert("Funzione non supportata");
+	
+			}
+	
+		}
+		
+	});
+	
+}) (jQuery);
 
 
 // Funzione Inizializzazione 
@@ -65,38 +101,62 @@ function inizializza() {
 
 	});
 	
-	// Admin - Cataloghi
+	// Admin - Categorie
 	
 	// Controllo Attivi
 	
 	if ($(".categorie_admin_elemento").length === 5) { // Se sono presenti 5 categorie riadatta il layout
 		
 		$(".categorie_admin_elemento").addClass(".cinque_categorie");
-		
+				
 	} else if ($(".categorie_admin_elemento").length === 4) { // Altrimenti se sono presenti 4 categorie riadatta il layout
 		
 		$(".categorie_admin_elemento").addClass(".quattro_categorie"); 	
-		$(".catalogo_admin_elemento").addClass(".quattro_cataloghi");	
+		
+		controlloCataloghi(); // Invocazione Funzione Controllo cataloghi
 		
 	} else if ($(".categorie_admin_elemento").length === 3) { // Altrimenti se sono presenti 3 categorie riadatta il layout
 		
 		$(".categorie_admin_elemento").addClass(".tre_categorie");
-		$(".catalogo_admin_elemento").addClass(".tre_cataloghi");	
+		
+		controlloCataloghi(); // Invocazione Funzione Controllo cataloghi
 		
 	} else if ($(".categorie_admin_elemento").length === 2) { // Altrimenti se sono presenti 2 categorie riadatta il layout
 		
 		$(".categorie_admin_elemento").addClass(".due_categorie");
-		$(".catalogo_admin_elemento").addClass(".due_cataloghi");	
+	
+		controlloCataloghi(); // Invocazione Funzione Controllo cataloghi
 		
 	}  else if ($(".categorie_admin_elemento").length === 1) { // Altrimenti se è presente 1 categoria riadatta il layout
 		
 		$(".categorie_admin_elemento").addClass(".una_categoria");
+		
+		controlloCataloghi(); // Invocazione Funzione Controllo cataloghi
+		
+	}
+		
+}
+
+
+// Funzione Controllo Cataloghi
+
+function controlloCataloghi() {
+	
+	if ($(".catalogo_admin_elemento").length >= 3) { // Altrimenti se sono presenti 3 categorie riadatta il layout
+	
+		$(".catalogo_admin_elemento").addClass(".due_cataloghi");	
+		
+	}  else if ($(".catalogo_admin_elemento").length === 2) { // Altrimenti se è presente 2 categorie riadatta il layout
+		
+		$(".catalogo_admin_elemento").addClass(".tre_catalogo");	
+		
+	} else if ($(".catalogo_admin_elemento").length === 1) { // Altrimenti se è presente 1 categoria riadatta il layout
+		
 		$(".catalogo_admin_elemento").addClass(".un_catalogo");	
 		
 	}
 	
 }
-
 
 // Funzione Transizioni
 
@@ -325,7 +385,7 @@ function transizioni() {
     
     // Torna Su
     
-    $("#container").on("scroll", function(e) { // Allo scroll del container
+    $("#container").on("scroll", function() { // Allo scroll del container
 
         if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) { // Altrimenti se si è arrivati alla fine dello scroll ruota 
 
@@ -375,6 +435,8 @@ function transizioni() {
 		
 		$(".file_ico", this)	.toggleClass("file_ico_attivo"); // Seleziona 
 		$(".file_nome", this).toggleClass("file_nome_attivo"); // "
+		$("#notifica_toolbar").empty(); // Rimuovi precedenti notifiche
+		$("#notifica_toolbar").html("Clicca nuovamente su un file per deselezionarlo.<br />Clicca su Elimina per cancellare definitivamente i files"); // Aggiorna notifica
 		$("#notifica_toolbar").removeClass("animated fadeOutDown"); // Allora Mostra la notifica
 		$("#notifica_toolbar").addClass("visibile animated fadeInUp"); // "
 		
@@ -389,8 +451,92 @@ function transizioni() {
 		
 	});
 	
+	// Elimina
+	
+	$(".elimina").on("click tap", function() { // Al click sul pulsante
+		
+		if ($(".file_nome_attivo").length > 0) { // Se esiste almeno un file selezionato
+		
+			// Mostra la popup con animazione
+		
+			$(".file_nome_attivo").parent().remove(); // Rimuovi elemento selezionato
+			
+			// Aggiorna notifica
+			
+			$("#notifica_toolbar").empty(); // Rimuovi precedenti notifiche
+			$("#notifica_toolbar").html("Files eliminati"); // Aggiorna notifica
+			$("#notifica_toolbar").removeClass("animated fadeOutDown"); // Visualizza messaggio errore
+			$("#notifica_toolbar").addClass("visibile animated fadeInUp"); // "
+						
+		} else {  // Altrimenti errore
+		
+			$("#notifica_toolbar").empty(); // Rimuovi precedenti notifiche
+			$("#notifica_toolbar").html("Seleziona almeno un file"); // Aggiorna notifica
+			$("#notifica_toolbar").removeClass("animated fadeOutDown"); // Visualizza messaggio errore
+			$("#notifica_toolbar").addClass("visibile animated fadeInUp"); // "
+		
+		}
+		
+	});
+	
+	// Popup Modali
+		
+	$(".carica, .modifica_pulsante").on("click tap", function() { // Al click sul pulsante
+		
+		// Mostra la popup corrispondente con animazione
+	
+		$(".modale[rel='" + $(this).attr("rel") + "_popup']").removeClass("animated slideOutDown");
+		$(".modale[rel='" + $(this).attr("rel") + "_popup'] .popup").removeClass("animated fadeOutDown"); 
+		$(".modale[rel='" + $(this).attr("rel") + "_popup']").addClass("presente animated slideInDown"); 
+					
+	});
+	$(".chiudi_modale, #salva").on("click tap", function() { // Al click sul pulsante
+		
+		// Chiudi modale con animazione
+		
+		$(".popup").addClass("animated fadeOutDown"); 
+		
+		setTimeout(function() {
+			$(".modale").removeClass("animated slideInDown"); 
+			$(".modale").addClass("animated slideOutDown");
+
+		}, 500);	
+		setTimeout(function() {
+		
+			$(".modale").removeClass("presente"); 
+			
+		}, 1000);
+		
+	});
+		
 }
 
+
+// Funzione Modifica Dati
+
+/*function modifica() {
+	
+	$("#salva").on("click tap", function(e) { // Al click del pulsante
+	
+		e.preventDefault(); // Disabilita funzionalità standard pulsante
+	
+		// Aggiorna i dati dei rispettivi campi
+		console.log("ok", $("#nome_utente_modifica").val());
+		$(".info_profilo[data-rel='nome_cognome']").html("" + $("#nome_utente_modifica").val() + " " + $("#cognome_utente_modifica").val());
+		$(".info_profilo[data-rel='email']").html($("#email_utente_modifica").val());
+		$(".info_profilo[data-rel='cap']").html($("#cap_utente_modifica").val());
+		$(".info_profilo[data-rel='telefono']").html($("#telefono_utente_modifica").val());
+		$(".info_profilo[data-rel='ragione']").html($("#ragione_utente_modifica").val());
+		$(".info_profilo[data-rel='indirizzo']").html($("#indirizzo_utente_modifica").val());
+		$(".info_profilo[data-rel='fiscale']").html($("#fiscale_utente_modifica").val());
+		$(".info_profilo[data-rel='provincia']").html($("#provincia_utente_modifica").val());
+		
+		return false; // Disattiva refresh pagina
+		
+	});
+	
+}
+*/
 
 // Funzione Mappa
 
