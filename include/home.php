@@ -11,6 +11,13 @@
     <a href="<?php echo $siteurl_."home"; ?>" title="<?php echo $paginaMetaTitle; ?>">
      
         <div id="logo"> <!--Logo-->
+        
+        	<?php 
+			
+				include("logo.php"); // Inclusione Logo
+				
+			?>
+            
         </div>
     
     </a>   
@@ -53,13 +60,13 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home animated zoomIn"> <!--Box Sezione-->
 			<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); ">
                 <div class="box_cornice"> <!--Cornice-->
                 </div>
                 <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <h2 class="box_titolo"> <!--Titolo-->
+                    <h2 class="box_titolo animated fadeInDown"> <!--Titolo-->
                     
                         <?php echo $nomePagHome["pagina_url"]; ?>
                     
@@ -83,13 +90,13 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
         
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home animated zoomIn"> <!--Box Sezione-->
 			<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); ">
                 <div class="box_cornice"> <!--Cornice-->
                 </div>
                 <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <h2 class="box_titolo"> <!--Titolo-->
+                    <h2 class="box_titolo animated fadeInDown"> <!--Titolo-->
                     
                          <?php echo $nomePagHome["pagina_url"]; ?>
                     
@@ -113,13 +120,13 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home animated zoomIn"> <!--Box Sezione-->
 			<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); ">
                 <div class="box_cornice"> <!--Cornice-->
                 </div>
                 <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <h2 class="box_titolo"> <!--Titolo-->
+                    <h2 class="box_titolo animated fadeInDown"> <!--Titolo-->
                     
                          <?php echo $nomePagHome["pagina_url"]; ?>
                     
@@ -143,13 +150,13 @@
     
     <a class="box_link" href="<?php echo $siteurl_base.$nomePagHome["pagina_url"]; ?>" title="<?php echo $nomePagHome["pagina_meta_title"]; ?>">
     
-        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home"> <!--Box Sezione-->
+        <div id="<?php echo $nomePagHome["pagina_url"]; ?>" class="box_home animated zoomIn"> <!--Box Sezione-->
 			<div class="box_foto" style="background-image: url(<?php echo $siteurl_base."img/".$immagineLabelHome; ?>); ">
                 <div class="box_cornice"> <!--Cornice-->
                 </div>
                 <div class="box_sfondo"> <!--Sfondo-->
                 
-                    <h2 class="box_titolo"> <!--Titolo-->
+                    <h2 class="box_titolo animated fadeInDown"> <!--Titolo-->
                     
                          <?php echo $nomePagHome["pagina_url"]; ?>
                     

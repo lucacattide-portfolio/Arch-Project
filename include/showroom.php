@@ -50,7 +50,7 @@
 
         <!--Inizio Navigazione-->
     
-        <nav class="slides-navigation deseleziona">
+        <nav class="slides-navigation deseleziona animated fadeInRight">
     
             <a href="#" class="prev">Prev</a>
             <a href="#" class="next">Next</a>

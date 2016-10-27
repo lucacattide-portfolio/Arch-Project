@@ -59,6 +59,11 @@ function inizializza() {
 		
 	});
 	$(".slides-pagination a").empty(); // Elimina contenuto bullets
+	$(".slides-pagination a").each(function() { // Per ogni bullet
+		
+		$(this).addClass("animated fadeInUp"); // Anima l'ingresso
+		
+	});
 		
 	// Custom Scroll
 	
@@ -162,8 +167,19 @@ function controlloCataloghi() {
 
 function transizioni() {
 	
-	// Home - Box
+	// Home - Logo (Animazione)
 	
+	$("#bordo_1").addClass("bordo_1");
+	$("#bordo_2").addClass("bordo_2");
+	$("#bordo_3").addClass("bordo_3");
+	$("#bordo_4").addClass("bordo_4");
+	$("#linea_1").addClass("linea_1");
+	$("#linea_2").addClass("linea_2");
+	$("#linea_3").addClass("linea_3");
+	$("#linea_4").addClass("linea_4");
+	
+	// Home - Box
+		
 	$(".box_link").hover(function() { // Al passaggio del mouse
 		
 		setTimeout(function() { // Rendi la cornice lampeggiante
@@ -180,6 +196,42 @@ function transizioni() {
 	
 	// Menu Rapido
 	
+	// Controllo Attivazione
+	
+	if ($("#progetto_slides").length > 0) { // Se siamo su Progetti
+
+		$("#menu_rapido").removeClass("disattivato"); // Abilita menu rapido
+		
+		/*setTimeout(function() { // Dopo 6 secondi anima il menu
+		
+			$(".sezione_rapida:last-child .rollover_rapido").removeClass("rollover_attivo"); // Anima ultimo elemento
+		
+		}, 6100);
+		setTimeout(function() { // Dopo 3 secondi anima il menu
+		
+			var rollover = $(".rollover_rapido"); // Dichiarazione ed Assegnazione Variabile Array elementi
+		
+			$.each(rollover, function(index) { // Per ogni elemento
+					
+				setTimeout(function() { // Anima l'ingresso con ritardo
+					
+					rollover.removeClass("rollover_attivo");	
+					rollover.eq(index).addClass("rollover_attivo");
+	 
+				}, index * 500);
+		
+			});
+			
+			
+		}, 3000);*/
+		
+	} else {
+		
+		$("#menu_rapido").addClass("disattivato"); // Altrimenti disabilita
+		
+	}
+		
+	$("#menu_rapido").addClass("menu_rapido_aperto"); // Anima ingresso
 	$(".sezione_rapida").hover(function() { // Al passaggio del mouse mostra etichette
 		
 		$("h3", this).removeClass("animated fadeOutDown");	
@@ -265,14 +317,14 @@ function transizioni() {
 		setTimeout(function() { // Nascondi e disattiva popup
 			
 			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx visibile presente");
-			
+			$(".rollover_rapido").removeClass("rollover_attivo"); // Disattiva elementi precedentemente attivi
 			
 		}, 750);
 		
 	});
 	
 	// Menu Principale - Pulsante
-	
+		
 	$(".hamburger").on("click tap", function() { // Al primo click sul pulsante
 		
 		if (!$(this).hasClass("is-active")) { // Se il menu risulta chiuso aprilo
@@ -353,8 +405,35 @@ function transizioni() {
 	
 	});
 		
+	// Download Contestuale - Projects
+	
+	var download  = $(".projects_specifiche .download_contestuale"); // Dichiarazione ed Assegnazione Variabile Array elementi
+	
+	$.each(download, function(index) { // Per ogni elemento
+				
+		setTimeout(function() { // Anima l'ingresso con ritardo
+		
+			download.eq(index).removeClass("occulta");
+			download.eq(index).addClass("animated slideInLeft");	
+
+		}, index * 200);
+	
+	});
+			
 	// Menu Contestuale - Projects
     
+	var projects  = $(".menu_projects"); // Dichiarazione ed Assegnazione Variabile Array elementi
+	
+	$.each(projects, function(index) { // Per ogni elemento
+				
+		setTimeout(function() { // Anima l'ingresso con ritardo
+		
+			projects.eq(index).removeClass("occulta");
+			projects.eq(index).addClass("animated slideInRight");	
+
+		}, index * 200);
+	
+	});
     $(".menu_projects").on("click tap", function(e) { // Al click della voce 
         
         e.preventDefault(); // Disattiva funzione standard link
@@ -363,7 +442,6 @@ function transizioni() {
 		$(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
 
     });
-    
 	
 	// Menu Contestuale - Activities
     

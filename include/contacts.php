@@ -8,22 +8,22 @@
     
     </h7>
     
-    <div id="mappa"> <!--Mappa-->
+    <div id="mappa" class="animated fadeInUp"> <!--Mappa-->
     </div>
     
     <!--Inizio Recapiti-->
     
     <div id="recapiti">
     
-		<h1 id="titolo_contatti"> <!--Titolo-->
+		<h1 id="titolo_contatti" class="animated fadeInUp"> <!--Titolo-->
         
         	Contacts
             
         </h1>
         
-        <div id="logo_recapiti" class="box_recapiti"> <!--Logo-->
+        <div id="logo_recapiti" class="box_recapiti animated slideInLeft"> <!--Logo-->
         </div>
-        <div id="info_recapiti" class="box_recapiti"> <!--Recapiti-->
+        <div id="info_recapiti" class="box_recapiti animated slideInRight"> <!--Recapiti-->
         
         	<!--Inizio Container-->
         

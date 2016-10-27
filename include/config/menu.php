@@ -1,6 +1,6 @@
 <!--Inizio Navigazione Rapida-->
 
-<nav id="menu_rapido">
+<nav id="menu_rapido" class="disattivato">
 
 	<h7> <!--Titolo-->
     
@@ -1589,7 +1589,7 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 <!--Inizio Pulsante-->
 
-<aside id="pulsante_menu">
+<aside id="pulsante_menu" class="animated fadeInDown">
 
 	<h7> <!--Titolo-->
     
@@ -1846,9 +1846,9 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 <!--Inizio Area Riservata-->
 
-<a href="<?php echo $siteurl."registrazione"; ?>" title="Register">
+<a href="<?php echo $siteurl."registrazione"; ?>" title="Register" class="registrazione">
 
-    <aside id="account">
+    <aside id="account" class="animated fadeInDown">
     
         <!--Inizio Titoli-->
     

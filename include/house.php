@@ -1,6 +1,6 @@
 <!--Inizio Projects-->
     
-<section id="house">
+<section id="house" class="projects_specifiche">
 
 	<h7> <!--Titolo-->
     
@@ -28,7 +28,7 @@
         
         <!--Inizio Voci-->
     
-        <a class="download_contestuale" href="#" title="Documento 1" rel="casa_1">
+        <a class="download_contestuale occulta" href="#" title="Documento 1" rel="casa_1">
             
             <span class="etichetta_download">
             
@@ -37,7 +37,7 @@
             </span>
         
         </a>
-        <a class="download_contestuale" href="#" title="Documento 2" rel="casa_1">
+        <a class="download_contestuale occulta" href="#" title="Documento 2" rel="casa_1">
         
             <span class="etichetta_download">
             
@@ -45,7 +45,7 @@
             
             </span>    
         </a>
-        <a class="download_contestuale" href="#" title="Documento 3" rel="casa_1">
+        <a class="download_contestuale occulta" href="#" title="Documento 3" rel="casa_1">
         
             <span class="etichetta_download">
             
@@ -74,7 +74,7 @@
                 Menu Contestuale
                 
             </h7>
-            <h1 class="titolo_contestuale">
+            <h1 class="titolo_contestuale animated slideInRight">
             
                 Houses
                 
@@ -86,7 +86,7 @@
         
         <!--Inizio Voci-->
     
-        <a class="menu_projects" href="#" title="House 1" rel="casa_1">
+        <a class="menu_projects occulta" href="#" title="House 1" rel="casa_1">
         
             <span class="lettera">
             
@@ -95,7 +95,7 @@
             </span>
         
         </a>
-        <a class="menu_projects" href="#" title="House 2" rel="casa_2">
+        <a class="menu_projects occulta" href="#" title="House 2" rel="casa_2">
         
             <span class="lettera">
             
@@ -103,7 +103,7 @@
             
             </span>    
         </a>
-        <a class="menu_projects" href="#" title="House 3" rel="casa_3">
+        <a class="menu_projects occulta" href="#" title="House 3" rel="casa_3">
         
             <span class="lettera">
             
@@ -121,7 +121,7 @@
             
     <!--Inizio Slider-->
     
-    <div id="progetto_slides" class="slideshow">
+    <div id="progetto_slides" class="slideshow animated fadeIn">
     
     	<!--Inzio Foto-->
     
@@ -149,7 +149,7 @@
                     Descrizione
                 
                 </h7>
-                <h2 class="titolo_descrizione"> <!--Titolo-->
+                <h2 class="titolo_descrizione animated fadeInLeft"> <!--Titolo-->
             
                     Nome Progetto
             
@@ -161,7 +161,7 @@
                 
             <!--Inizio Corpo-->    
                 
-            <p class="corpo_descrizione"> 
+            <p class="corpo_descrizione animated fadeInLeft"> 
             
             	Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
             
@@ -171,7 +171,7 @@
             
             <!--Inizio Navigazione-->
         
-            <nav class="slides-navigation deseleziona">
+            <nav class="slides-navigation deseleziona animated fadeInRight">
         
                 <a href="#" class="prev">Prev</a>
                 <a href="#" class="next">Next</a>

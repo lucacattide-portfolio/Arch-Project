@@ -44,11 +44,19 @@ h7 { display: none; }
 	user-select: none;          /* Likely future */
 }
 
+.occulta { opacity: 0 !important; }
+
 .visibile { opacity: 1 !important; }
 
 .presente { display: block !important; }
 
 .clear { clear: both; }
+
+.disattivato
+{
+	pointer-events: none;
+	cursor: default;
+}
 
 /* Links */
 
@@ -60,7 +68,7 @@ a:link { text-decoration: none; }
 {
 	display: block;
 	position: relative;
-	width: 100%;
+	width: 0;
 	height: 1em;
 	overflow: visible;
 	-webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, .7);
@@ -69,6 +77,8 @@ a:link { text-decoration: none; }
 	box-shadow: 0px 0px 25px rgba(0, 0, 0, .7);
 	z-index: 7000;
 }
+
+.menu_rapido_aperto { width: 100% !important; }
 
 /* Sezioni */
 
@@ -559,6 +569,13 @@ a:link { text-decoration: none; }
 
 /* Account ******************************/
 
+.registrazione
+{
+	display: block;
+	position: fixed;
+	z-index: 1000;
+}
+
 #account
 {
 	display: block;
@@ -613,14 +630,48 @@ a:link { text-decoration: none; }
 	min-width: 269px;
 	height: auto;
 	margin: 0 auto;
-	padding-bottom: 20em;
+	/*	padding-bottom: 20em;
 	background-image: url("../img/logo.svg");
 	background-attachment: scroll;
 	background-size: 100%;
 	background-position: 0 0;
 	background-repeat: no-repeat;
-	z-index: 1000;
+*/	z-index: 1000;
 }
+
+/* Animazione */
+
+#bordo_1 { transform: scale(0, 1); }
+
+.bordo_1 { transform: scale(1, 1) !important; }
+
+#linea_1 { transform: scale(0, 1); }
+
+.linea_1 { transform: scale(1, 1) !important; }
+
+#bordo_2 { transform: scale(1, 0); }
+
+.bordo_2 { transform: scale(1, 1) !important; }
+
+#linea_2 { transform: scale(1, 0); }
+
+.linea_2 { transform: scale(1, 1) !important; }
+
+#bordo_3 { transform: scale(0, 1); }
+
+.bordo_3 { transform: scale(1, 1) !important; }
+
+#linea_3 { transform: scale(0, 1); }
+
+.linea_3 { transform: scale(1, 1) !important; }
+
+#bordo_4 { transform: scale(1, 0); }
+
+.bordo_4 { transform: scale(1, 1) !important; }
+
+#linea_4 { transform: scale(1, 0); }
+
+.linea_4 { transform: scale(1, 1) !important; }
 
 /* Sezioni */
 
@@ -735,7 +786,7 @@ a:link { text-decoration: none; }
 	left: 0;
 	right: 0;
 	color: #ccc;
-	font-family: "OPTIFuturaDemiBold", sans-serif;
+	font-family: "GothamCondensedLight", sans-serif;
 	font-size: 1.3rem;
 	line-height: 2.5rem;
 	text-transform: uppercase;
@@ -2922,8 +2973,102 @@ label[for="accettazione"]:hover { cursor: pointer; }
 #banner_cookies { display: none; }
 
 /* Transizioni ******************************/
+.linea_1
+{
+	transition: transform .2s linear;
+	transform-origin: left;
+}
+
+.bordo_1
+{
+	transition: transform 1.4s ease-out .2s;
+	transform-origin: left;
+}
+
+.linea_2
+{
+	transition: transform .2s linear .2s;
+	transform-origin: top;
+}
+
+.bordo_2
+{
+	transition: transform 1.4s ease-out .6s;
+	transform-origin: top;
+}
+
+.linea_3
+{
+	transition: transform .2s linear .2s;
+	transform-origin: right;
+}
+
+.bordo_3
+{
+	transition: transform 1.4s ease-out 1s;
+	transform-origin: right;
+}
+
+.linea_4
+{
+	transition: transform .2s linear .4s;
+	transform-origin: bottom;
+}
+
+.bordo_4
+{
+	transition: transform 1.8s ease-out 1.4s;
+	transform-origin: bottom;
+}
+
+#testo_logo_1
+{
+	-webkit-animation-delay: 1.4s;
+	-moz-animation-delay: 1.4s;
+	-ms-animation-delay: 1.4s;
+	-o-animation-delay: 1.4s;
+	animation-delay: 1.4s;
+}
+
+#testo_logo_2
+{
+	-webkit-animation-delay: 1.6s;
+	-moz-animation-delay: 1.6s;
+	-ms-animation-delay: 1.6s;
+	-o-animation-delay: 1.6s;
+	animation-delay: 1.6s;
+}
+
+#testo_logo_3
+{
+	-webkit-animation-delay: 1.8s;
+	-moz-animation-delay: 1.8s;
+	-ms-animation-delay: 1.8s;
+	-o-animation-delay: 1.8s;
+	animation-delay: 1.8s;
+}
 
 .box_home { transition: box-shadow .3s ease-in-out .3s, background-size 1s ease-out; }
+
+#home #contacts { animation-delay: 2s; }
+
+#home #projects { animation-delay: 2.2s; }
+
+#home #showroom { animation-delay: 2.4s; }
+
+#home #activities { animation-delay: 2.6s; }
+
+#progetti #house { /*animation-delay: .5s;*/ }
+
+#progetti #kitchen { animation-delay: 1.6s; }
+
+#progetti #bathroom { animation-delay: .6s; }
+
+#progetti #living-room { animation-delay: 3.2s; }
+
+#progetti #offices { animation-delay: 1.8s; }
+
+#progetti #various { animation-delay: 2.6s; }
 
 .box_progetti { transition: box-shadow .3s ease-in-out .3s, background-size 1s ease-out; }
 
@@ -2937,7 +3082,26 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 .etichetta_pulsante { transition: all .3s ease-in-out; }
 
-#pulsante_menu { transition: all .5s ease-in-out; }
+#menu_rapido { transition: all 1.3s ease-out 2.6s; }
+
+#pulsante_menu
+{
+	transition: all .5s ease-in-out;
+	-webkit-animation-delay: 2.8s;
+	-moz-animation-delay: 2.8s;
+	-ms-animation-delay: 2.8s;
+	-o-animation-delay: 2.8s;
+	animation-delay: 2.8s;
+}
+
+#account
+{
+	-webkit-animation-delay: 3s;
+	-moz-animation-delay: 3s;
+	-ms-animation-delay: 3s;
+	-o-animation-delay: 3s;
+	animation-delay: 3s;
+}
 
 #menu_principale { transition: all .3s ease-in-out; /*width .3s ease-in-out, height .3s ease-in-out .5s, min-height .3s ease-in-out .5s;*/ }
 
@@ -3002,6 +3166,204 @@ label[for="accettazione"]:hover { cursor: pointer; }
 #form_modifica input { transition: all .3s ease-in-out; }
 
 #chiudi_profilo { transition: all .3s ease-in-out; }
+
+.titolo_descrizione
+{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.corpo_descrizione
+{
+	-webkit-animation-delay: 1.2s;
+	-moz-animation-delay: 1.2s;
+	-ms-animation-delay: 1.2s;
+	-o-animation-delay: 1.2s;
+	animation-delay: 1.2s;
+}
+
+.slides-navigation
+{
+	-webkit-animation-delay: 1.5s;
+	-moz-animation-delay: 1.5s;
+	-ms-animation-delay: 1.5s;
+	-o-animation-delay: 1.5s;
+	animation-delay: 1.5s;
+}
+
+.slides-pagination a
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+.projects_specifiche .download_contestuale
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+.titolo_contestuale
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+.menu_projects
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+#home #projects .box_titolo
+{
+	-webkit-animation-delay: 3s;
+	-moz-animation-delay: 3s;
+	-ms-animation-delay: 3s;
+	-o-animation-delay: 3s;
+	animation-delay: 3s;
+}
+
+#home #activities .box_titolo
+{
+	-webkit-animation-delay: 3.2s;
+	-moz-animation-delay: 3.2s;
+	-ms-animation-delay: 3.2s;
+	-o-animation-delay: 3.2s;
+	animation-delay: 3.2s;
+}
+
+#home #showroom .box_titolo
+{
+	-webkit-animation-delay: 3.5s;
+	-moz-animation-delay: 3.5s;
+	-ms-animation-delay: 3.5s;
+	-o-animation-delay: 3.5s;
+	animation-delay: 3.5s;
+}
+
+#home #contacts .box_titolo
+{
+	-webkit-animation-delay: 3.7s;
+	-moz-animation-delay: 3.7s;
+	-ms-animation-delay: 3.7s;
+	-o-animation-delay: 3.7s;
+	animation-delay: 3.7s;
+}
+
+#titolo_contatti
+{
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	-ms-animation-delay: .5s;
+	-o-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+.box_recapiti
+{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.dingbat_3
+{
+	-webkit-animation-delay: .2s;
+	-moz-animation-delay: .2s;
+	-ms-animation-delay: .2s;
+	-o-animation-delay: .2s;
+	animation-delay: .2s;
+}
+
+#form_login input
+{
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	-ms-animation-delay: .5s;
+	-o-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+#form_login label
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+#form_recupero input
+{
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	-ms-animation-delay: .5s;
+	-o-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+.dingbat_4
+{
+	-webkit-animation-delay: .2s;
+	-moz-animation-delay: .2s;
+	-ms-animation-delay: .2s;
+	-o-animation-delay: .2s;
+	animation-delay: .2s;
+}
+
+.sottotitolo_autenticazione
+{
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	-ms-animation-delay: .5s;
+	-o-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+#form_registrazione input
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+#form_registrazione div span p
+{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+#form_registrazione label
+{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
+}
 
 /* Inizio Mobile ******************************/
 
