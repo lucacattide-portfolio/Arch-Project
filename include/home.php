@@ -46,6 +46,7 @@
 					   $immagineLabelHome = $immagineHome["immagine_label"];
 					 
 					 endwhile;
+	
 				else:  
 				
 					$immagineLabelHome = '';

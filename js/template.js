@@ -234,13 +234,25 @@ function transizioni() {
 	$("#menu_rapido").addClass("menu_rapido_aperto"); // Anima ingresso
 	$(".sezione_rapida").hover(function() { // Al passaggio del mouse mostra etichette
 		
-		$("h3", this).removeClass("animated fadeOutDown");	
-		$("h3", this).addClass("animated fadeInDown");	
+		if (!$(".rollover_rapido", this).hasClass("rollover_attivo")) { // Solo se la selezione non risulta attiva 
+		
+			$("h3", this).removeClass("animated fadeOutDown assente");	
+			$("h3", this).addClass("animated fadeInDown");	
+		
+		}
 		
 	}, function() { // Altrimenti nascondi
 
+		var selezionato = this; 
+		
 		$("h3", this).removeClass("animated fadeInDown");	
 		$("h3", this).addClass("animated fadeOutDown");	
+		
+		setTimeout(function() {
+			
+			$("h3", selezionato).addClass("assente");	
+			
+		}, 500);
 			
 	});
 	$(".sezione_rapida").on("click tap", function() { // Al click sulla voce
@@ -301,6 +313,15 @@ function transizioni() {
 	
 	// Popup 
 	
+	$("#chiudi_popup").hover(function() { // Al passaggio del mouse anima
+		
+		$(this).addClass("animated swing");
+		
+	}, function() {
+		
+		$(this).removeClass("animated swing");
+		
+	});
 	$("#chiudi_popup").on("click tap", function() { // Al click del pulsante
 		
 		$("#popup_cataloghi").removeClass("animated slideInUp"); // Anima l'uscita del popup
@@ -353,24 +374,30 @@ function transizioni() {
 			setTimeout(function() {
 			
 				$("#social a:nth-child(odd)").removeClass("animated rotateOut"); // Anima voci di menu dispari
-				$("#social a:nth-child(odd)").addClass("visibile animated rotateIn"); // Anima voci di menu dispari
+				$("#social a:nth-child(odd)").addClass("visibile_parziale animated rotateIn"); // Anima voci di menu dispari
 			
 			}, 1500);
 			setTimeout(function() {
 				
 				$("#social a:nth-child(even)").removeClass("animated rotateOut"); // Anima voci di menu pari
-				$("#social a:nth-child(even)").addClass("visibile animated rotateIn"); // Anima voci di menu pari
+				$("#social a:nth-child(even)").addClass("visibile_parziale animated rotateIn"); // Anima voci di menu pari
 			
 			}, 2000);
+			setTimeout(function() {
+				
+				$("#social a:nth-child(odd)").removeClass("animated rotateOut"); // Anima voci di menu pari
+				$("#social a:nth-child(even)").removeClass("animated rotateOut"); // Anima voci di menu pari
+			
+			}, 2700);
 		
 		} else { // Altrimenti chiudilo
 					
-			$("#social a:nth-child(even)").removeClass("visibile animated rotateIn"); // Anima voci di menu pari
+			$("#social a:nth-child(even)").removeClass("visibile_parziale animated rotateIn"); // Anima voci di menu pari
 			$("#social a:nth-child(even)").addClass("animated rotateOut"); // Anima voci di menu pari
 			
 			setTimeout(function() {
 				
-				$("#social a:nth-child(odd)").removeClass("visibile animated rotateIn"); // Anima voci di menu dispari
+				$("#social a:nth-child(odd)").removeClass("visibile_parziale animated rotateIn"); // Anima voci di menu dispari
 				$("#social a:nth-child(odd)").addClass("animated rotateOut"); // Anima voci di menu dispari
 			
 			}, 250);
@@ -444,7 +471,27 @@ function transizioni() {
     });
 	
 	// Menu Contestuale - Activities
-    
+	
+	var activities  = $(".menu_activities"); // Dichiarazione ed Assegnazione Variabile Array elementi
+	
+	$.each(activities, function(index) { // Per ogni elemento
+				
+		setTimeout(function() { // Anima l'ingresso con ritardo
+		
+			activities.eq(index).removeClass("occulta");
+			activities.eq(index).addClass("animated slideInRight");	
+
+		}, index * 200);
+	
+	});
+    $(".menu_projects").on("click tap", function(e) { // Al click della voce 
+        
+        e.preventDefault(); // Disattiva funzione standard link
+		
+		$(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
+		$(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
+
+    });
     $(".menu_activities").on("click tap", function(e) { // Al click della voce 
         
         e.preventDefault(); // Disattiva funzione standard link

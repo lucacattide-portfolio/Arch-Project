@@ -48,7 +48,11 @@ h7 { display: none; }
 
 .visibile { opacity: 1 !important; }
 
+.visibile_parziale { opacity: .7 !important; }
+
 .presente { display: block !important; }
+
+.assente { display: none !important; }
 
 .clear { clear: both; }
 
@@ -565,7 +569,7 @@ a:link { text-decoration: none; }
 	opacity: 0;
 }
 
-#social a:hover, #social a:focus { opacity: 1; }
+#social a:hover, #social a:focus { opacity: 1 !important; }
 
 /* Account ******************************/
 
@@ -1115,6 +1119,8 @@ a:link { text-decoration: none; }
 	height: auto;
 }
 
+.titolo_summary p { margin: 0; }
+
 .sottotitolo_summary
 {
 	display: block;
@@ -1130,6 +1136,8 @@ a:link { text-decoration: none; }
 	width: 45%;
 	height: auto;
 }
+
+.sottotitolo_summary p { margin: 0; }
 
 .dingbat
 {
@@ -1354,6 +1362,8 @@ a:link { text-decoration: none; }
 	letter-spacing: 2px;
 	margin: 0 0 1.5em;
 }
+
+.paragrafo_activities .titolo_paragrafo p { margin: 0; }
 
 .paragrafo_activities .sottotitolo_paragrafo
 {
@@ -3058,17 +3068,15 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 #home #activities { animation-delay: 2.6s; }
 
-#progetti #house { /*animation-delay: .5s;*/ }
+#progetti #kitchen { animation-delay: 1.4s; }
 
-#progetti #kitchen { animation-delay: 1.6s; }
+#progetti #bathroom { animation-delay: .4s; }
 
-#progetti #bathroom { animation-delay: .6s; }
+#progetti #living-room { animation-delay: 3s; }
 
-#progetti #living-room { animation-delay: 3.2s; }
+#progetti #offices { animation-delay: 1.6s; }
 
-#progetti #offices { animation-delay: 1.8s; }
-
-#progetti #various { animation-delay: 2.6s; }
+#progetti #various { animation-delay: 2.4s; }
 
 .box_progetti { transition: box-shadow .3s ease-in-out .3s, background-size 1s ease-out; }
 
@@ -3357,6 +3365,33 @@ label[for="accettazione"]:hover { cursor: pointer; }
 }
 
 #form_registrazione label
+{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-ms-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+#activities_summary .sottotitolo_summary
+{
+	-webkit-animation-delay: .5s;
+	-moz-animation-delay: .5s;
+	-ms-animation-delay: .5s;
+	-o-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+.dingbat
+{
+	-webkit-animation-delay: .7s;
+	-moz-animation-delay: .7s;
+	-ms-animation-delay: .7s;
+	-o-animation-delay: .7s;
+	animation-delay: .7s;
+}
+
+#activities_summary .corpo_summary
 {
 	-webkit-animation-delay: 1s;
 	-moz-animation-delay: 1s;

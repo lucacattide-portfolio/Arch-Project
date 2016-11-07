@@ -2,7 +2,7 @@
 
 <!--Inizio Menu Contestuale-->
     
-<a class="menu_activities deseleziona" href="#" title="Incontro" rel="incontro">
+<!--<a class="menu_activities deseleziona occulta" href="#" title="Incontro" rel="incontro">
 
     <span class="numero">
     
@@ -16,7 +16,7 @@
     </span>
 
 </a>
-<a class="menu_activities deseleziona" href="#" title="Rilievo" rel="rilievo">
+<a class="menu_activities deseleziona occulta" href="#" title="Rilievo" rel="rilievo">
 
     <span class="numero">
     
@@ -30,7 +30,7 @@
     </span>
 
 </a>
-<a class="menu_activities deseleziona" href="#" title="Progettazione Preliminare" rel="preliminare">
+<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Preliminare" rel="preliminare">
 
     <span class="numero">
     
@@ -44,7 +44,7 @@
     </span>
 
 </a>
-<a class="menu_activities deseleziona" href="#" title="Progettazione Definitiva" rel="definitiva">
+<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Definitiva" rel="definitiva">
 
     <span class="numero">
     
@@ -58,7 +58,7 @@
     </span>
 
 </a>
-<a class="menu_activities deseleziona" href="#" title="Progettazione Esecutiva" rel="esecutiva">
+<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Esecutiva" rel="esecutiva">
 
     <span class="numero">
     
@@ -72,9 +72,40 @@
     </span>
 
 </a>
-
+-->
 <!--Fine Menu Contestuale-->
 
+<?php
+
+		$i = 1; // Inizializzazione Contatore
+	
+		if( $countArticolo >= 1 ):
+
+			$sqlArticoloActivitiesInt = "SELECT * FROM `articolo` WHERE articolo_pagina_id = ".$paginaId." AND articolo_visibile = 1 LIMIT 0,1 "; // Assegnazione Query Pagina DB
+			$rArtActivitiesInt = $mysqli->query($sqlArticoloActivitiesInt);
+
+			while ($articolo = $rArtActivitiesInt->fetch_array()): 
+
+				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articolo["articolo_id"]." ";
+				$rImgActivities = $mysqli->query($sqlImgActivities);
+				$countImgActivities =  $rImgActivities->num_rows;
+
+				if( $countImgActivities >= 1):
+
+					 while ($immagineActivities = $rImgActivities->fetch_array()):
+
+					   $immagineLabelActivities = $immagineActivities["immagine_label"];
+
+					 endwhile;
+
+				else:  
+
+					$immagineLabelActivities = '';
+
+				endif;
+
+			?>
+	
 <!--Inizio Summary-->
 
 <section id="activities_summary" class="summary">
@@ -92,14 +123,14 @@
                 Summary
                 
             </h7>
-            <h1 class="titolo_summary"> <!--Titolo-->
+            <h1 class="titolo_summary animated fadeInDown"> <!--Titolo-->
             
-                Activities
+                <?php echo $articolo["articolo_titolo"]; ?>
                 
             </h1>
-            <h2 class="sottotitolo_summary"> <!--Sottotitolo-->
+            <h2 class="sottotitolo_summary animated fadeInUp"> <!--Sottotitolo-->
             
-                DESIGN AND REALIZATION OF COMPLETE INTERIOR AND KITCHEN
+                <?php echo $articolo["articolo_sottotitolo"]; ?>
             
             </h2>
         
@@ -107,25 +138,21 @@
         
         <!--Fine Titoli-->
         
-        <div class="dingbat"> <!--Dingbat-->
+        <div class="dingbat animated fadeInUp"> <!--Dingbat-->
         </div>
         
         <!--Inizio Corpo-->
         
-        <article class="corpo_summary">
+        <article class="corpo_summary animated fadeInUp">
         
             <h7>
             
                 Corpo
                 
             </h7>
-            
-            <p>
-                
-                La vita non è solo una location esclusiva, ma anche l'originalità e l'unicità, la creazione del proprio stile, la ricerca della volontà di cambiamento e di espressione dei bisogni della vita interiore. Il nostro processo individuale di progettazione e consulenza architettura d'interni vi aiuterà a trovare la vostra casa.<br />Lasciatevi ispirare dai disegni dei nostri architetti d'interni e trasferire i vostri sogni in dimensioni finora non visto, passo dopo passo.
-            
-            </p>
-        
+                            
+            <?php echo $articolo["articolo_testo"]; ?>
+                    
         </article>
         
         <!--Fine Corpo-->
@@ -137,6 +164,71 @@
 </section>
 
 <!--Fine Summary-->
+	
+<?php
+				
+			endwhile;
+
+			$sqlArticoloActivities = "SELECT * FROM `articolo` WHERE articolo_pagina_id = ".$paginaId." AND articolo_visibile = 1 LIMIT 1,$countArticolo "; // Assegnazione Query Pagina DB
+			$rArtActivities = $mysqli->query($sqlArticoloActivities);
+
+			while ($articoloActivities = $rArtActivities->fetch_array()): 
+
+				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articoloActivities["articolo_id"]." ";
+				$rImgActivities = $mysqli->query($sqlImgActivities);
+				$countImgActivities =  $rImgActivities->num_rows;
+
+				if( $countImgActivities >= 1):
+
+					 while ($immagineActivities = $rImgActivities->fetch_array()):
+
+					   $immagineLabelActivities = $immagineActivities["immagine_label"];
+
+					 endwhile;
+
+				else:  
+
+					$immagineLabelActivities = '';
+
+				endif;
+
+?>
+
+<!--Inizio Menu Contestuale-->
+
+<a class="menu_activities deseleziona occulta" href="#" title="<?php 
+															   
+															   $titolo = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); $titolo = str_replace("</p>", "", $titolo); 
+															   
+															   echo $titolo; 
+															   
+															   ?>" rel="<?php 
+																		
+																		$rel = str_replace(" ", "_", $titolo); 
+																		$rel = strtolower($rel);
+																		
+																		echo $rel; ?>">
+
+    <span class="numero">
+    
+        <?php echo $i; ?>
+    
+    </span>
+    <span class="voce">
+    
+        <?php echo $articoloActivities["articolo_titolo"]; ?>
+    
+    </span>
+
+</a>
+
+<!--Fine Menu Contestuale-->
+
+<?php
+	
+				if ($i == 1) {
+					
+?>
 
 <!--Inizio Incontro-->
 
@@ -144,7 +236,7 @@
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image: url('img/incontro_activities.png');" rel="incontro">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="incontro">
     </div>
     
     <!--Fine Foto-->
@@ -163,12 +255,12 @@
             
             <span class="paragrafo"> <!--Paragrafo-->
             
-                01
+                0<?php echo $i; ?>
             
             </span>
             <h2 class="titolo_paragrafo"> <!--Titolo-->
             
-                Incontro    
+                <?php echo $articoloActivities["articolo_titolo"]; ?>    
                 
             </h2>
             
@@ -179,6 +271,7 @@
             
                 <!--Inizio Elenco Sottotitolo-->
                
+                <!--
                 <ul>
                 
                     <li>
@@ -198,6 +291,9 @@
                     </li>
                 
                 </ul>
+                -->
+                
+                <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
                 <!--Fine Elenco Sottotitolo-->
             
@@ -217,11 +313,44 @@
                     
                 </h7>
                 
-                <p>
-                    
-                   Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore  magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit  laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                <?php echo $articoloActivities["articolo_testo"]; ?>
                 
-                </p>
+                <!--Inizio Download-->  
+                  
+                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        pdf
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        jpg
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                       
+                <!--Fine Download-->  
                 
             </article>
             
@@ -240,13 +369,19 @@
 
 <!--Fine Incontro-->
 
+<?php
+	
+				} elseif ($i == 2) {
+					
+?>
+
 <!--Inizio Rilievo-->
 
 <section id="activities_rilievo" class="summary" rel="rilievo">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image: url('img/rilievo_activities.png');" rel="rilievo">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="rilievo">
     </div>
     
     <!--Fine Foto-->
@@ -265,12 +400,12 @@
             
             <span class="paragrafo"> <!--Paragrafo-->
             
-                02
+                0<?php echo $i; ?>
             
             </span>
             <h2 class="titolo_paragrafo"> <!--Titolo-->
             
-                Rilievo    
+                <?php echo $articoloActivities["articolo_titolo"]; ?>    
                 
             </h2>
             
@@ -280,7 +415,7 @@
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-               
+                <!--
                 <ul>
                 
                     <li>
@@ -300,6 +435,9 @@
                     </li>
                 
                 </ul>
+                -->
+                
+                <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
                 <!--Fine Elenco Sottotitolo-->
             
@@ -319,11 +457,7 @@
                     
                 </h7>
                 
-                <p>
-                    
-                   Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore  magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit  laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                
-                </p>
+                <?php echo $articoloActivities["articolo_testo"]; ?>
                 
                 <!--Inizio Download-->  
                   
@@ -379,13 +513,19 @@
 
 <!--Fine Rilievo-->
 
+<?php
+	
+				} elseif ($i == 3) {
+					
+?>
+
 <!--Inizio Preliminare-->
 
 <section id="activities_preliminare" class="summary" rel="preliminare">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image: url('img/preliminare_activities.png');" rel="preliminare">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="preliminare">
     </div>
     
     <!--Fine Foto-->
@@ -404,12 +544,12 @@
             
             <span class="paragrafo"> <!--Paragrafo-->
             
-                03
+                0<?php echo $i; ?>
             
             </span>
             <h2 class="titolo_paragrafo"> <!--Titolo-->
             
-                Progettazione Preliminare    
+                <?php echo $articoloActivities["articolo_titolo"]; ?>   
                 
             </h2>
             
@@ -419,7 +559,7 @@
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-               
+                <!--
                 <ul>
                 
                     <li>
@@ -454,6 +594,9 @@
                     </li>
                 
                 </ul>
+                -->
+                
+                <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
                 <!--Fine Elenco Sottotitolo-->
             
@@ -473,8 +616,10 @@
                     
                 </h7>
                 
-                <!--Inizio Download-->
+                <?php echo $articoloActivities["articolo_testo"]; ?>   
                 
+                <!--Inizio Download-->  
+                  
                 <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
                 
                     <span class="etichetta">
@@ -491,8 +636,24 @@
                     </span>
                 
                 </a>
+                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
                 
-                <!--Fine Download-->
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        jpg
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                       
+                <!--Fine Download-->  
             
             </article>
             
@@ -510,13 +671,19 @@
 
 <!--Fine Preliminare-->
 
+<?php
+	
+				} elseif ($i == 4) {
+					
+?>
+
 <!--Inizio Definitiva-->
 
 <section id="activities_definitiva" class="summary" rel="definitiva">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image: url('img/definitiva_activities.png');" rel="definitiva">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="definitiva">
     </div>
     
     <!--Fine Foto-->
@@ -535,12 +702,12 @@
             
             <span class="paragrafo"> <!--Paragrafo-->
             
-                04
+                0<?php echo $i; ?>
             
             </span>
             <h2 class="titolo_paragrafo"> <!--Titolo-->
             
-                Progettazione Definitiva    
+                <?php echo $articoloActivities["articolo_titolo"]; ?>    
                 
             </h2>
             
@@ -550,7 +717,7 @@
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-               
+                <!--
                 <ul>
                 
                     <li>
@@ -580,6 +747,9 @@
                     </li>
                 
                 </ul>
+                -->
+                
+                <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
                 <!--Fine Elenco Sottotitolo-->
             
@@ -598,6 +768,45 @@
                     Paragrafo
                     
                 </h7>
+                                  
+                <?php echo $articoloActivities["articolo_testo"]; ?>
+                                  
+                <!--Inizio Download-->  
+                  
+                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        pdf
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        jpg
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                       
+                <!--Fine Download-->  
                                    
             </article>
             
@@ -616,13 +825,19 @@
 
 <!--Fine Definitiva-->
 
+<?php
+	
+				} elseif ($i == 5) {
+					
+?>
+
 <!--Inizio Esecutiva-->
 
 <section id="activities_esecutiva" class="summary" rel="esecutiva">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image: url('img/esecutiva_activities.png');" rel="esecutiva">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="esecutiva">
     </div>
     
     <!--Fine Foto-->
@@ -641,12 +856,12 @@
             
             <span class="paragrafo"> <!--Paragrafo-->
             
-                05
+                0<?php echo $i; ?>
             
             </span>
             <h2 class="titolo_paragrafo"> <!--Titolo-->
             
-                Progettazione Esecutiva    
+                <?php echo $articoloActivities["articolo_titolo"]; ?>
                 
             </h2>
             
@@ -656,7 +871,7 @@
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-               
+                <!--
                 <ul>
                 
                     <li>
@@ -666,6 +881,9 @@
                     </li>
                 
                 </ul>
+                -->
+                
+                <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
                 <!--Fine Elenco Sottotitolo-->
             
@@ -684,12 +902,45 @@
                     Paragrafo
                     
                 </h7>
+
+                <?php echo $articoloActivities["articolo_testo"]; ?> 
                 
-                <p>
+                <!--Inizio Download-->  
+                  
+                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                
+                    <span class="etichetta">
                     
-                   Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore  magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit  laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        pdf
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
                 
-                </p>
+                </a>
+                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                    <span class="etichetta">
+                    
+                        Download
+                    
+                    </span>
+                    <span class="estensione">
+                    
+                        jpg
+                        
+                    </span>
+                    <span class="icona">
+                    </span>
+                
+                </a>
+                       
+                <!--Fine Download-->  
                 
             </article>
             
@@ -706,6 +957,18 @@
 </section>
 
 <!--Fine Esecutiva-->
+
+<?php
+
+			}
+
+			$i++;
+
+		endwhile;
+
+	endif;
+
+?>
 
 <!--Inizio Torna Su-->
 

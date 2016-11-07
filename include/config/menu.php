@@ -13,7 +13,7 @@
         <span class="rollover_rapido"> <!--Rollover-->
         </span>
         
-        <h3>
+        <h3 class="assente">
         
         	Houses
             
@@ -25,7 +25,7 @@
     	<span class="rollover_rapido"> <!--Rollover-->
         </span>
     
-    	<h3>
+    	<h3 class="assente">
         
     		Kitchen 
             
@@ -37,7 +37,7 @@
     	<span class="rollover_rapido"> <!--Rollover-->
         </span>
     
-    	<h3>
+    	<h3 class="assente">
         
         	Bathroom
         
@@ -49,7 +49,7 @@
     	<span class="rollover_rapido"> <!--Rollover-->
         </span>
         
-        <h3>
+        <h3 class="assente">
     	
         	Living Room
             
@@ -61,7 +61,7 @@
      	<span class="rollover_rapido"> <!--Rollover-->
         </span>
     
-    	<h3>
+    	<h3 class="assente">
         
         	Offices
             
@@ -73,7 +73,7 @@
     	<span class="rollover_rapido"> <!--Rollover-->
         </span>
     
-    	<h3>
+    	<h3 class="assente">
         
         	Various
             
