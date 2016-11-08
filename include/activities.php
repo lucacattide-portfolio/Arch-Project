@@ -236,14 +236,33 @@
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="incontro">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
+										   
     </div>
     
     <!--Fine Foto-->
 
     <!--Inizio Paragrafo-->
     
-    <div class="paragrafo_activities" rel="incontro">
+    <div class="paragrafo_activities" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     
         <!--Inizio Contenuti-->
         
@@ -377,7 +396,16 @@
 
 <!--Inizio Rilievo-->
 
-<section id="activities_rilievo" class="summary" rel="rilievo">
+<section id="activities_rilievo" class="summary" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
 
     <!--Inizio Foto-->
     
@@ -388,7 +416,16 @@
 
     <!--Inizio Paragrafo-->
     
-    <div class="paragrafo_activities" rel="rilievo">
+    <div class="paragrafo_activities" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     
         <!--Inizio Contenuti-->
         
@@ -521,18 +558,45 @@
 
 <!--Inizio Preliminare-->
 
-<section id="activities_preliminare" class="summary" rel="preliminare">
+<section id="activities_preliminare" class="summary" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="preliminare">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     </div>
     
     <!--Fine Foto-->
 
     <!--Inizio Paragrafo-->
     
-    <div class="paragrafo_activities" rel="preliminare">
+    <div class="paragrafo_activities" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     
         <!--Inizio Contenuti-->
         
@@ -679,18 +743,45 @@
 
 <!--Inizio Definitiva-->
 
-<section id="activities_definitiva" class="summary" rel="definitiva">
+<section id="activities_definitiva" class="summary" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="definitiva">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     </div>
     
     <!--Fine Foto-->
 
     <!--Inizio Paragrafo-->
     
-    <div class="paragrafo_activities" rel="definitiva">
+    <div class="paragrafo_activities" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     
         <!--Inizio Contenuti-->
         
@@ -833,18 +924,45 @@
 
 <!--Inizio Esecutiva-->
 
-<section id="activities_esecutiva" class="summary" rel="esecutiva">
+<section id="activities_esecutiva" class="summary" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
 
     <!--Inizio Foto-->
     
-    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="esecutiva">
+    <div class="foto_activities" style="background-image:url(<?php echo $siteurl_base;  ?>img/<?php echo $immagineLabelActivities; ?>);" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     </div>
     
     <!--Fine Foto-->
 
     <!--Inizio Paragrafo-->
     
-    <div class="paragrafo_activities" rel="esecutiva">
+    <div class="paragrafo_activities" rel="<?php 
+															   
+										   $rel = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); 
+										   $rel = str_replace("</p>", "", $titolo); 
+										   $rel = str_replace(" ", "_", $titolo); 
+										   $rel = strtolower($rel);
+
+										   echo $rel;
+					
+										   ?>">
     
         <!--Inizio Contenuti-->
         

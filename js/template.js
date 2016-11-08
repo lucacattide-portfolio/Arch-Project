@@ -28,7 +28,7 @@ $(document).ready(function() {
 					
 						$("#avatar").prop("style","background-image:url("+ e.target.result +")"); // Sostituisci avatar
 					
-					}
+					};
 	
 					reader.readAsDataURL($(this)[0].files[i]); // Carica il file da path
 	
@@ -82,19 +82,19 @@ function inizializza() {
 		
 	// Activities - Menu Contestuale 
     
-    $(".menu_activities").each(function(index) { // Per ogni voce
+    /*$(".menu_activities").each(function(index) { // Per ogni voce
 
         if (index === 0) { // Al primo elemento calcola su base fissa
-            
+            console.log("n", index);
             $(this).css({ // Calcola coordinate
                 
-                top: $(".menu_activities:nth-child(1)").offset().top + $(this).height(), // In base al primo elemento
+                top: $(this).offset().top + $(this).height(), // In base al primo elemento
                 right: "calc(0 - " + $("voce", this).width() + ")" // In base alla voce
                 
             });
             
         } else { // Per gli altri in base al precedente
-            
+			
             $(this).css({ // Calcola coordinate
                 
                 top: $(this).prev().offset().top + $(this).height(), // In base al primo elemento
@@ -104,7 +104,7 @@ function inizializza() {
         
         }
 
-	});
+	});*/
 	
 	// Admin - Categorie
 	
@@ -439,7 +439,7 @@ function transizioni() {
 	$.each(download, function(index) { // Per ogni elemento
 				
 		setTimeout(function() { // Anima l'ingresso con ritardo
-		
+
 			download.eq(index).removeClass("occulta");
 			download.eq(index).addClass("animated slideInLeft");	
 
@@ -475,7 +475,7 @@ function transizioni() {
 	var activities  = $(".menu_activities"); // Dichiarazione ed Assegnazione Variabile Array elementi
 	
 	$.each(activities, function(index) { // Per ogni elemento
-				
+	
 		setTimeout(function() { // Anima l'ingresso con ritardo
 		
 			activities.eq(index).removeClass("occulta");
@@ -496,13 +496,14 @@ function transizioni() {
         
         e.preventDefault(); // Disattiva funzione standard link
 		
-		$(this).siblings().children().removeClass("numero_attivo"); // Disattiva precedeti selezioni
-        
+		$(".menu_activities .numero").removeClass("numero_attivo"); // Disattiva precedeti selezioni
         $("#container").animate({ // Vai all'ancora con animazione
         
             scrollTop: $(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
             
         }, "slow");
+		
+		console.log($(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()));
 		
 		$(".numero", this).addClass("numero_attivo"); // Rende voce attiva
 
@@ -667,231 +668,235 @@ function transizioni() {
 
 function mappa() {
 	
-  // Dichiarazione Variabili
-  
-  var luogo = new google.maps.LatLng(45.4485896,9.1944947); // Posizione
-
-  // Inizializzazione Oggetto Stile
-  
-  var stileMappa = [
-	  {
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#f5f5f5"
-		  }
-		]
-	  },
-	  {
-		"elementType": "labels.icon",
-		"stylers": [
-		  {
-			"visibility": "off"
-		  }
-		]
-	  },
-	  {
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#616161"
-		  }
-		]
-	  },
-	  {
-		"elementType": "labels.text.stroke",
-		"stylers": [
-		  {
-			"color": "#f5f5f5"
-		  }
-		]
-	  },
-	  {
-		"featureType": "administrative.land_parcel",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#bdbdbd"
-		  }
-		]
-	  },
-	  {
-		"featureType": "poi",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#eeeeee"
-		  }
-		]
-	  },
-	  {
-		"featureType": "poi",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#757575"
-		  }
-		]
-	  },
-	  {
-		"featureType": "poi.park",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#e5e5e5"
-		  }
-		]
-	  },
-	  {
-		"featureType": "poi.park",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#9e9e9e"
-		  }
-		]
-	  },
-	  {
-		"featureType": "road",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#ffffff"
-		  }
-		]
-	  },
-	  {
-		"featureType": "road.arterial",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#757575"
-		  }
-		]
-	  },
-	  {
-		"featureType": "road.highway",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#dadada"
-		  }
-		]
-	  },
-	  {
-		"featureType": "road.highway",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#616161"
-		  }
-		]
-	  },
-	  {
-		"featureType": "road.local",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#9e9e9e"
-		  }
-		]
-	  },
-	  {
-		"featureType": "transit.line",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#e5e5e5"
-		  }
-		]
-	  },
-	  {
-		"featureType": "transit.station",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#eeeeee"
-		  }
-		]
-	  },
-	  {
-		"featureType": "water",
-		"elementType": "geometry",
-		"stylers": [
-		  {
-			"color": "#c9c9c9"
-		  }
-		]
-	  },
-	  {
-		"featureType": "water",
-		"elementType": "labels.text.fill",
-		"stylers": [
-		  {
-			"color": "#9e9e9e"
-		  }
-		]
-	  }
-	];
-    
-  // Dichiarazione ed Istanziazione oggetto mappa con assegnazione stile e nome
-
-  var stilizzata = new google.maps.StyledMapType(stileMappa, {
-        
-        name: "Arch & Project"
-        
-  });
-  var opzioniMappa = {
-	  
-    zoom: 18, // Livello Zoom
-    center: luogo, // Centro
-	disableDefaultUI: true, // Disabilita UI
-    mapTypeControlOptions: {
-      
-		mapTypeIds: [google.maps.MapTypeId.ROADMAP, stileMappa] // Tipo di Visualizzazione
-    
-	}
-    
-  };
-  var mappa = new google.maps.Map(document.getElementById('mappa'), opzioniMappa);
- 
-  //Assegnazione ID mappa ad elemento ed output
-  
-  mappa.mapTypes.set('stile_mappa', stilizzata);
-  mappa.setMapTypeId('stile_mappa');
- 
-  // Contenuto Finestra informativa
+  if ($("#mappa").length > 0) { // Se siamo in contatti allora inizializza APU
 	
-  var contentString = '<div id="content">' +
-	  '<div id="siteNotice">' +
-	  '</div>' +
-	  '<img id="logo_mappa" src="img/logo.svg" alt="Arch & Project">' +
-	  '</img>';
+	  // Dichiarazione Variabili
 
-  // Finestra informativa
-  
-  var infowindow = new google.maps.InfoWindow({
-	  
-	content: contentString, // Imposta contenuto
-	maxWidth: 210
-    
-  });
+	  var luogo = new google.maps.LatLng(45.4485896,9.1944947); // Posizione
 
-  // Marker
+	  // Inizializzazione Oggetto Stile
 
-  var marker = new google.maps.Marker({
-	  
-	position: luogo,
-	map: mappa,
-	title: 'Arch & Project'
-	
-  });
-  
-  marker.addListener('click', function() { // Al click del marker
-	
-	infowindow.open(mappa, marker); // Apri finestra informativa
-	
-  });
+	  var stileMappa = [
+		  {
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#f5f5f5"
+			  }
+			]
+		  },
+		  {
+			"elementType": "labels.icon",
+			"stylers": [
+			  {
+				"visibility": "off"
+			  }
+			]
+		  },
+		  {
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#616161"
+			  }
+			]
+		  },
+		  {
+			"elementType": "labels.text.stroke",
+			"stylers": [
+			  {
+				"color": "#f5f5f5"
+			  }
+			]
+		  },
+		  {
+			"featureType": "administrative.land_parcel",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#bdbdbd"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#eeeeee"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#757575"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.park",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#e5e5e5"
+			  }
+			]
+		  },
+		  {
+			"featureType": "poi.park",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#9e9e9e"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#ffffff"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.arterial",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#757575"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.highway",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#dadada"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.highway",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#616161"
+			  }
+			]
+		  },
+		  {
+			"featureType": "road.local",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#9e9e9e"
+			  }
+			]
+		  },
+		  {
+			"featureType": "transit.line",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#e5e5e5"
+			  }
+			]
+		  },
+		  {
+			"featureType": "transit.station",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#eeeeee"
+			  }
+			]
+		  },
+		  {
+			"featureType": "water",
+			"elementType": "geometry",
+			"stylers": [
+			  {
+				"color": "#c9c9c9"
+			  }
+			]
+		  },
+		  {
+			"featureType": "water",
+			"elementType": "labels.text.fill",
+			"stylers": [
+			  {
+				"color": "#9e9e9e"
+			  }
+			]
+		  }
+		];
+
+	  // Dichiarazione ed Istanziazione oggetto mappa con assegnazione stile e nome
+
+	  var stilizzata = new google.maps.StyledMapType(stileMappa, {
+
+			name: "Arch & Project"
+
+	  });
+	  var opzioniMappa = {
+
+		zoom: 18, // Livello Zoom
+		center: luogo, // Centro
+		disableDefaultUI: true, // Disabilita UI
+		mapTypeControlOptions: {
+
+			mapTypeIds: [google.maps.MapTypeId.ROADMAP, stileMappa] // Tipo di Visualizzazione
+
+		}
+
+	  };
+	  var mappa = new google.maps.Map(document.getElementById('mappa'), opzioniMappa);
+
+	  //Assegnazione ID mappa ad elemento ed output
+
+	  mappa.mapTypes.set('stile_mappa', stilizzata);
+	  mappa.setMapTypeId('stile_mappa');
+
+	  // Contenuto Finestra informativa
+
+	  var contentString = '<div id="content">' +
+		  '<div id="siteNotice">' +
+		  '</div>' +
+		  '<img id="logo_mappa" src="img/logo.svg" alt="Arch & Project">' +
+		  '</img>';
+
+	  // Finestra informativa
+
+	  var infowindow = new google.maps.InfoWindow({
+
+		content: contentString, // Imposta contenuto
+		maxWidth: 210
+
+	  });
+
+	  // Marker
+
+	  var marker = new google.maps.Marker({
+
+		position: luogo,
+		map: mappa,
+		title: 'Arch & Project'
+
+	  });
+
+	  marker.addListener('click', function() { // Al click del marker
+
+		infowindow.open(mappa, marker); // Apri finestra informativa
+
+	  });
+
+  }
 	
 }
 

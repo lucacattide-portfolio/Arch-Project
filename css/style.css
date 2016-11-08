@@ -995,39 +995,39 @@ a:link { text-decoration: none; }
 	line-height: 1.3rem;
 }
 
-.menu_activities:nth-child(1)
+.menu_activities[rel="incontro"]
 {
 	top: 20%;
 	right: -140px;
 	background-color: #fff;
 }
 
-.menu_activities:nth-child(1) .numero { color: #999; }
+.menu_activities[rel="incontro"] .numero { color: #999; }
 
-.menu_activities:nth-child(2)
+.menu_activities[rel="rilievo"]
 {
-	top: 27%;
+	top: 25.9%;
 	right: -140px;
 	background-color: #ccc;
 }
 
-.menu_activities:nth-child(3)
+.menu_activities[rel="progettazione_preliminare"]
 {
-	top: 34%;
+	top: 31.8%;
 	right: -221px;
 	background-color: #999;
 }
 
-.menu_activities:nth-child(4)
+.menu_activities[rel="progettazione_definitiva"]
 {
-	top: 41%;
-	right: -209px;
+	top: 37.6%;
+    right: -209px;
 	background-color: #666;
 }
 
-.menu_activities:nth-child(5)
+.menu_activities[rel="progettazione_esecutiva"]
 {
-	top: 48%;
+	top: 43.5%;
 	right: -208px;
 	background-color: #999;
 }
@@ -1073,6 +1073,8 @@ a:link { text-decoration: none; }
 	padding: .9em 32px;
 	font-family: "GothamCondensedBook", sans-serif;
 }
+
+.voce p { margin: 0; }
 
 /* Summary */
 
@@ -1265,11 +1267,11 @@ a:link { text-decoration: none; }
 
 .foto_activities[rel="rilievo"] { float: right; }
 
-.foto_activities[rel="preliminare"] { float: left; }
+.foto_activities[rel="progettazione_preliminare"] { float: left; }
 
-.foto_activities[rel="definitiva"] { float: right; }
+.foto_activities[rel="progettazione_definitiva"] { float: right; }
 
-.foto_activities[rel="esecutiva"] { float: left; }
+.foto_activities[rel="progettazione_esecutiva"] { float: left; }
 
 /* Paragrafi */
 
@@ -1303,25 +1305,25 @@ a:link { text-decoration: none; }
 
 .paragrafo_activities[rel="rilievo"] p { color: #6A6A6A; }
 
-.paragrafo_activities[rel="preliminare"]
+.paragrafo_activities[rel="progettazione_preliminare"]
 {
 	background-color: #F2F2F2;
 	float: left;
 	color: #333;
 }
 
-.paragrafo_activities[rel="preliminare"] p { color: #6A6A6A; }
+.paragrafo_activities[rel="progettazione_preliminare"] p { color: #6A6A6A; }
 
-.paragrafo_activities[rel="definitiva"]
+.paragrafo_activities[rel="progettazione_definitiva"]
 {
 	background-color: #F2F2F2;
 	float: right;
 	color: #333;
 }
 
-.paragrafo_activities[rel="definitiva"] p { color: #6A6A6A; }
+.paragrafo_activities[rel="progettazione_definitiva"] p { color: #6A6A6A; }
 
-.paragrafo_activities[rel="esecutiva"]
+.paragrafo_activities[rel="progettazione_esecutiva"]
 {
 	background-color: #5D5D5D;
 	float: left;
@@ -1387,11 +1389,11 @@ a:link { text-decoration: none; }
 
 .paragrafo_activities[rel="rilievo"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(51,51, 51, .2); }
 
-.paragrafo_activities[rel="preliminare"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(51,51, 51, .2); }
+.paragrafo_activities[rel="progettazione_preliminare"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(51,51, 51, .2); }
 
-.paragrafo_activities[rel="definitiva"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(51,51, 51, .2); }
+.paragrafo_activities[rel="progettazione_definitiva"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(51,51, 51, .2); }
 
-.paragrafo_activities[rel="esecutiva"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(230, 230, 230, .2); }
+.paragrafo_activities[rel="progettazione_esecutiva"] .sottotitolo_paragrafo ul li { border-bottom: 1px solid rgba(230, 230, 230, .2); }
 
 .paragrafo_activities .corpo_paragrafo p
 {
