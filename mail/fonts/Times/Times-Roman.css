@@ -1,0 +1,12 @@
+/* Webfont: Times-Roman */@font-face {
+    font-family: 'Times';
+    src: url('Times-Roman.eot'); /* IE9 Compat Modes */
+    src: url('Times-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Times-Roman.woff') format('woff'), /* Modern Browsers */
+         url('Times-Roman.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Times-Roman.svg#Times-Roman') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

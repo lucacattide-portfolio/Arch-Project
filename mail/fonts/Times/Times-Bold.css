@@ -1,0 +1,12 @@
+/* Webfont: Times-Bold */@font-face {
+    font-family: 'Times';
+    src: url('Times-Bold.eot'); /* IE9 Compat Modes */
+    src: url('Times-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Times-Bold.woff') format('woff'), /* Modern Browsers */
+         url('Times-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Times-Bold.svg#Times-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
