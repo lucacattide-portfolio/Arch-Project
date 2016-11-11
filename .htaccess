@@ -1,0 +1,18 @@
+RewriteEngine On 
+
+RewriteRule ^home/?$ index.php?pag=1 [L]
+RewriteRule ^projects/?$ index.php?pag=2 [L]
+RewriteRule ^activities/?$ index.php?pag=3 [L]
+RewriteRule ^showroom/?$ index.php?pag=4 [L]
+RewriteRule ^contacts/?$ index.php?pag=5 [L]
+RewriteRule ^login/?$ index.php?pag=6 [L]
+RewriteRule ^house/?$ index.php?pag=7 [L]
+RewriteRule ^kitchen/?$ index.php?pag=8 [L]
+RewriteRule ^bathroom/?$ index.php?pag=9 [L]
+RewriteRule ^living-room/?$ index.php?pag=10 [L]
+RewriteRule ^offices/?$ index.php?pag=11 [L]
+RewriteRule ^various/?$ index.php?pag=12 [L]
+RewriteRule ^recupero-password/?$ index.php?pag=13 [L]
+RewriteRule ^registrazione/?$ index.php?pag=14 [L]
+RewriteRule ^account/?$ index.php?pag=17 [L]
+RewriteRule ^cookies/?$ index.php?pag=18 [L]

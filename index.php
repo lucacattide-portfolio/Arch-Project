@@ -134,7 +134,7 @@
             
 	  <?php 
 	  
-      	//include ("include/config/banner_cookies.php"); // Inclusione Banner Cookies
+      	include ("include/config/banner_cookies.php"); // Inclusione Banner Cookies
         include ("include/config/header.php"); // Inclusione Header
       
       	/*-- BODY -------------------------------------------------------------------*/

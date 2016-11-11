@@ -1,6 +1,12 @@
 <!--Inizio Banner Cookies-->
     
-<div id="banner_cookies">
+<aside id="banner_cookies">
+ 
+ 	<h7> <!--Titolo-->
+ 	
+ 		Cookies
+ 		
+	</h7>
   
     <p>
       
@@ -8,13 +14,9 @@
       
     </p>
     
-    <div class="chiudi_popup chiudi"> <!--Chiudi-->
-    
-    	<span> <!--Icona-->
-        </span>
-    
+    <div id="chiudi_banner"> <!--Chiudi-->
     </div>
     
-</div>
+</aside>
     
  <!--Fine Banner Cookies-->

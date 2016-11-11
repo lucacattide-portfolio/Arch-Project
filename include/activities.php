@@ -336,7 +336,7 @@
                 
                 <!--Inizio Download-->  
                   
-                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -352,7 +352,7 @@
                     </span>
                 
                 </a>
-                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
                 
                     <span class="etichetta">
                     
@@ -1025,7 +1025,7 @@
                 
                 <!--Inizio Download-->  
                   
-                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -1041,7 +1041,7 @@
                     </span>
                 
                 </a>
-                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
                 
                     <span class="etichetta">
                     

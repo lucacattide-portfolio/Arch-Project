@@ -366,16 +366,21 @@
                 	Clicca nuovamente su un file per deselezionarlo.<br />Clicca su Elimina per cancellare definitivamente i files
                 
                 </span>
-                <span class="carica deseleziona" rel="carica"> <!--Carica-->
                 
-                	Carica file...
+                <div id="container_toolbar">
                 
-                </span>
-                <span class="elimina deseleziona"> <!--Elimina-->
+					<span class="carica deseleziona" rel="carica"> <!--Carica-->
+
+						Carica file...
+
+					</span>
+					<span class="elimina deseleziona"> <!--Elimina-->
+
+						Elimina
+
+					</span>
                 
-                	Elimina
-                
-                </span>
+				</div>
             
             </div>
             

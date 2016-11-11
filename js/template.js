@@ -634,6 +634,30 @@ function transizioni() {
 		}, 1000);
 		
 	});
+	
+	// Cookies 
+	
+	$("#chiudi_banner").hover(function() { // Al passaggio del mouse anima
+		
+		$(this).addClass("animated bounce");
+		
+	}, function() {
+		
+		$(this).removeClass("animated bounce");
+		
+	});
+	
+	// Controllo Scrolling
+	
+	if ($("#cookies_summary").length > 0) { // Se siamo nella sezione cookies
+		console.log("ok");
+		$("#container").addClass("scrolla"); // Attiva scrolling
+		
+	} else { // Altrimenti disattiva
+		
+		$("#cookies_summary").parent().removeClass("scrolla");
+		
+	}
 		
 }
 
