@@ -3602,16 +3602,189 @@ label[for="accettazione"]:hover { cursor: pointer; }
 }
 
 .catalogo_admin_elemento .file_nome { font-size: .7rem; }
-}
 
 .catalogo_admin_elemento { padding: .5em 32px; }
 
+#progetto_slides.slideshow .slides-pagination
+{
+	margin-right: 13.5%;
+	width: 14%;
+}
+}
+
 /* Fine 15" ******************************/
 
-@media all and (max-width: 600px) {
+/* Inizio 13" ******************************/
 
-body { font-size: 12px; }
+@media all and (max-width: 1280px) {
+
+#logo
+{
+	top: 33.2%;
+	width: 18%;
+	min-width: 242px;
 }
+
+#pulsante_menu
+{
+	width: 32px;
+	height: 32px;
+}
+
+.hamburger { padding: .5em .6em; }
+
+.hamburger-box
+{
+	width: 16px;
+	height: 16px;
+}
+
+.hamburger--spring .hamburger-inner { top: 3px; }
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after { width: 16px; }
+
+.hamburger--spring .hamburger-inner:before { top: 6px; }
+
+.hamburger--spring .hamburger-inner:after { top: 12px; }
+
+.hamburger--spring.is-active .hamburger-inner:before, .hamburger--spring.is-active .hamburger-inner:after { top: -4px; }
+
+.logo_menu { width: 15%; }
+
+#progetto_slides.slideshow .slides-pagination { margin-right: 15.5%; }
+
+#menu_voci { margin: 12em auto 6em; }
+
+.lettera_catalogo
+{
+	font-size: 1.5rem;
+	padding-left: 0;
+}
+
+.mCSB_inside>.mCSB_container { margin-right: 30px; }
+
+.mCSB_scrollTools { right: 24px; }
+
+.container_fornitori { margin: 1.5em auto 5em; }
+
+#progetto_slides.slideshow .slides-pagination { width: 10%; }
+
+.ragione_fornitore { font-size: .8rem; }
+
+#container_recapiti h2 { font-size: 1.1rem; }
+
+#container_recapiti span { font-size: .9rem; }
+
+#container_recapiti span { width: 24%; }
+
+#email_login { padding: 1em 32px; }
+
+#password_login { padding: 1em 32px; }
+
+#form_login input { font-size: 1rem; }
+
+#email_recupero { padding: 1em 32px; }
+
+#form_registrazione input[type="text"], #form_registrazione input[type="number"], #form_registrazione input[type="email"], #form_registrazione input[type="password"], #form_registrazione input[type="tel"]
+{
+	padding: 1em 32px;
+	width: calc(50% - 4.9em);
+}
+
+#form_registrazione input { font-size: 1rem; }
+
+#form_registrazione input:last-child:not([type="submit"]) { margin: 0 0 0 .5em; }
+
+.file { width: 42%; }
+
+#container_admin_files { max-height: calc(100% - 5.5em); }
+
+#area_clienti
+{
+	width: 26%;
+	height: 24.5em;
+}
+
+#file_utente
+{
+	width: calc(37% - 2px);
+	height: 24.5em;
+}
+
+#file_utente #container_utente { max-height: calc(100% - 10em); }
+
+#file_admin
+{
+	width: 37%;
+	height: 24.5em;
+}
+
+#container_area
+{
+	min-height: 24.5em;
+	max-height: 24.5em;
+}
+
+.carica
+{
+	min-width: 103px;
+	max-width: 103px;
+	text-indent: 16px;
+}
+
+.elimina
+{
+	min-width: 60px;
+	max-width: 60px;
+}
+
+#avatar
+{
+	width: calc(35% - 16px);
+	height: 7em;
+}
+
+#cover_avatar
+{
+	width: 24px;
+	height: 24px;
+}
+
+#carica_avatar
+{
+	width: 24px;
+	height: 24px;
+}
+
+.modifica_pulsante
+{
+	font-size: .9rem;
+	padding: .7em 16px;
+	margin-right: 24px;
+}
+
+.info_profilo { padding-top: 1em; }
+
+.header_admin_elemento
+{
+	width: calc(100% - 48px);
+	padding: .5em 24px;
+	text-align: left;
+}
+
+.catalogo_admin_elemento
+{
+	width: calc(100% - 48px);
+	padding: .5em 24px;
+}
+
+.catalogo_admin_elemento .file_nome
+{
+	padding: .5em 0 .5em 24px;
+	width: calc(100% - 48px);
+}
+}
+/* Fine 13" ******************************/
 
 /* Fine Mobile ******************************/
 
