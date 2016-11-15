@@ -18934,6 +18934,12 @@ a:active, a:focus { outline: 0; }
 	margin-top:10px;
 }
 
+.label{ color:#2F2F2F; font-size:1.3rem; border:none; padding:0; margin:0; margin-bottom:5px; font-weight:100;  }
+
+.input{ margin-bottom:10px; }
+
+.input textarea{ width:100%; overflow:hidden; }
+
 
 .left-branding span.logo img{ width:100% !important; }
 
@@ -18951,4 +18957,27 @@ a:active, a:focus { outline: 0; }
 
 .boxImgMod{
 	margin-bottom:20px;
+}
+
+/* PROFILO CLIENTE */
+
+.cliente-profilo-img{
+	width:calc(100% - 4px);
+	height:212px;
+	background-color:rgba(186,186,186,1.00);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	clear:both;
+	overflow:hidden;
+	border:3px solid #5C1C7A; 
+	border-radius:5px;
+	
+}
+
+.add-document-clients{
+	width:100%;
+	text-align:center;
+	margin-top:20px;
+	font-size:1.8rem;
 }

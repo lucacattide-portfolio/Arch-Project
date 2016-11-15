@@ -7,10 +7,11 @@ if( $_SERVER['SERVER_NAME'] == "localhost" ){
     $db="archeproject";
 	
 }else{
-    $host="62.149.150.224";
-    $user="Sql801965";
-    $password="3j1ll9elpe";
-    $db="Sql801965_1";
+	
+    $host="";
+    $user="";
+    $password="";
+    $db="";
 }
 
 // mi connetto al database

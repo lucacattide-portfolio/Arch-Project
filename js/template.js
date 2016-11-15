@@ -461,9 +461,9 @@ function transizioni() {
 		}, index * 200);
 	
 	});
-    $(".menu_projects").on("click tap", function(e) { // Al click della voce 
+    $(".menu_projects").on("click tap", function(/*e*/) { // Al click della voce 
         
-        e.preventDefault(); // Disattiva funzione standard link
+        //e.preventDefault(); // Disattiva funzione standard link
 		
 		$(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
 		$(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
@@ -484,9 +484,9 @@ function transizioni() {
 		}, index * 200);
 	
 	});
-    $(".menu_projects").on("click tap", function(e) { // Al click della voce 
+    $(".menu_projects").on("click tap", function(/*e*/) { // Al click della voce 
         
-        e.preventDefault(); // Disattiva funzione standard link
+        //e.preventDefault(); // Disattiva funzione standard link
 		
 		$(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
 		$(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
@@ -639,11 +639,11 @@ function transizioni() {
 	
 	$("#chiudi_banner").hover(function() { // Al passaggio del mouse anima
 		
-		$(this).addClass("animated bounce");
+		$(this).addClass("animated swing");
 		
 	}, function() {
 		
-		$(this).removeClass("animated bounce");
+		$(this).removeClass("animated swing");
 		
 	});
 	

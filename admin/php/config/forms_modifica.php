@@ -236,7 +236,6 @@ endif;
 
 
 /* ACCOUNT PAGE *****************************************************/
- 
 if($pag == "categorie"):
 	$sqlCategoria = "SELECT * FROM `categoria` WHERE categoria_id = $id "; 
 	$rCategoria = $mysqli->query($sqlCategoria);

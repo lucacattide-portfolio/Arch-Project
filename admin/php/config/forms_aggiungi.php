@@ -435,5 +435,345 @@ if($pag == "categorie"):
 
 <?php 
 endif;
-/* END CATEGORIE *****************************************************/	 	   
+/* END CATEGORIE *****************************************************/	 
+
+/* CLIENTI ACCOUNT *****************************************************/	
+if($pag == "clienti-account"): 	   
+?>
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button aria-hidden="true" data-dismiss="modal" class="bootbox-close-button close" type="button">×</button>
+    <h4 class="modal-title">Nuovo Documento</h4>
+  </div>
+  <div class="modal-body">
+    <div class="bootbox-body">
+      <div class="col-md-12">
+        <form class="j-forms formElement"  method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="nuovoArticolo" />
+          <input type="hidden" name="articolo_cliente_id" value="<?php echo $id; ?>" />
+          <input type="hidden" name="articolo_url" value="amministratore" />
+          <div class="form-content"> 
+            
+            <!-- start text password -->
+            <div class="row col-md-6">
+              <div class="col-md-12 unit">
+                <label class="label">Nome Documento</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="articolo_titolo" class="form-control" type="text" placeholder="inserisci il nome del documento">
+                </div>
+              </div>
+            </div>
+            <!-- end text password --> 
+            
+            <!-- end email url -->
+            <div class="row col-md-6">
+             <div class="Gal col-md-12 unit">
+                <label class="label">Inserisci Documento o Immagine*</label>
+                <div class="input prepend-small-btn">
+                    <div class="file-button">
+                        Sfoglia
+                        <input type="file" id="fileUpload" name="file[]" />
+                    </div>
+                    <input type="text" placeholder="seleziona il documento o immagine da caricare" readonly id="prepend-small-btn" class="form-control">
+                 </div>
+              </div>
+              <div id="image-holder" class="blah col-md-12 unit">
+               <!--<div class="row col-md-12">
+               
+               		<span class="col-md-4">
+                    </span>
+                    <h3 class="anteprima col-md-4">
+                    
+                        Anteprima
+                        
+                    </h3>
+                    <span class="col-md-4">
+                    </span>
+       
+               </div> -->
+              </div>
+             </div> 
+   
+          
+             <div class="row col-md-12">
+                  <div style="clear:both; margin-top:20px;"></div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary" type="submit">Inserisci Documento</button>
+                      <i class="zmdi"></i>
+                      <button class="btn" type="reset">Annulla</button>
+                  </div>
+                </div>
+            
+            
+          </div>
+        </form>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+</div>
+
+
+<?php 
+endif;
+/* CLIENTI ACCOUNT *****************************************************/	
+
+/* AZIENDE *****************************************************/	
+if($pag == "aziende"): 	   
+?>
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button aria-hidden="true" data-dismiss="modal" class="bootbox-close-button close" type="button">×</button>
+    <h4 class="modal-title">Nuova Azienda</h4>
+  </div>
+  <div class="modal-body">
+    <div class="bootbox-body">
+      <div class="col-md-12">
+        <form class="j-forms formElement"  method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="nuovaAzienda" />
+          <div class="form-content"> 
+            
+            <!-- start text password -->
+            <div class="row col-md-6">
+              <div class="col-md-12 unit ">
+                <label class="label">Nome Azienda*</label>
+                <div class="input req">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input  name="azienda_nome" class="form-control required" type="text" placeholder="Nome Azienda">
+                </div>
+              </div>
+              
+              <div class="col-md-12 unit ">
+                <label class="label">Email*</label>
+                <div class="input req">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="azienda_email" class="form-control required" type="text" placeholder="Email">
+                </div>
+              </div>
+              
+              
+              <div class="col-md-12 unit">
+                <label class="label">Partita Iva</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input  name="azienda_partita_iva" class="form-control" type="email" placeholder="P.IVA">
+                </div>
+              </div>
+              
+              <div class="col-md-12 unit">
+                <label class="label">Telefono</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="azienda_telefono" class="form-control" type="text" placeholder="Telefono">
+                </div>
+              </div>
+              
+            </div>
+            <!-- end text password --> 
+            
+            <!-- start text password -->
+            <div class="row col-md-6">
+            
+             <div class="col-md-12 unit">
+                <label class="label">Indirizzo</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="azienda_indirizzo" class="form-control" type="text" placeholder="Indirizzo">
+                </div>
+              </div>
+              
+              
+              <div class="col-md-12 unit">
+                <label class="label">Cap</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="azienda_cap" class="form-control" type="text" placeholder="CAP">
+                </div>
+              </div>
+              
+              
+              <div class="col-md-12 unit">
+                <label class="label">Provincia</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="azienda_provincia" class="form-control" type="text" placeholder="Provincia">
+                   <input required name="azienda_stato" class="form-control" type="hidden" value="Italia" >
+                </div>
+              </div>
+             
+             
+            
+            </div>
+            <!-- end text password --> 
+            
+            <!-- categorie selezione -->
+            <div class="row col-md-12">
+               <div style="clear:both;"></div>
+               <hr>
+               <div style="clear:both;"></div>
+               <laberl> Seleziona le categorie dei cataloghi inerenti alle aziende </laberl>
+               <div style="clear:both;"></div><br>
+
+     			<?php 
+				
+				    $sqlCategoria = "SELECT * FROM `categoria`"; 
+
+					$rCategoria = $mysqli->query($sqlCategoria);
+				
+					$countCategoria = $rCategoria->num_rows;
+								  
+				  if($countCategoria >= 1):
+               
+                  	while ( $rowCategoria = $rCategoria->fetch_array() ):
+				
+				?>
+                <div class="row col-md-3">
+                    <label class="checkbox">
+                        <input type="checkbox" name="match_categoria_id[]" value="<?php echo $rowCategoria["categoria_id"]; ?>">
+                        <i></i>
+                        <?php echo $rowCategoria["categoria_nome"]; ?>
+                    </label>
+                </div>
+                <?php 
+				  	endwhile;
+				  
+				  endif;
+				
+				?>
+                                               
+            
+            <!-- END categorie selezione -->
+            </div>
+            
+  
+            <div class="row col-md-12">
+               <div style="clear:both; margin-top:20px;"></div>
+                <div class="modal-footer">
+                 <button class="btn btn-primary" type="submit">Inserisci Azienda</button>
+                   <i class="zmdi"></i>
+                   <button class="btn" type="reset">Annulla</button>
+                  </div>
+             </div>
+            
+            
+          </div>
+        </form>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+</div>
+
+<?php 
+endif;
+/* END AZIENDE *****************************************************/	
+
+/* AZIENDE *****************************************************/	
+if($pag == "aziende-account"): 
+?>
+
+<div class="modal-content">
+  <div class="modal-header">
+    <button aria-hidden="true" data-dismiss="modal" class="bootbox-close-button close" type="button">×</button>
+    <h4 class="modal-title">Nuovo Documento</h4>
+  </div>
+  <div class="modal-body">
+    <div class="bootbox-body">
+      <div class="col-md-12">
+        <form class="j-forms formElement"  method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="nuovoArticolo" />
+          <input type="hidden" name="articolo_azienda_id" value="<?php echo $id; ?>" />
+          <input type="hidden" name="articolo_url" value="amministratore" />
+          <div class="form-content"> 
+            
+            <!-- start text password -->
+            <div class="row col-md-6">
+              <div class="col-md-12 unit">
+                <label class="label">Nome Documento</label>
+                <div class="input">
+                  <label for="text" class="icon-left"> <i class="zmdi zmdi-globe"></i> </label>
+                  <input required name="articolo_titolo" class="form-control" type="text" placeholder="inserisci il nome del documento">
+                </div>
+              </div>
+            </div>
+            <!-- end text password --> 
+            
+            <div class="col-md-6 unit">
+                <label class="label">CATEGORIA</label>
+                <label class="input select">
+                      <select name="articolo_categoria_id" class="form-control">
+                          <?php 
+						    $sqlCat = "SELECT * FROM `match_azienda_categoria_articolo` LEFT JOIN `categoria` ON `categoria`.categoria_id = `match_azienda_categoria_articolo`.`match_categoria_id` WHERE `match_azienda_id` = $id"; 
+  							$rCat = $mysqli->query($sqlCat);
+							$countCat =  $rCat->num_rows;
+							if($countCat >= 1):      
+    	                      while ( $rowCat = $rCat->fetch_array() ):     
+						  ?>
+                          <option value="<?php echo $rowCat["categoria_id"]; ?>"><?php echo $rowCat["categoria_nome"]; ?></option>
+                          <?php
+						     endwhile;
+							endif; 
+						  ?>
+                      </select>
+                      <i></i>
+                  </label>
+              </div>
+            
+            <!-- end email url -->
+            <div class="row col-md-6">
+             <div class="Gal col-md-12 unit">
+                <label class="label">Inserisci Documento o Immagine*</label>
+                <div class="input prepend-small-btn">
+                    <div class="file-button">
+                        Sfoglia
+                        <input type="file" id="fileUpload" name="file[]" />
+                    </div>
+                    <input type="text" placeholder="seleziona il documento o immagine da caricare" readonly id="prepend-small-btn" class="form-control">
+                 </div>
+              </div>
+              <div id="image-holder" class="blah col-md-12 unit">
+               <!--<div class="row col-md-12">
+               
+               		<span class="col-md-4">
+                    </span>
+                    <h3 class="anteprima col-md-4">
+                    
+                        Anteprima
+                        
+                    </h3>
+                    <span class="col-md-4">
+                    </span>
+       
+               </div> -->
+              </div>
+             </div> 
+   
+          
+             <div class="row col-md-12">
+                  <div style="clear:both; margin-top:20px;"></div>
+                  <div class="modal-footer">
+                      <button class="btn btn-primary" type="submit">Inserisci Documento</button>
+                      <i class="zmdi"></i>
+                      <button class="btn" type="reset">Annulla</button>
+                  </div>
+                </div>
+            
+            
+          </div>
+        </form>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+</div>
+
+
+	
+<?php
+endif;
+/* END AZIENDE *****************************************************/	
+
 ?>

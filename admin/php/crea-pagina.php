@@ -271,7 +271,7 @@
                             <button class="btn btn-primary"  type="submit">Modifica Articolo</button>
                           </div>
                       </div>
-                      <?php if($i > 1): ?>
+                 
                       <div class="col-md-3 col-sm-3">
                            <div class="btn-ex-container">
                             <label class="checkbox">
@@ -281,7 +281,7 @@
                                        </label>
                           </div>
                       </div>
-                      <?php endif; ?>
+                 
                     </div>
                   </div>
                   
@@ -299,14 +299,9 @@
       </div>
     </div>
     
-     <?php if($i == 1): ?> 
-	
-	   <hr>
-       
-	<?php endif; ?>
+   
     
      <?php 
-	 $i++;
    endwhile; 
    endif; 
  ?> 

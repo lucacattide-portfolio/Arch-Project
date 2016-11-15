@@ -10,7 +10,7 @@
             
     <?php
 	
-		$pagProjects = "SELECT * FROM `pagina` LIMIT 6,11"; // Assegnazione Query Pagina DB
+		$pagProjects = "SELECT * FROM `pagina` LIMIT 10,16"; // Assegnazione Query Pagina DB
 		$rPagProjects = $mysqli->query($pagProjects); // Pagina 
 		$countPagProjects =  $rPagProjects->num_rows; // Conteggio Record Pagina
 	

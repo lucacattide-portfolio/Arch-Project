@@ -22,8 +22,8 @@
     <div class="widget-wrap">
       <div class="widget-header block-header margin-bottom-0 clearfix">
         <div class="pull-left">
-        <h3>CONTENUTI IN EVIDENZA</h3>
-        <p>Gestisci contenuti in primo piano</p>
+        <h3>Categorie</h3>
+        <p>Categorie</p>
         </div>
         <div class="pull-right w-action">
           <ul class="widget-action-bar">
@@ -68,14 +68,18 @@
 					     $immagineLabel =  $immagine["immagine_label"];
 					   
 					   endwhile;
+					   
+				   else:
 				   
+				      $immagineLabel = "";
+					  
 				   endif;
                   
                  ?>
                  <tr>
                   <td><?php echo $rowCategoria["categoria_nome"]; ?></td>
                   <td><?php echo $rowCategoria["categoria_url"]; ?></td>
-                  <td><img style="height:60px;" src="../img/<?php echo $immagineLabel; ?>"/></td>
+                  <td><?php if( !empty($immagineLabel) ): ?><img style="height:60px;" src="../img/<?php echo $immagineLabel; ?>"/><?php endif;  ?></td>
                   <td class="td-center">
                    <div class="btn-toolbar" role="toolbar">
                   	<div class="btn-group" role="group"> 

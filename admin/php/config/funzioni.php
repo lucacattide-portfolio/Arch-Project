@@ -51,4 +51,56 @@ if( $pag == "crea-pagina" ):
 endif;
 
 
+if($pag == "clienti"):
+
+	$sqlClienti = "SELECT * FROM `cliente` ORDER BY cliente_nome ASC"; 
+
+	$rClienti = $mysqli->query($sqlClienti);
+
+	$countClienti = $rClienti->num_rows;
+
+endif;
+
+
+if($pag == "clienti-account"):
+
+	$sqlClientiAccount = "SELECT * FROM `cliente` WHERE cliente_id = '".$_GET["id"]."' "; 
+
+	$rClientiAccount = $mysqli->query($sqlClientiAccount);
+
+	$countClientiAccount = $rClientiAccount->num_rows;
+
+
+    $sqlAzienda = "SELECT * FROM `azienda` ORDER BY azienda_nome ASC"; 
+
+	$rAzienda = $mysqli->query($sqlAzienda);
+
+	$countAzienda = $rAzienda->num_rows;
+
+endif;
+
+
+if($pag == "aziende"):
+
+	$sqlAzienda = "SELECT * FROM `azienda` ORDER BY azienda_nome ASC"; 
+
+	$rAzienda = $mysqli->query($sqlAzienda);
+
+	$countAzienda = $rAzienda->num_rows;
+
+endif;
+
+
+if($pag == "aziende-account"):
+
+	$sqlAziendaAccount = "SELECT * FROM `azienda` WHERE azienda_id = '".$_GET["id"]."' "; 
+
+	$rAziendaAccount = $mysqli->query($sqlAziendaAccount);
+
+	$countAziendaAccount = $rAziendaAccount->num_rows;
+
+endif;
+
+
+
 ?>

@@ -183,7 +183,39 @@
                     
                         <a href="index.php?pag=categorie">
                         
-                            GESTISCI CONTENUTI IN EVIDENZA
+                           GESTIONE CATEGORIE
+                            
+                        </a>
+                        
+                    </li>
+                    <li class="list-title">
+                    
+                        <!-- Categorie -->
+                        
+                        CLIENTI
+                        
+                    </li>
+                    <li class="list-title">
+                    
+                        <a href="index.php?pag=clienti">
+                        
+                            GESTIONE CLIENTI
+                            
+                        </a>
+                        
+                    </li>
+                     <li class="list-title">
+                    
+                        <!-- Categorie -->
+                        
+                        FORNITORI
+                        
+                    </li>
+                    <li class="list-title">
+                    
+                        <a href="index.php?pag=aziende">
+                        
+                            GESTIONE AZIENDE
                             
                         </a>
                         
@@ -308,6 +340,30 @@
                      	include("categorie.php");
                     
 						break;	
+						
+					case "clienti-account":
+					
+                     	include("clienti-account.php");
+                    
+						break;	
+						
+					case "aziende-account":
+					
+                     	include("aziende-account.php");
+                    
+						break;		
+						
+					case "clienti":
+					
+                     	include("clienti.php");
+                    
+						break;		
+						
+				    case "aziende":
+					
+                     	include("aziende.php");
+                    
+						break;			
                      
                  endswitch;	 
                         
@@ -656,6 +712,16 @@
     
     <!--Fine Plugins-->
     
+    <!--Tables-->
+    <script src="js/lib/footable.all.js"></script>  
+    
+    <!--Exportable Data Tables-->
+	<script src="js/lib/tableExport.js"></script>
+	<script src="js/lib/jquery.base64.js"></script>
+	<script src="js/lib/sprintf.js"></script>
+	<script src="js/lib/jspdf.js"></script>
+	<script src="js/lib/base64.js"></script>
+    
     <!--AJAX--> 
    <script type="text/javascript">
 	
@@ -735,6 +801,7 @@ $(".fileUpload2").on('change', function () {
         external_link_list_url : "js/link_list.js",
         external_image_list_url : "js/image_list.js",
         media_external_list_url : "js/media_list.js",
+
       });
 
 	
@@ -782,10 +849,11 @@ $(".fileUpload2").on('change', function () {
 					  });
 				  }
 			 });
-			 $(".dialogWindowMod").fadeToggle(1000);
-			  
-					 
+			 $(".dialogWindowMod").fadeToggle(1000); 		 
 	  });
+	  
+	  
+	  
 	  
 	  
 	  
@@ -908,27 +976,66 @@ $(".fileUpload2").on('change', function () {
 	  $(document).on("submit", '.formElement', function(e) {
 			e.preventDefault(); 
 			var data = new FormData(this); 
-			$.ajax({
-				url: 'php/config/ajax.php',
-				data: data,
-				cache: false,
-				contentType: false,
-				processData: false,
-				dataType: "html",
-				type: 'POST',
-				success: function(data) {
-				  bootbox.alert(""+data+"", function () {});
-				  $.post("php/config/caricamento.php", {pag: "<?php echo $pag; ?>"}, function(data){
-					$(".insertContentQuery").empty();	
-					$(".insertContentQuery").html(data);
-					$(".dialogWindowMod").removeClass("mWidth"); 
-					$(".dialogWindowMod").fadeOut(1000);	
-				  });
-				  $(".bootbox.modal, .modal-footer button, .modal-body button").on("click",function(){
-					 location.reload();
-				  });
-				}
-		   });
+			
+			if( $(".formElement .required").val() != "" ){
+			
+				  $.ajax({
+					  url: 'php/config/ajax.php',
+					  data: data,
+					  cache: false,
+					  contentType: false,
+					  processData: false,
+					  dataType: "html",
+					  type: 'POST',
+					  success: function(data) {
+						bootbox.alert(""+data+"", function () {});
+						$.post("php/config/caricamento.php", {pag: "<?php echo $pag; ?>"}, function(data){
+						  $(".insertContentQuery").empty();	
+						  $(".insertContentQuery").html(data);
+						  $(".dialogWindowMod").removeClass("mWidth"); 
+						  $(".dialogWindowMod").fadeOut(1000);	
+						});
+						$(".bootbox.modal, .modal-footer button, .modal-body button").on("click",function(){
+						   location.reload();
+						});
+					  }
+				 });
+				 
+		     }else{
+				 
+				 
+				 $(".formElement .req").css({"border":"1px solid #FAA"});
+				
+			 }	
+	   }); 
+	   
+	   
+	   // SUBMIT FORM
+	  $(document).on("submit", '.formElement2', function(e) {
+			e.preventDefault(); 
+			var data = new FormData(this); 
+			
+				  $.ajax({
+					  url: 'php/config/ajax.php',
+					  data: data,
+					  cache: false,
+					  contentType: false,
+					  processData: false,
+					  dataType: "html",
+					  type: 'POST',
+					  success: function(data) {
+						bootbox.alert(""+data+"", function () {});
+						$.post("php/config/caricamento.php", {pag: "<?php echo $pag; ?>"}, function(data){
+						  $(".insertContentQuery").empty();	
+						  $(".insertContentQuery").html(data);
+						  $(".dialogWindowMod").removeClass("mWidth"); 
+						  $(".dialogWindowMod").fadeOut(1000);	
+						});
+						$(".bootbox.modal, .modal-footer button, .modal-body button").on("click",function(){
+						   location.reload();
+						});
+					  }
+				 });
 	   }); 
 	   
 	   //SORTABLE TAB

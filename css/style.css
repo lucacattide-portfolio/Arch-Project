@@ -963,6 +963,8 @@ a:link { text-decoration: none; }
 	font-family: "OPTIFuturaDemiBold", sans-serif;
 }
 
+.lettera p { margin: 0; }
+
 .menu_projects:hover .lettera
 {
 	background-color: #C1272D;
@@ -1006,28 +1008,28 @@ a:link { text-decoration: none; }
 
 .menu_activities[rel="rilievo"]
 {
-	top: 25.9%;
+	top: 25.8%;
 	right: -140px;
 	background-color: #ccc;
 }
 
 .menu_activities[rel="progettazione_preliminare"]
 {
-	top: 31.8%;
+	top: 31.7%;
 	right: -221px;
 	background-color: #999;
 }
 
 .menu_activities[rel="progettazione_definitiva"]
 {
-	top: 37.6%;
+	top: 37.5%;
 	right: -209px;
 	background-color: #666;
 }
 
 .menu_activities[rel="progettazione_esecutiva"]
 {
-	top: 43.5%;
+	top: 43.4%;
 	right: -208px;
 	background-color: #999;
 }
@@ -1072,6 +1074,7 @@ a:link { text-decoration: none; }
 	height: auto;
 	padding: .9em 32px;
 	font-family: "GothamCondensedBook", sans-serif;
+	text-transform: capitalize;
 }
 
 .voce p { margin: 0; }
@@ -1286,7 +1289,7 @@ a:link { text-decoration: none; }
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	text-align: center;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .paragrafo_activities[rel="incontro"]
@@ -3557,6 +3560,30 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 1440px) {
 
+#container_area
+{
+	min-height: 28em;
+	max-height: 28em;
+}
+
+#file_utente { height: 28em; }
+
+#area_clienti { height: 28em; }
+
+#container_utente { max-height: calc(100% - 10em); }
+
+#container_clienti { height: calc(100% - 9.5em); }
+
+#file_admin { height: 28em; }
+
+#container_admin_files { max-height: calc(100% - 5.5em); }
+
+.wrapper_admin_elemento
+{
+	height: 20em;
+	min-height: 20em;
+}
+
 .dingbat_1 { min-width: auto; }
 
 .dingbat_2 { min-width: auto; }
@@ -3603,8 +3630,6 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 .catalogo_admin_elemento .file_nome { font-size: .7rem; }
 
-.catalogo_admin_elemento { padding: .5em 32px; }
-
 #progetto_slides.slideshow .slides-pagination
 {
 	margin-right: 13.5%;
@@ -3617,6 +3642,14 @@ label[for="accettazione"]:hover { cursor: pointer; }
 /* Inizio 13" ******************************/
 
 @media all and (max-width: 1280px) {
+
+.menu_activities[rel="rilievo"] { top: 27.1%; }
+
+.menu_activities[rel="progettazione_preliminare"] { top: 34.3%; }
+
+.menu_activities[rel="progettazione_definitiva"] { top: 41.5%; }
+
+.menu_activities[rel="progettazione_esecutiva"] { top: 48.6%; }
 
 #logo
 {
@@ -3775,13 +3808,19 @@ label[for="accettazione"]:hover { cursor: pointer; }
 .catalogo_admin_elemento
 {
 	width: calc(100% - 48px);
-	padding: .5em 24px;
+	padding: .55em 24px;
 }
 
 .catalogo_admin_elemento .file_nome
 {
 	padding: .5em 0 .5em 24px;
 	width: calc(100% - 48px);
+}
+
+.wrapper_admin_elemento
+{
+	height: 19em;
+	min-height: 19em;
 }
 }
 /* Fine 13" ******************************/
