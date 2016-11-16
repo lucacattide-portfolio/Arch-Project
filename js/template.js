@@ -143,6 +143,36 @@ function inizializza() {
 }
 
 
+// Funzione Caricamento Catalogo
+
+function caricaCatalogo(azienda, categoria) {
+	
+	$("#popup_cataloghi").empty(); // Svuota caricamenti contenuti precedenti
+
+	// Chiamata AJAX
+	
+	$.ajax({
+		
+		url: "include/catalogo.php",
+		type: "POST",
+		data: {
+			
+			azienda: azienda,
+			categoria: categoria
+			
+		},
+		success: function(data) { // A chiamat avvenuta popola popup
+			
+			$("#popup_cataloghi").html(data);
+			statiPopup(); // Invocazione Funzione Eventi Popup
+			
+		}
+		
+	});
+	
+}
+
+
 // Funzione Controllo Cataloghi
 
 function controlloCataloghi() {
@@ -303,47 +333,25 @@ function transizioni() {
 		
 		e.preventDefault(); // Disattiva funzione standard link
 		
+		var azienda = $(this).attr("data-azienda"); // Dichiarazione ed Inizializzazione ID Azienda
+		var categoria = $(this).attr("data-categoria"); // Dichiarazione ed Inizializzazione ID Categoria
+		
 		$(".ragione_fornitore a").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
 		$(this).addClass("ragione_attiva");	// Attiva fornitore selezionato
 		
 		$("#popup_cataloghi").removeClass("animated slideOutDown"); // Rimuovi animazioni chiusura
 		$("#popup_cataloghi").addClass("presente visibile animated slideInUp"); // Mostra Popup
 		
+		caricaCatalogo(azienda, categoria); // Invocazione Funzione Catalogo
+		
+		return false; // Blocca il refresh della pagina
+		
 	});
 	
 	// Popup 
 	
-	$("#chiudi_popup").hover(function() { // Al passaggio del mouse anima
-		
-		$(this).addClass("animated swing");
-		
-	}, function() {
-		
-		$(this).removeClass("animated swing");
-		
-	});
-	$("#chiudi_popup").on("click tap", function() { // Al click del pulsante
-		
-		$("#popup_cataloghi").removeClass("animated slideInUp"); // Anima l'uscita del popup
-		$("#popup_cataloghi").addClass("animated slideOutDown"); // Anima l'uscita del popup
-		$(".ragione_fornitore a.ragione_attiva").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
-		
-		setTimeout(function() {
-			
-			$(".catalogo").removeClass("catalogo_aperto"); // Allora chiudi tutti i cataloghi
-			$("#container_cataloghi").removeClass("container_aperto"); // Chiudi tutte le categorie
-			$(".sezione_rapida").removeClass("sezione_attiva"); // Disattiva tutti gli elementi	
-		
-		}, 500);
-		setTimeout(function() { // Nascondi e disattiva popup
-			
-			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx visibile presente");
-			$(".rollover_rapido").removeClass("rollover_attivo"); // Disattiva elementi precedentemente attivi
-			
-		}, 750);
-		
-	});
-	
+	statiPopup(); // Invocazione Funzione Eventi Popup
+
 	// Menu Principale - Pulsante
 		
 	$(".hamburger").on("click tap", function() { // Al primo click sul pulsante
@@ -659,6 +667,44 @@ function transizioni() {
 		
 	}
 		
+}
+
+
+// Funzione Stati Popup
+
+function statiPopup() {
+	
+	$("#chiudi_popup").hover(function() { // Al passaggio del mouse anima
+		
+		$(this).addClass("animated swing");
+		
+	}, function() {
+		
+		$(this).removeClass("animated swing");
+		
+	});
+	$("#chiudi_popup").on("click tap", function() { // Al click del pulsante
+		
+		$("#popup_cataloghi").removeClass("animated slideInUp"); // Anima l'uscita del popup
+		$("#popup_cataloghi").addClass("animated slideOutDown"); // Anima l'uscita del popup
+		$(".ragione_fornitore a.ragione_attiva").removeClass("ragione_attiva");	 // Deseleziona fornitori precedentemente selezionati
+		
+		setTimeout(function() {
+			
+			$(".catalogo").removeClass("catalogo_aperto"); // Allora chiudi tutti i cataloghi
+			$("#container_cataloghi").removeClass("container_aperto"); // Chiudi tutte le categorie
+			$(".sezione_rapida").removeClass("sezione_attiva"); // Disattiva tutti gli elementi	
+		
+		}, 500);
+		setTimeout(function() { // Nascondi e disattiva popup
+			
+			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx visibile presente");
+			$(".rollover_rapido").removeClass("rollover_attivo"); // Disattiva elementi precedentemente attivi
+			
+		}, 750);
+		
+	});
+	
 }
 
 

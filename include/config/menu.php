@@ -8,21 +8,42 @@
     
     </h7>
     
-    <div class="sezione_rapida deseleziona"  rel="houses"> <!--Sezione-->
+    <?php
+	
+		$sqlCategoria = "SELECT * FROM `categoria`"; 
+		$rCategoria = $mysqli->query($sqlCategoria);
+		$countCategoria = $rCategoria->num_rows;
+
+	  	if($countCategoria >= 1):
+	
+			while ( $categoria = $rCategoria->fetch_array() ):
+		
+	?>
+    
+    <div class="sezione_rapida deseleziona"  rel="<?php echo $categoria['categoria_url']; ?>"> <!--Sezione-->
     	
         <span class="rollover_rapido"> <!--Rollover-->
         </span>
         
         <h3 class="assente">
         
-        	Houses
+        	<?php echo $categoria['categoria_nome']; ?>
             
         </h3>
     
     </div>
-    <div class="sezione_rapida deseleziona" rel="kitchen"> <!--Sezione-->
     
-    	<span class="rollover_rapido"> <!--Rollover-->
+    <?php
+	
+			endwhile;
+	
+		endif;
+	
+	?>
+   
+    <!--<div class="sezione_rapida deseleziona" rel="kitchen"> <!--Sezione--
+    
+    	<span class="rollover_rapido"> <!--Rollover--
         </span>
     
     	<h3 class="assente">
@@ -32,9 +53,9 @@
         </h3>
     
     </div>
-    <div class="sezione_rapida deseleziona" rel="bathroom"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona" rel="bathroom"> <!--Sezione--
     
-    	<span class="rollover_rapido"> <!--Rollover-->
+    	<span class="rollover_rapido"> <!--Rollover--
         </span>
     
     	<h3 class="assente">
@@ -44,9 +65,9 @@
         </h3>
     
     </div>
-    <div class="sezione_rapida deseleziona" rel="living_room"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona" rel="living_room"> <!--Sezione--
     
-    	<span class="rollover_rapido"> <!--Rollover-->
+    	<span class="rollover_rapido"> <!--Rollover--
         </span>
         
         <h3 class="assente">
@@ -56,9 +77,9 @@
         </h3>
     
     </div>
-    <div class="sezione_rapida deseleziona" rel="offices"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona" rel="offices"> <!--Sezione--
     
-     	<span class="rollover_rapido"> <!--Rollover-->
+     	<span class="rollover_rapido"> <!--Rollover--
         </span>
     
     	<h3 class="assente">
@@ -68,9 +89,9 @@
         </h3>
     
     </div>
-    <div class="sezione_rapida deseleziona" rel="various"> <!--Sezione-->
+    <div class="sezione_rapida deseleziona" rel="various"> <!--Sezione--
     
-    	<span class="rollover_rapido"> <!--Rollover-->
+    	<span class="rollover_rapido"> <!--Rollover--
         </span>
     
     	<h3 class="assente">
@@ -79,7 +100,7 @@
             
         </h3>
     
-    </div>
+    </div>-->
 
 </nav>
 
@@ -97,19 +118,31 @@
     
     <!--Inizio Categorie-->
     
+    <?php
+	
+		$sqlCategoria = "SELECT * FROM `categoria` LEFT JOIN `immagine` ON `immagine`.immagine_id = `categoria`.categoria_articolo_id "; 
+		$rCategoria = $mysqli->query($sqlCategoria);
+		$countCategoria = $rCategoria->num_rows;
+
+	  	if($countCategoria >= 1):
+	
+			while ( $categoria = $rCategoria->fetch_array() ):
+		
+	?>
+    
     <!--Inizio Categoria 1-->
     
     <div class="categoria">
     
         <!--Inizio Houses-->
         
-        <div id="houses_catalogo" class="catalogo" rel="houses">
-            <div class="foto_catalogo" style="background-image: url('img/houses_rapido.png');"> <!--Foto-->
+        <div id="houses_catalogo" class="catalogo" rel="<?php echo $categoria['categoria_url']; ?>">
+            <div class="foto_catalogo" style="background-image: url(<?php echo $siteurl_bae."img/".$categoria['immagine_label'] ?>);"> <!--Foto-->
             </div>
             
             <h2 class="titolo_categoria"> <!--Categoria-->
             
-                Houses
+                <?php echo $categoria['categoria_nome']; ?>
             
             </h2>
             
@@ -118,12 +151,25 @@
             <div class="elenco_catalogo mCustomScrollbar" data-mcs-theme="light">
                 
                 <!--Inizio Ordine Alfabetico-->
+                
+                <?php
+				
+					$sqlMatch = "SELECT * FROM `match_azienda_categoria_articolo` LEFT JOIN `azienda` ON `match_azienda_categoria_articolo`.match_azienda_id = `azienda`.azienda_id WHERE match_categoria_id = '".$categoria["categoria_id"]."' GROUP BY substr(azienda_nome,1,1) ORDER BY azienda_nome ASC ";
+					$rMatch = $mysqli->query($sqlMatch);
+					$countMatch  = $rMatch->num_rows;
+					$catActive = "";
+				
+					if($countMatch  >= 1):
+				
+						while ( $rowMatch = $rMatch->fetch_array()):
+				
+				?>
             
                 <div class="container_fornitori">
                 
                     <h2 class="lettera_catalogo"> <!--Lettera-->
                     
-                        A
+                        <?php echo substr($rowMatch["azienda_nome"], 0, 1); ?>
                     
                     </h2>
                     
@@ -131,7 +177,37 @@
                     
                     <div class="fornitori_catalogo"> 
                     
+                    	<?php
+				
+							$sqlRagSoc = "SELECT * FROM `match_azienda_categoria_articolo` LEFT JOIN `azienda` ON `match_azienda_categoria_articolo`.match_azienda_id = `azienda`.azienda_id WHERE match_categoria_id = '".$categoria["categoria_id"]."' AND substr(azienda_nome,1,1) LIKE '%".substr($rowMatch["azienda_nome"], 0, 1)."%' ORDER BY azienda_nome ASC ";
+							$rNomeAzienda = $mysqli->query($sqlRagSoc);
+							$countNomeAzienda  = $rNomeAzienda->num_rows;
+						
+							if($countNomeAzienda  >= 1):
+						
+								while ( $nomeAzienda = $rNomeAzienda->fetch_array()):
+
+						?>
+                    
                         <span class="ragione_fornitore"> <!--Ragione Sociale-->
+                        
+                            <a href="#" title="<?php $nome = str_replace("<p>", "", $nomeAzienda["azienda_nome"]); $nome = str_replace("</p>", "", $nome); echo $nome; ?>" data-azienda="<?php echo $nomeAzienda['azienda_id']; ?>" data-categoria="<?php echo $categoria["categoria_id"]; ?>">
+                            
+                                <?php echo $nomeAzienda["azienda_nome"]; ?>
+                                
+                            </a>
+                        
+                        </span>
+                        
+                        <?php
+						
+								endwhile;
+						
+							endif;
+						
+						?>
+                       
+                        <!--<span class="ragione_fornitore"> <!--Ragione Sociale--
                         
                             <a href="#" title="">
                             
@@ -140,7 +216,7 @@
                             </a>
                         
                         </span>
-                        <span class="ragione_fornitore"> <!--Ragione Sociale-->
+                        <span class="ragione_fornitore"> <!--Ragione Sociale--
                         
                             <a href="#" title="">
                             
@@ -148,16 +224,7 @@
                                 
                             </a>
                         
-                        </span>
-                        <span class="ragione_fornitore"> <!--Ragione Sociale-->
-                        
-                            <a href="#" title="">
-                            
-                                Lorem Ipsum
-                                
-                            </a>
-                        
-                        </span>
+                        </span>-->
                     
                     </div>
                     
@@ -167,6 +234,18 @@
                     </div>
                     
                 </div>
+                
+                <?php
+				
+						endwhile;
+				
+					endif;
+				
+				?>
+                <?php
+				
+					/*
+                
                 <div class="container_fornitori">
                 
                     <h2 class="lettera_catalogo"> <!--Lettera-->
@@ -311,6 +390,10 @@
                     </div>
                     
                 </div>
+				
+					*/
+				
+				?>
                 
                 <!--Fine Ordine Alfabetico-->
                 
@@ -325,8 +408,19 @@
     </div>
     
     <!--Fine Categoria 1-->
-    
-    <!--Inizio Categoria 2-->
+       
+    <?php
+	
+			endwhile;
+	
+		endif;
+	
+	?>
+    <?php 
+	
+		 /*
+		 
+   <!--Inizio Categoria 2-->
     
     <div class="categoria">
     
@@ -1470,12 +1564,22 @@
     </div>
         
     <!--Fine Categorie-->
+	
+		*/
+	
+	?>
     
     <!--Inizio Popup-->
     
     <div id="popup_cataloghi">
-    
-    	<h2 id="titolo_popup"> <!--Avviso-->
+
+        <!--Inizio Corpo-->
+        
+        <?php
+		
+			/*
+			
+		<h2 id="titolo_popup"> <!--Avviso-->
         
         	CLICCA SULLA X o sul menu in alto PER CHIUDERE QUESTA PAGINA E TORNARE AL SITO
         
@@ -1576,6 +1680,11 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </aside>
         
         <!--Fine Download Contestuale-->
+
+
+			*/
+	
+		?>
     
     </div>
     

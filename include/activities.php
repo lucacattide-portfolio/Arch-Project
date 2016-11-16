@@ -86,7 +86,7 @@
 
 			while ($articolo = $rArtActivitiesInt->fetch_array()): 
 
-				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articolo["articolo_id"]." ";
+				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articolo["articolo_id"]." AND immagine_tipo != 'application/pdf' ";
 				$rImgActivities = $mysqli->query($sqlImgActivities);
 				$countImgActivities =  $rImgActivities->num_rows;
 
@@ -174,7 +174,7 @@
 
 			while ($articoloActivities = $rArtActivities->fetch_array()): 
 
-				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articoloActivities["articolo_id"]." ";
+				$sqlImgActivities = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articoloActivities["articolo_id"]." AND immagine_tipo != 'application/pdf' ";
 				$rImgActivities = $mysqli->query($sqlImgActivities);
 				$countImgActivities =  $rImgActivities->num_rows;
 
@@ -191,6 +191,25 @@
 					$immagineLabelActivities = '';
 
 				endif;
+
+
+
+$sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articoloActivities["articolo_id"]." AND immagine_tipo = 'application/pdf' ";
+					$rImgActivities2 = $mysqli->query($sqlImgActivities2);
+					$countImgActivities2 =  $rImgActivities2->num_rows;
+
+					if( $countImgActivities2 >= 1):
+
+						 while ($immagineActivities2 = $rImgActivities2->fetch_array()):
+
+						   $immagineLabelActivities2 = $immagineActivities2["immagine_label"];
+
+							 endwhile;
+					else:  
+
+					$immagineLabelActivities2 = '';
+					
+					endif;
 
 ?>
 
@@ -334,9 +353,15 @@
                 
                 <?php echo $articoloActivities["articolo_testo"]; ?>
                 
+                <?php
+					
+					if (!empty($immagineLabelActivities2)):
+
+				?>
+                
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -352,7 +377,13 @@
                     </span>
                 
                 </a>
-                <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                <?php
+					
+					endif;
+					
+				?>
+               <!-- <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
                     <span class="etichetta">
                     
@@ -367,7 +398,7 @@
                     <span class="icona">
                     </span>
                 
-                </a>
+                </a>-->
                        
                 <!--Fine Download-->  
                 
@@ -496,9 +527,15 @@
                 
                 <?php echo $articoloActivities["articolo_testo"]; ?>
                 
+                <?php
+					
+					if (!empty($immagineLabelActivities2)):
+
+				?>
+                
                 <!--Inizio Download-->  
                   
-                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -514,7 +551,13 @@
                     </span>
                 
                 </a>
-                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                <?php
+					
+					endif;
+					
+				?>
+                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
                     <span class="etichetta">
                     
@@ -529,7 +572,7 @@
                     <span class="icona">
                     </span>
                 
-                </a>
+                </a>-->
                        
                 <!--Fine Download-->  
                        
@@ -682,9 +725,15 @@
                 
                 <?php echo $articoloActivities["articolo_testo"]; ?>   
                 
+                <?php
+					
+					if (!empty($immagineLabelActivities2)):
+
+				?>
+                
                 <!--Inizio Download-->  
                   
-                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -700,7 +749,13 @@
                     </span>
                 
                 </a>
-                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                <?php
+					
+					endif;
+					
+				?>
+                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
                     <span class="etichetta">
                     
@@ -715,7 +770,7 @@
                     <span class="icona">
                     </span>
                 
-                </a>
+                </a>-->
                        
                 <!--Fine Download-->  
             
@@ -862,9 +917,15 @@
                                   
                 <?php echo $articoloActivities["articolo_testo"]; ?>
                                   
+                <?php
+					
+					if (!empty($immagineLabelActivities2)):
+
+				?>
+                
                 <!--Inizio Download-->  
                   
-                <a class="download deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -880,7 +941,13 @@
                     </span>
                 
                 </a>
-                <a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                <?php
+					
+					endif;
+					
+				?>
+                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
                     <span class="etichetta">
                     
@@ -895,7 +962,7 @@
                     <span class="icona">
                     </span>
                 
-                </a>
+                </a>-->
                        
                 <!--Fine Download-->  
                                    
@@ -1023,9 +1090,15 @@
 
                 <?php echo $articoloActivities["articolo_testo"]; ?> 
                 
+                <?php
+					
+					if (!empty($immagineLabelActivities2)):
+
+				?>
+                
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="#" title="Download" tabindex="p"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -1041,7 +1114,13 @@
                     </span>
                 
                 </a>
-                <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG-->
+                
+                <?php
+					
+					endif;
+					
+				?>
+                <!--<a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
                     <span class="etichetta">
                     
@@ -1056,7 +1135,7 @@
                     <span class="icona">
                     </span>
                 
-                </a>
+                </a>-->
                        
                 <!--Fine Download-->  
                 
