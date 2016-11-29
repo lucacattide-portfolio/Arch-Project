@@ -66,6 +66,10 @@ h7 { display: none; }
 
 a:link { text-decoration: none; }
 
+/* Header (Mobile) ******************************/
+
+#header_mobile { display: none; }
+
 /* Menu Rapido ******************************/
 
 #menu_rapido
@@ -83,6 +87,8 @@ a:link { text-decoration: none; }
 }
 
 .menu_rapido_aperto { width: 100% !important; }
+
+#navigaizone_rapida { display: none; }
 
 /* Sezioni */
 
@@ -592,6 +598,8 @@ a:link { text-decoration: none; }
 	z-index: 1000;
 }
 
+#account_mobile { display: none; }
+
 .etichetta_pulsante
 {
 	font-family: "GothamCondensed", sans-serif;
@@ -605,9 +613,9 @@ a:link { text-decoration: none; }
 	background-color: rgba(0, 0, 0, .7);
 }
 
-#account:hover { cursor: pointer; }
+#account:hover, #account_mobile:hover { cursor: pointer; }
 
-#account:hover .etichetta_pulsante { opacity: 1; }
+#account:hover .etichetta_pulsante, #account_mobile:hover .etichetta_pulsante { opacity: 1; }
 
 /* Home ******************************/
 
@@ -3823,7 +3831,285 @@ label[for="accettazione"]:hover { cursor: pointer; }
 	min-height: 19em;
 }
 }
+
 /* Fine 13" ******************************/
+
+/* Inizio Tablet ******************************/
+
+@media all and (max-width: 768px) {
+
+.descrizione
+{
+	bottom: 12em;
+	height: 17em;
+	width: 100%;
+	padding: 0;
+	background-color: #1A1A1A;
+}
+
+.titolo_descrizione, .titolo_descrizione p { margin: 0; }
+
+.titolo_descrizione p
+{
+	padding: 1.5em 0 1.5em 64px;
+	border-top: 1px solid #313131;
+	border-bottom: 1px solid #313131;
+}
+
+.corpo_descrizione
+{
+	padding: 2em 64px;
+	width: calc(100% - 128px);
+	line-height: 1.5rem;
+	max-height: 5em;
+}
+
+.box_link:hover .box_cornice
+{
+	width: 68%;
+	height: 9.2em;
+	min-height: 9.2em;
+}
+
+.box_link:hover .box_sfondo { width: 63%; }
+
+.box_progetti
+{
+	width: 50%;
+	height: 33.33%;
+	min-height: 33.33%;
+	max-height: 33.33%;
+}
+
+#progetti .box_link:hover .box_cornice { top: 22%; }
+
+#progetti .box_link:hover .box_sfondo { top: 27%; }
+
+#progetto_slides .slides-navigation
+{
+	display: block;
+	position: absolute;
+	right: 0;
+	left: auto;
+	top: 0;
+	bottom: auto;
+	min-width: 58px;
+	height: auto;
+	overflow: hidden;
+}
+
+#progetto_slides .slides-navigation .prev, #progetto_slides .slides-navigation .next
+{
+	display: inline-block;
+	position: relative;
+	width: 53px;
+	height: 4em;
+	background-color: rgba(255, 255, 255, .3);
+	background-size: 40%;
+	background-attachment: scroll;
+	background-position: center;
+	background-repeat: no-repeat;
+	outline: none;
+	margin: 0 1px;
+}
+
+#progetto_slides .slides-navigation .next
+{
+	-webkit-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+#header_mobile
+{
+	display: block;
+	position: relative;
+	width: calc(100% - 96px);
+	height: auto;
+	padding: 2.5em 48px;
+	background-color: #000;
+}
+
+#header_mobile a
+{
+	display: block;
+	position: relative;
+	width: 12%;
+	min-width: 112px;
+	height: auto;
+}
+
+#logo_mobile
+{
+	display: block;
+	position: relative;
+	width: 12%;
+	min-width: 112px;
+	height: auto;
+	padding-bottom: 2.5em;
+	background-image: url('../img/logo_profilo.svg');
+	background-attachment: scroll;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#menu_rapido
+{
+	height: 3.5em;
+	overflow: hidden;
+}
+
+.sezione_rapida[rel='houses'] { background-color: #000; }
+
+.sezione_rapida[rel='kitchen'] { background-color: #333; }
+
+.sezione_rapida[rel='bathroom'] { background-color: #4d4d4d; }
+
+.sezione_rapida[rel='living-room'] { background-color: #666; }
+
+.sezione_rapida[rel='offices'] { background-color: #999; }
+
+.sezione_rapida[rel='various'] { background-color: #ccc; }
+
+#navigazione_rapida
+{
+	display: block;
+	position: absolute;
+	right: 0;
+	min-width: 58px;
+	height: auto;
+	overflow: hidden;
+}
+
+.pulsante_rapida
+{
+	display: inline-block;
+	position: relative;
+	width: 53px;
+	height: 3.5em;
+	background-color: rgba(255, 255, 255, .3);
+	background-size: 40%;
+	background-attachment: scroll;
+	background-position: center;
+	background-repeat: no-repeat;
+	outline: none;
+}
+
+.pulsante_rapida:hover { cursor: pointer; }
+
+#rapida_sx
+{
+	margin-right: 1px;
+	background-image: url('../img/freccia_slider.svg');
+}
+
+#rapida_dx
+{
+	background-image: url('../img/freccia_slider.svg');
+	-webkit-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.sezione_rapida
+{
+	width: 100%;
+	height: auto;
+	min-height: auto;
+}
+
+.sezione_rapida h3
+{
+	display: block;
+	position: relative;
+	color: #fff;
+	text-align: left;
+	padding: 1em 48px;
+	overflow: hidden;
+	opacity: 1;
+	top: 0;
+}
+
+.rollover_rapido { display: none; }
+
+#container { height: calc(100% - 12em); }
+
+#pulsante_menu
+{
+	top: 2.5em;
+	bottom: auto;
+	right: 48px;
+	left: auto;
+}
+
+#pulsante_menu { z-index: 8000; }
+
+#menu_principale
+{
+	z-index: 7000;
+	height: 10%;
+	min-height: 10%;
+	text-align: center;
+}
+
+#menu_voci { margin: 10em auto 2em; }
+
+#social { margin-top: 4em; }
+
+.logo_menu
+{
+	width: 12%;
+	min-width: 112px;
+	height: auto;
+	padding-bottom: 2.5em;
+	top: 2.5em;
+	bottom: auto;
+	left: 48px;
+	right: auto;
+	background-image: url(../img/logo_profilo.svg);
+}
+
+#account { display: none; }
+
+#account_mobile
+{
+	display: block;
+	position: relative;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+}
+
+.registrazione_mobile
+{
+	display: inline-block;
+	position: relative;
+	z-index: 1000;
+}
+
+#logo { display: none; }
+
+#banner_cookies p
+{
+	width: 62%;
+	margin: 0 auto;
+}
+}
+
+/* Fine Tablet ******************************/
+
+/* Inizio Smartphone ******************************/
+
+@media all and (max-width: 375px) { /* iPhone 6 */
+
+#banner_cookies p
+{
+	width: 72%;
+	margin: 0;
+}
+}
+
+/* Fine Smartphone ******************************/
 
 /* Fine Mobile ******************************/
 

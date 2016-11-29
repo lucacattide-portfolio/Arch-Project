@@ -199,14 +199,18 @@ function transizioni() {
 	
 	// Home - Logo (Animazione)
 	
-	$("#bordo_1").addClass("bordo_1");
-	$("#bordo_2").addClass("bordo_2");
-	$("#bordo_3").addClass("bordo_3");
-	$("#bordo_4").addClass("bordo_4");
-	$("#linea_1").addClass("linea_1");
-	$("#linea_2").addClass("linea_2");
-	$("#linea_3").addClass("linea_3");
-	$("#linea_4").addClass("linea_4");
+	if ($(window).width() > 768) { // Se siamo su Desktop allora anima
+	
+		$("#bordo_1").addClass("bordo_1");
+		$("#bordo_2").addClass("bordo_2");
+		$("#bordo_3").addClass("bordo_3");
+		$("#bordo_4").addClass("bordo_4");
+		$("#linea_1").addClass("linea_1");
+		$("#linea_2").addClass("linea_2");
+		$("#linea_3").addClass("linea_3");
+		$("#linea_4").addClass("linea_4");
+		
+	}
 	
 	// Home - Box
 		
@@ -226,65 +230,64 @@ function transizioni() {
 	
 	// Menu Rapido
 	
-	// Controllo Attivazione
+  $("#menu_rapido").addClass("menu_rapido_aperto"); // Anima ingresso	
 	
-	if ($("#progetto_slides").length > 0) { // Se siamo su Progetti
+	if ($(window).width() > 768) { // Se siamo su Desktop allora anima
+	
+		// Controllo Attivazione
 
-		$("#menu_rapido").removeClass("disattivato"); // Abilita menu rapido
+		if ($("#progetto_slides").length > 0) { // Se siamo su Progetti
+
+			$("#menu_rapido").removeClass("disattivato"); // Abilita menu rapido
+
+		} else {
+
+			$("#menu_rapido").addClass("disattivato"); // Altrimenti disabilita
+
+		}
+
+		$(".sezione_rapida").hover(function() { // Al passaggio del mouse mostra etichette
+
+			if (!$(".rollover_rapido", this).hasClass("rollover_attivo")) { // Solo se la selezione non risulta attiva 
+
+				$("h3", this).removeClass("animated fadeOutDown assente");	
+				$("h3", this).addClass("animated fadeInDown");	
+
+			}
+
+		}, function() { // Altrimenti nascondi
+
+			var selezionato = this; 
+
+			$("h3", this).removeClass("animated fadeInDown");	
+			$("h3", this).addClass("animated fadeOutDown");	
+
+			setTimeout(function() {
+
+				$("h3", selezionato).addClass("assente");	
+
+			}, 500);
+
+		});
 		
-		/*setTimeout(function() { // Dopo 6 secondi anima il menu
+	} else if ($(window).width() <= 768) { // Altrimenti se siamo su mobile 
 		
-			$(".sezione_rapida:last-child .rollover_rapido").removeClass("rollover_attivo"); // Anima ultimo elemento
+		$(".pulsante_rapida").on("click tap", function() { // Al click sul pulsante
+
+			if ($(this).attr("id") === "rapida_dx") { // Se si è cliccato su indietro
+
+				$(".sezione_rapida").eq(0).insertAfter(".sezione_rapida:nth-child(7)"); // Inseriscila dopo l'ultima
+				
+			} else if ($(this).attr("id") === "rapida_sx") { // Altrimenti se su avanti
+
+				$(".sezione_rapida").eq(5).insertBefore(".sezione_rapida:nth-child(2)"); // Inserisci prima di tutte
+				
+			}
 		
-		}, 6100);
-		setTimeout(function() { // Dopo 3 secondi anima il menu
-		
-			var rollover = $(".rollover_rapido"); // Dichiarazione ed Assegnazione Variabile Array elementi
-		
-			$.each(rollover, function(index) { // Per ogni elemento
-					
-				setTimeout(function() { // Anima l'ingresso con ritardo
-					
-					rollover.removeClass("rollover_attivo");	
-					rollover.eq(index).addClass("rollover_attivo");
-	 
-				}, index * 500);
-		
-			});
-			
-			
-		}, 3000);*/
-		
-	} else {
-		
-		$("#menu_rapido").addClass("disattivato"); // Altrimenti disabilita
+		});
 		
 	}
 		
-	$("#menu_rapido").addClass("menu_rapido_aperto"); // Anima ingresso
-	$(".sezione_rapida").hover(function() { // Al passaggio del mouse mostra etichette
-		
-		if (!$(".rollover_rapido", this).hasClass("rollover_attivo")) { // Solo se la selezione non risulta attiva 
-		
-			$("h3", this).removeClass("animated fadeOutDown assente");	
-			$("h3", this).addClass("animated fadeInDown");	
-		
-		}
-		
-	}, function() { // Altrimenti nascondi
-
-		var selezionato = this; 
-		
-		$("h3", this).removeClass("animated fadeInDown");	
-		$("h3", this).addClass("animated fadeOutDown");	
-		
-		setTimeout(function() {
-			
-			$("h3", selezionato).addClass("assente");	
-			
-		}, 500);
-			
-	});
 	$(".sezione_rapida").on("click tap", function() { // Al click sulla voce
 	
 		$(this).siblings().find(".rollover_rapido").removeClass("rollover_attivo"); // Disattiva elementi precedentemente attivi
@@ -314,7 +317,7 @@ function transizioni() {
 			$("#popup_cataloghi").removeClass("posizione_sx"); // Allora rimuovi allineamenti precedenti
 			$("#popup_cataloghi").addClass("posizione_dx");	// Allinea la popup
 			
-		} else if ($(".sezione_rapida[rel='living_room']").hasClass("sezione_attiva") || $(".sezione_rapida[rel='offices']").hasClass("sezione_attiva") ) { // Altrimenti se la quarta o la quinta sezione sono attive
+		} else if ($(".sezione_rapida[rel='living-room']").hasClass("sezione_attiva") || $(".sezione_rapida[rel='offices']").hasClass("sezione_attiva") ) { // Altrimenti se la quarta o la quinta sezione sono attive
 
 			$("#popup_cataloghi").removeClass("posizione_dx"); // Allora rimuovi allineamenti precedenti
 			$("#popup_cataloghi").addClass("posizione_sx"); // Allinea la popup
@@ -370,13 +373,15 @@ function transizioni() {
 			setTimeout(function() {
 			
 				$("#menu_voci a:nth-child(odd)").removeClass("animated fadeOutUp"); // Anima voci di menu dispari
-				$("#menu_voci a:nth-child(odd)").addClass("visibile animated fadeInDown"); // Anima voci di menu dispari
+				$("#menu_voci a:nth-child(odd)").addClass("visibile animated fadeInUp"); // Anima voci di menu dispari
 			
 			}, 750);
 			setTimeout(function() {
 			
 				$("#menu_voci a:nth-child(even)").removeClass("animated fadeOutUp"); // Anima voci di menu pari
 				$("#menu_voci a:nth-child(even)").addClass("visibile animated fadeInDown"); // Anima voci di menu pari
+				$("#account_mobile").removeClass("animated fadeOutDown"); // Anima voci di menu dispari
+				$("#account_mobile").addClass("animated fadeInUp"); // Anima voci di menu dispari
 			
 			}, 1000);
 			setTimeout(function() {
@@ -410,11 +415,13 @@ function transizioni() {
 			
 			}, 250);
 			setTimeout(function() {
-			
+				
+			  $("#account_mobile").removeClass("animated fadeInUp"); // Anima voci di menu dispari
+				$("#account_mobile").addClass("animated fadeOutDown"); // Anima voci di menu dispari
 				$("#menu_voci a:nth-child(even)").removeClass("visibile animated fadeInDown"); // Anima voci di menu pari
 				$("#menu_voci a:nth-child(even)").addClass("animated fadeOutUp"); // Anima voci di menu pari
 			
-			}, 500);
+			}, 750);
 			setTimeout(function() {
 			
 				$("#menu_voci a:nth-child(odd)").removeClass("visibile animated fadeInDown"); // Anima voci di menu dispari

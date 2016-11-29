@@ -1,6 +1,7 @@
 <!--Inizio Navigazione Rapida-->
 
-<nav id="menu_rapido" class="disattivato">
+<!--<nav id="menu_rapido" class="disattivato">
+--><nav id="menu_rapido">
 
 	<h7> <!--Titolo-->
     
@@ -25,7 +26,8 @@
         <span class="rollover_rapido"> <!--Rollover-->
         </span>
         
-        <h3 class="assente">
+<!--        <h3 class="assente">
+-->        <h3>
         
         	<?php echo $categoria['categoria_nome']; ?>
             
@@ -101,6 +103,25 @@
         </h3>
     
     </div>-->
+    
+    <!--Inizio Navigazione Rapida-->
+    
+    <aside id="navigazione_rapida" class="deseleziona">
+    
+    	<h7>
+    	
+    		Navigazione Rapida
+    		
+			</h7>
+			
+			<div id="rapida_sx" class="pulsante_rapida"> <!--Indietro-->
+			</div>
+			<div id="rapida_dx" class="pulsante_rapida"> <!--Avanti-->
+			</div>
+    
+		</aside>
+    
+    <!--Fine Navigazione Rapida-->
 
 </nav>
 
@@ -1917,6 +1938,37 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </ul>
     
     <!--Fine Voci-->
+    
+    <!--Inizio Area Riservata-->
+
+		<a href="<?php echo $siteurl."registrazione"; ?>" title="Register" class="registrazione_mobile">
+
+				<aside id="account_mobile" class="animated fadeOutDown">
+
+						<!--Inizio Titoli-->
+
+						<hgroup>
+
+								<h7>
+
+										Area Riservata
+
+								</h7>
+								<h2 class="etichetta_pulsante"> 
+
+										Register
+
+								</h2>
+
+						</hgroup>
+
+						<!--Fine Titoli-->
+
+				</aside>
+
+		</a>
+
+		<!--Fine Area Riservata-->
     
     <!--Inizio Social-->
     
