@@ -1,7 +1,7 @@
 <!--
 
 $(document).ready(function() {
-	
+		
 	inizializza(); // Invocazione Funzione Inizializzazione
 	transizioni(); // Invocazione Funzione Transizioni
 	mappa(); // Inizializzazione Funzione Mappa
@@ -24,7 +24,7 @@ $(document).ready(function() {
 	
 				var reader = new FileReader(); // Definisci un puntatore file
 	
-					reader.onload = function (e) { // Al caricamento del documento
+					reader.onload = function(e) { // Al caricamento del documento
 					
 						$("#avatar").prop("style","background-image:url("+ e.target.result +")"); // Sostituisci avatar
 					
@@ -195,7 +195,7 @@ function controlloCataloghi() {
 
 // Funzione Transizioni
 
-function transizioni() {
+function transizioni(contatoreClick) {
 	
 	// Home - Logo (Animazione)
 	
@@ -274,16 +274,34 @@ function transizioni() {
 		
 		$(".pulsante_rapida").on("click tap", function() { // Al click sul pulsante
 
-			if ($(this).attr("id") === "rapida_dx") { // Se si è cliccato su indietro
+			if ($(this).attr("id") === "rapida_dx") { // Se si è cliccato su avanti
 
 				$(".sezione_rapida").eq(0).insertAfter(".sezione_rapida:nth-child(7)"); // Inseriscila dopo l'ultima
+				$(".categoria:nth-child(2) .catalogo").removeClass("catalogo_aperto"); // Chiudi catalogo
+				$(".categoria").eq(0).insertAfter(".categoria:nth-child(7)"); // Inseriscila dopo l'ultima
+				$(".categoria:nth-child(2) .catalogo").addClass("catalogo_aperto"); // Chiudi catalogo
 				
-			} else if ($(this).attr("id") === "rapida_sx") { // Altrimenti se su avanti
-
+			} else if ($(this).attr("id") === "rapida_sx") { // Altrimenti se su indietro
+				
 				$(".sezione_rapida").eq(5).insertBefore(".sezione_rapida:nth-child(2)"); // Inserisci prima di tutte
+				$(".categoria:nth-child(7) .catalogo").removeClass("catalogo_aperto"); // Chiudi catalogo
+				$(".categoria").eq(5).insertBefore(".categoria:nth-child(2)"); // Inserisci prima di tutte
+				$(".categoria:nth-child(2) .catalogo").addClass("catalogo_aperto"); // Apri catalogo
 				
 			}
 		
+		});
+		
+		// Menu Activities
+		
+		$(".menu_activities").hover(function() {
+			
+			$(this).addClass('slide');
+			
+		}, function() {
+			
+			$(this).removeClass('slide');
+			
 		});
 		
 	}
@@ -312,20 +330,24 @@ function transizioni() {
 		
 		// Controllo Posizione Popup
 		
-		if ($(".sezione_rapida[rel='bathroom']").hasClass("sezione_attiva")) { // Se la terza sezione è attiva
-			
-			$("#popup_cataloghi").removeClass("posizione_sx"); // Allora rimuovi allineamenti precedenti
-			$("#popup_cataloghi").addClass("posizione_dx");	// Allinea la popup
-			
-		} else if ($(".sezione_rapida[rel='living-room']").hasClass("sezione_attiva") || $(".sezione_rapida[rel='offices']").hasClass("sezione_attiva") ) { // Altrimenti se la quarta o la quinta sezione sono attive
-
-			$("#popup_cataloghi").removeClass("posizione_dx"); // Allora rimuovi allineamenti precedenti
-			$("#popup_cataloghi").addClass("posizione_sx"); // Allinea la popup
+		if ($(window).width() > 768) { // Se siamo su desktop
 		
-		} else { // Altrimenti centra
-			
-			$("#popup_cataloghi").removeClass("posizione_sx posizione_dx"); 
-			
+				if ($(".sezione_rapida[rel='bathroom']").hasClass("sezione_attiva")) { // Se la terza sezione è attiva
+
+					$("#popup_cataloghi").removeClass("posizione_sx"); // Allora rimuovi allineamenti precedenti
+					$("#popup_cataloghi").addClass("posizione_dx");	// Allinea la popup
+
+				} else if ($(".sezione_rapida[rel='living-room']").hasClass("sezione_attiva") || $(".sezione_rapida[rel='offices']").hasClass("sezione_attiva") ) { // Altrimenti se la quarta o la quinta sezione sono attive
+
+					$("#popup_cataloghi").removeClass("posizione_dx"); // Allora rimuovi allineamenti precedenti
+					$("#popup_cataloghi").addClass("posizione_sx"); // Allinea la popup
+
+				} else { // Altrimenti centra
+
+					$("#popup_cataloghi").removeClass("posizione_sx posizione_dx"); 
+
+				}
+		
 		}
 		
 	});
@@ -511,16 +533,13 @@ function transizioni() {
         
         e.preventDefault(); // Disattiva funzione standard link
 		
-		$(".menu_activities .numero").removeClass("numero_attivo"); // Disattiva precedeti selezioni
-        $("#container").animate({ // Vai all'ancora con animazione
-        
-            scrollTop: $(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
-            
-        }, "slow");
-		
-		console.log($(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()));
-		
-		$(".numero", this).addClass("numero_attivo"); // Rende voce attiva
+				$(".menu_activities .numero").removeClass("numero_attivo"); // Disattiva precedeti selezioni
+				$("#container").animate({ // Vai all'ancora con animazione
+
+						scrollTop: $(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
+
+				}, "slow");
+				$(".numero", this).addClass("numero_attivo"); // Rende voce attiva
 
     });
     
@@ -530,44 +549,46 @@ function transizioni() {
 
         if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) { // Altrimenti se si è arrivati alla fine dello scroll ruota 
 
-			$("#torna_su").removeClass("ruota"); // Ruota
+					$("#torna_su").removeClass("ruota"); // Ruota
 
-        } else { // Altrimenti
-			
-			$("#torna_su").addClass("ruota"); // Ruota
+						} else { // Altrimenti
 
-		}
+					$("#torna_su").addClass("ruota"); // Ruota
+
+				}
         
     });
     $("#torna_su").on("click tap", function() { // Al click del pulsante
+									
+			  // Controllo posizione pagina
 	
-        if ($("#container").scrollTop() === 0) { // Se non si è in testa alla pagina
+        if ($("#container").scrollTop() === 0) { // Se si è in testa alla pagina
             
             $("#container").animate({ // Vai all'ancora con animazione
         
             	scrollTop: $("#activities_incontro").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
             
-        	}, "slow");
+        		}, "slow");
 		
         } else if (($("#container").scrollTop() >= $("#activities_summary").outerHeight()) && $("#container").scrollTop() < $("#activities_esecutiva").offset().top + ($(".summary").outerHeight() * 3)) {  // Altrimenti se si è superata la prima sezione ma non si è raggiunta l'ultima
 
-			$("#container").animate({ // Torna su con animazione
+					$("#container").animate({ // Torna su con animazione
 			
-				scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
+						scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
 				
-			}, "slow");	
+					}, "slow");	
 
-		} else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+				} else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
 
-			$("#container").animate({ // Torna su con animazione
-			
-				scrollTop: 0
-				
-			}, "slow");
-			$(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
-            
-        }  
-		     
+					$("#container").animate({ // Torna su con animazione
+
+						scrollTop: 0
+
+					}, "slow");
+					$(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
+
+				}  
+								     
     });
 	
 	// Admin - Files
