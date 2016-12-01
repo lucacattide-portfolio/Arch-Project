@@ -139,6 +139,39 @@ function inizializza() {
 		controlloCataloghi(); // Invocazione Funzione Controllo cataloghi
 		
 	}
+  
+  // Scrolling - Mobile
+  
+  if ($(window).width() < 768 ) { // Se siamo su mobile
+    
+    if (($("#home").length > 0) || ($("#progetti").length > 0) || ($("#activities_summary").length > 0) || ($("#contacts_pagina").length > 0)) { // E se siamo in una delle sezioni dov'è previsto
+        
+        $("body").addClass("scrolla"); // Allora abilita lo scrolling
+
+    } else { // Disabilita per tutti gli altri casi
+      
+        $("body").removeClass("scrolla");
+      
+    }
+    
+    // Torna Su
+    
+    $("#torna_su").addClass("occulta"); // Nascondi il pulsante
+    $("#torna_su").removeClass("ruota"); // Ruota il pulsante
+    $(window).scroll(function() { // Allo scroll della pagina
+      if ($(this).scrollTop() === 0) { // Se si è in testa
+
+        $("#torna_su").addClass("occulta"); // Allora mostra il pulsante
+
+      } else { // Altrimenti nascondi
+
+        $("#torna_su").removeClass("occulta"); 
+
+      }
+
+    });
+    
+  }
 		
 }
 
@@ -271,7 +304,18 @@ function transizioni(contatoreClick) {
 		});
 		
 	} else if ($(window).width() <= 768) { // Altrimenti se siamo su mobile 
-		
+    
+		$(".sezione_rapida").on("click tap", function() { // Al click della categoria
+      
+      $("body").animate({ // Torna in testa se non ci si trova già
+        
+        scrollTop: 0
+        
+      });
+      $("body").toggleClass("scrolla"); // Disattiva-Abilita scroll
+      $("#container_cataloghi").toggleClass("spaziatura_bassa"); // Padding bottom su container
+      
+    });
 		$(".pulsante_rapida").on("click tap", function() { // Al click sul pulsante
 
 			if ($(this).attr("id") === "rapida_dx") { // Se si è cliccato su avanti
@@ -382,6 +426,12 @@ function transizioni(contatoreClick) {
 	$(".hamburger").on("click tap", function() { // Al primo click sul pulsante
 		
 		if (!$(this).hasClass("is-active")) { // Se il menu risulta chiuso aprilo
+      
+      if ($(window).width() < 768) { // E Se siamo su mobile
+        
+        $("body").removeClass("scrolla"); // Allora blocca lo scrolling  
+
+      }
 		
 			$(this).addClass("is-active"); // Attiva il pulsante
 			$("#pulsante_menu").addClass("pulsante_attivo"); // Trasla il pulsante a destra
@@ -426,6 +476,12 @@ function transizioni(contatoreClick) {
 			}, 2700);
 		
 		} else { // Altrimenti chiudilo
+      
+      if ($(window).width() < 768) { // E Se siamo su mobile
+        
+        $("body").addClass("scrolla"); // Allora sblocca lo scrolling  
+        
+      }
 					
 			$("#social a:nth-child(even)").removeClass("visibile_parziale animated rotateIn"); // Anima voci di menu pari
 			$("#social a:nth-child(even)").addClass("animated rotateOut"); // Anima voci di menu pari
@@ -559,35 +615,47 @@ function transizioni(contatoreClick) {
         
     });
     $("#torna_su").on("click tap", function() { // Al click del pulsante
-									
-			  // Controllo posizione pagina
-	
-        if ($("#container").scrollTop() === 0) { // Se si è in testa alla pagina
-            
-            $("#container").animate({ // Vai all'ancora con animazione
-        
-            	scrollTop: $("#activities_incontro").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
-            
-        		}, "slow");
-		
-        } else if (($("#container").scrollTop() >= $("#activities_summary").outerHeight()) && $("#container").scrollTop() < $("#activities_esecutiva").offset().top + ($(".summary").outerHeight() * 3)) {  // Altrimenti se si è superata la prima sezione ma non si è raggiunta l'ultima
+      
+        if ($(window).width() > 480) { // Se non siamo su smartphone
+          									
+            // Controllo posizione pagina
 
-					$("#container").animate({ // Torna su con animazione
-			
-						scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
-				
-					}, "slow");	
+            if ($("#container").scrollTop() === 0) { // Se si è in testa alla pagina
 
-				} else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+                $("#container").animate({ // Vai all'ancora con animazione
 
-					$("#container").animate({ // Torna su con animazione
+                  scrollTop: $("#activities_incontro").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
 
-						scrollTop: 0
+                }, "slow");
 
-					}, "slow");
-					$(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
+            } else if (($("#container").scrollTop() >= $("#activities_summary").outerHeight()) && $("#container").scrollTop() < $("#activities_esecutiva").offset().top + ($(".summary").outerHeight() * 3)) {  // Altrimenti se si è superata la prima sezione ma non si è raggiunta l'ultima
 
-				}  
+              $("#container").animate({ // Torna su con animazione
+
+                scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
+
+              }, "slow");	
+
+            } else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+
+              $("#container").animate({ // Torna su con animazione
+
+                scrollTop: 0
+
+              }, "slow");
+              $(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
+
+            }  
+          
+        } else { // Altrimenti 
+
+            $("body").animate({ // Torna in cima alla pagina
+              
+                scrollTop: 0
+              
+            }, "slow");
+          
+        }
 								     
     });
 	

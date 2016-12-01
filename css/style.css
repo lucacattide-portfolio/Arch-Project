@@ -56,6 +56,8 @@ h7 { display: none; }
 
 .assente { display: none !important; }
 
+.spaziatura_bassa { padding-bottom: 1em !important; }
+
 .clear { clear: both; }
 
 .disattivato
@@ -3843,7 +3845,14 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 768px) {
 
-#container_cataloghi { top: 11em; }
+.elenco_catalogo
+{
+  padding: 3em;
+  width: 89%;
+  height: calc(60% - 10.6em);
+}
+
+#container_cataloghi { top: 10.9em; }
 
 .container_aperto
 {
@@ -4292,7 +4301,22 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 375px) { /* iPhone 6/7 */
 
-body { overflow: auto; }
+.elenco_catalogo
+{
+  padding: 0;
+  width: 100%;
+  height: calc(60% - 4.6em);
+}
+
+.logo_menu { left: 32px; }
+
+.sezione_rapida h3 { padding: 1em 32px; }
+
+#header_mobile
+{
+  width: calc(100% - 64px);
+  padding: 2.5em 32px;
+}
 
 #banner_cookies p
 {
@@ -4307,7 +4331,11 @@ body { overflow: auto; }
   padding-bottom: 1em;
 }
 
-#pulsante_menu { position: absolute; }
+#pulsante_menu
+{
+  position: absolute;
+  right: 32px;
+}
 
 #menu_voci { margin: 5em auto 2em; }
 
@@ -4404,18 +4432,18 @@ body { overflow: auto; }
 
 #progetto_slides.slideshow .slides-pagination { display: none; }
 
-.titolo_descrizione p { padding: 1.5em 0 1.5em 24px; }
+.titolo_descrizione p { padding: 1.5em 0 1.5em 32px; }
 
 .descrizione
 {
-  bottom: 1em;
+  bottom: 0;
   position: fixed;
 }
 
 .corpo_descrizione
 {
-  padding: 1em 24px;
-  width: calc(100% - 48px);
+  padding: 1em 32px;
+  width: calc(100% - 64px);
   max-height: 10em;
 }
 
@@ -4423,16 +4451,126 @@ body { overflow: auto; }
 
 .summary
 {
-  height: 25em;
-  min-height: 25em;
+  height: auto;
+  min-height: auto;
 }
 
-.titolo_summary { padding-top: 10em; }
+.titolo_summary { padding-top: 5em; }
+
+.corpo_summary { width: 84%; }
 
 .sottotitolo_summary
 {
   font-size: 1.1rem;
-  width: 76%;
+  width: 84%;
+}
+
+.intestazione
+{
+  height: auto;
+  transform: none;
+}
+
+.corpo_summary p
+{
+  padding: 1em 16px 5em;
+  margin: 1em auto 0;
+}
+
+.foto_activities { display: none; }
+
+.contenuti
+{
+  display: block;
+  position: relative;
+  top: auto;
+  transform: none;
+  margin: 4em auto;
+}
+
+.paragrafo_activities
+{
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  display: block;
+}
+
+.paragrafo_activities[rel="incontro"] { float: none; }
+
+.paragrafo_activities[rel="rilievo"] { float: none; }
+
+#activities_definitiva { background-color: transparent; }
+
+.paragrafo_activities[rel="progettazione_definitiva"]
+{
+  float: none;
+  background-color: #ccc;
+}
+
+.paragrafo_activities[rel="progettazione_esecutiva"] { float: none; }
+
+.contenuti hgroup { width: 68%; }
+
+.paragrafo_activities .corpo_paragrafo p { width: 78%; }
+
+#showroom_slides.slideshow .slides-container { max-height: calc(100% - 12em); }
+
+#showroom_slides.slideshow .slides-pagination { margin: 0; }
+
+#contacts_pagina
+{
+  height: auto;
+  min-height: auto;
+}
+
+#mappa
+{
+  height: 19em;
+  min-height: 19em;
+}
+
+#recapiti
+{
+  height: auto;
+  min-height: auto;
+}
+
+#titolo_contatti { display: none; }
+
+.box_recapiti
+{
+  display: block;
+  width: 100%;
+  height: 19em;
+  min-height: 19em;
+  float: none;
+  margin-top: -1em;
+}
+
+#logo_recapiti { background-size: 42%; }
+
+#container_recapiti { top: 50%; }
+
+#container_recapiti span { width: 34%; }
+
+#container_cataloghi { top: 10.9em; }
+
+.foto_catalogo { visibility: hidden; }
+
+#popup_cataloghi { width: 82%; }
+
+.container_fornitori
+{
+  display: block;
+  float: none;
+  width: 90%;
+}
+
+.lettera_catalogo
+{
+  padding-left: 16px;
+  width: calc(24% - 16px);
 }
 }
 
