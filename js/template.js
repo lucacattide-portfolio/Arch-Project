@@ -5,7 +5,6 @@ $(document).ready(function() {
 	inizializza(); // Invocazione Funzione Inizializzazione
 	transizioni(); // Invocazione Funzione Transizioni
 	mappa(); // Inizializzazione Funzione Mappa
-	//modifica(); // Invocazione Funzione Modifica Dati
 	
 });
 
@@ -75,37 +74,46 @@ function inizializza() {
 			enable: true, 
 			axis: "y" 
 			
-			},
+		},
 		theme: "light"
 		
 	});
-		
-	// Activities - Menu Contestuale 
-    
-    /*$(".menu_activities").each(function(index) { // Per ogni voce
+  
+  // Admin - Navigazione Rapida
+  
+  if ($(window).width() <= 768) { // Da tablet in giù
+  
+      if ($("#profilo").length > 0) { // Se siamo nella pagina account
 
-        if (index === 0) { // Al primo elemento calcola su base fissa
-            console.log("n", index);
-            $(this).css({ // Calcola coordinate
-                
-                top: $(this).offset().top + $(this).height(), // In base al primo elemento
-                right: "calc(0 - " + $("voce", this).width() + ")" // In base alla voce
-                
-            });
-            
-        } else { // Per gli altri in base al precedente
-			
-            $(this).css({ // Calcola coordinate
-                
-                top: $(this).prev().offset().top + $(this).height(), // In base al primo elemento
-                right: "calc(0 - " + $("voce", this).width() + ")" // In base alla voce
-                
-            });
+        $("#navigazione_rapida").css("right", "48px"); 
+        $("body").addClass("scrolla"); // Allora abilita lo scrolling
+        $("#container").css({
+          
+          "height": "auto",
+          "min-height": "auto"
+          
+        });
+        $("#pulsante_menu").css("position", "absolute"); // Fissa in alto il pulsante menu
+        // Raggruppa avatar e modifica in un container
+        $("#avatar").wrap("<div id='container_avatar'></div>"); 
+        $(".modifica_pulsante").appendTo("#container_avatar");
+
+      } else { // Altrimenti 
+
+        $("#navigazione_rapida").css("right", "0");  
+        $("body").removeClass("scrolla"); // Disabilita lo scrolling
+        $("#container").css({
+          
+          "height": "100%",
+          "min-height": "100%"
+          
+        });
+        $("#pulsante_menu").css("position", "fixed");
         
-        }
-
-	});*/
-	
+      }
+    
+  }
+			
 	// Admin - Categorie
 	
 	// Controllo Attivi
@@ -144,10 +152,10 @@ function inizializza() {
   
   if ($(window).width() < 768 ) { // Se siamo su mobile
     
-    if (($("#home").length > 0) || ($("#progetti").length > 0) || ($("#activities_summary").length > 0) || ($("#contacts_pagina").length > 0)) { // E se siamo in una delle sezioni dov'è previsto
+    if (($("#home").length > 0) || ($("#progetti").length > 0) || ($("#activities_summary").length > 0) || ($("#contacts_pagina").length > 0) || ($("#registrazione").length > 0)) { // E se siamo in una delle sezioni dov'è previsto
         
         $("body").addClass("scrolla"); // Allora abilita lo scrolling
-
+          
     } else { // Disabilita per tutti gli altri casi
       
         $("body").removeClass("scrolla");
@@ -171,8 +179,32 @@ function inizializza() {
 
     });
     
+    // Centratura Mobile
+
+    // Contatti
+
+    if ($("#login").length > 0 || $("#recupero").length > 0) { // Se siamo su mobile in area amministrativa
+
+      $("#container").css({ // Lascia la cenratura verticale
+
+        "height": "calc(100% - 12em)",
+        "overflow": "hidden"
+
+      });
+
+    } else {
+
+      $("#container").css({ // Altrimenti scrolla
+
+        "height": "auto",
+        "overflow": "auto"
+
+      });
+
+    }
+    
   }
-		
+  		
 }
 
 
@@ -577,87 +609,84 @@ function transizioni(contatoreClick) {
 		}, index * 200);
 	
 	});
-    $(".menu_projects").on("click tap", function(/*e*/) { // Al click della voce 
-        
-        //e.preventDefault(); // Disattiva funzione standard link
-		
+  $(".menu_projects").on("click tap", function(/*e*/) { // Al click della voce 
 		$(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
 		$(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
 
-    });
-    $(".menu_activities").on("click tap", function(e) { // Al click della voce 
-        
-        e.preventDefault(); // Disattiva funzione standard link
-		
-				$(".menu_activities .numero").removeClass("numero_attivo"); // Disattiva precedeti selezioni
-				$("#container").animate({ // Vai all'ancora con animazione
+  });
+  $(".menu_activities").on("click tap", function(e) { // Al click della voce 
 
-						scrollTop: $(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
+      e.preventDefault(); // Disattiva funzione standard link
 
-				}, "slow");
-				$(".numero", this).addClass("numero_attivo"); // Rende voce attiva
+      $(".menu_activities .numero").removeClass("numero_attivo"); // Disattiva precedeti selezioni
+      $("#container").animate({ // Vai all'ancora con animazione
 
-    });
-    
-    // Torna Su
-    
-    $("#container").on("scroll", function() { // Allo scroll del container
+          scrollTop: $(".summary[rel='" + $(this).attr("rel") + "']").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
 
-        if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+      }, "slow");
+      $(".numero", this).addClass("numero_attivo"); // Rende voce attiva
 
-					$("#torna_su").removeClass("ruota"); // Ruota
+  });
 
-						} else { // Altrimenti
+  // Torna Su
 
-					$("#torna_su").addClass("ruota"); // Ruota
+  $("#container").on("scroll", function() { // Allo scroll del container
 
-				}
-        
-    });
-    $("#torna_su").on("click tap", function() { // Al click del pulsante
-      
-        if ($(window).width() > 480) { // Se non siamo su smartphone
-          									
-            // Controllo posizione pagina
+      if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) { // Altrimenti se si è arrivati alla fine dello scroll ruota 
 
-            if ($("#container").scrollTop() === 0) { // Se si è in testa alla pagina
+        $("#torna_su").removeClass("ruota"); // Ruota
 
-                $("#container").animate({ // Vai all'ancora con animazione
+          } else { // Altrimenti
 
-                  scrollTop: $("#activities_incontro").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
+        $("#torna_su").addClass("ruota"); // Ruota
 
-                }, "slow");
+      }
 
-            } else if (($("#container").scrollTop() >= $("#activities_summary").outerHeight()) && $("#container").scrollTop() < $("#activities_esecutiva").offset().top + ($(".summary").outerHeight() * 3)) {  // Altrimenti se si è superata la prima sezione ma non si è raggiunta l'ultima
+  });
+  $("#torna_su").on("click tap", function() { // Al click del pulsante
 
-              $("#container").animate({ // Torna su con animazione
+      if ($(window).width() > 480) { // Se non siamo su smartphone
 
-                scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
+          // Controllo posizione pagina
 
-              }, "slow");	
+          if ($("#container").scrollTop() === 0) { // Se si è in testa alla pagina
 
-            } else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+              $("#container").animate({ // Vai all'ancora con animazione
 
-              $("#container").animate({ // Torna su con animazione
-
-                scrollTop: 0
+                scrollTop: $("#activities_incontro").offset().top - ($("#container").offset().top - $("#container").scrollTop()) // Posizione elemento di destinazione - (posizione container elemento - scroll container elemento)
 
               }, "slow");
-              $(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
 
-            }  
-          
-        } else { // Altrimenti 
+          } else if (($("#container").scrollTop() >= $("#activities_summary").outerHeight()) && $("#container").scrollTop() < $("#activities_esecutiva").offset().top + ($(".summary").outerHeight() * 3)) {  // Altrimenti se si è superata la prima sezione ma non si è raggiunta l'ultima
 
-            $("body").animate({ // Torna in cima alla pagina
-              
-                scrollTop: 0
-              
+            $("#container").animate({ // Torna su con animazione
+
+              scrollTop: $("#container").scrollTop() + $(".summary").outerHeight()
+
+            }, "slow");	
+
+          } else { // Altrimenti se si è arrivati alla fine dello scroll ruota 
+
+            $("#container").animate({ // Torna su con animazione
+
+              scrollTop: 0
+
             }, "slow");
-          
-        }
-								     
-    });
+            $(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
+
+          }  
+
+      } else { // Altrimenti 
+
+          $("body").animate({ // Torna in cima alla pagina
+
+              scrollTop: 0
+
+          }, "slow");
+
+      }
+
+  });
 	
 	// Admin - Files
 	
@@ -804,37 +833,11 @@ function statiPopup() {
 }
 
 
-// Funzione Modifica Dati
-
-/*function modifica() {
-	
-	$("#salva").on("click tap", function(e) { // Al click del pulsante
-	
-		e.preventDefault(); // Disabilita funzionalità standard pulsante
-	
-		// Aggiorna i dati dei rispettivi campi
-		console.log("ok", $("#nome_utente_modifica").val());
-		$(".info_profilo[data-rel='nome_cognome']").html("" + $("#nome_utente_modifica").val() + " " + $("#cognome_utente_modifica").val());
-		$(".info_profilo[data-rel='email']").html($("#email_utente_modifica").val());
-		$(".info_profilo[data-rel='cap']").html($("#cap_utente_modifica").val());
-		$(".info_profilo[data-rel='telefono']").html($("#telefono_utente_modifica").val());
-		$(".info_profilo[data-rel='ragione']").html($("#ragione_utente_modifica").val());
-		$(".info_profilo[data-rel='indirizzo']").html($("#indirizzo_utente_modifica").val());
-		$(".info_profilo[data-rel='fiscale']").html($("#fiscale_utente_modifica").val());
-		$(".info_profilo[data-rel='provincia']").html($("#provincia_utente_modifica").val());
-		
-		return false; // Disattiva refresh pagina
-		
-	});
-	
-}
-*/
-
 // Funzione Mappa
 
 function mappa() {
 	
-  if ($("#mappa").length > 0) { // Se siamo in contatti allora inizializza APU
+  if ($("#mappa").length > 0) { // Se siamo in contatti allora inizializza API
 	
 	  // Dichiarazione Variabili
 

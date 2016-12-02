@@ -3845,6 +3845,121 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 768px) {
 
+#profilo
+{
+  display: block;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  z-index: 5000;
+  background-color: #fff;
+}
+
+#header_profilo { display: none; }
+
+#container_area { max-height: none; }
+
+#container_clienti { padding: 3em; }
+
+#area_clienti
+{
+  width: 100%;
+  height: 22em;
+}
+
+#container_avatar
+{
+  display: inline-block;
+  position: relative;
+  width: calc(19% - 16px);
+  height: auto;
+  overflow: hidden;
+  float: left;
+}
+
+#avatar
+{
+  width: 100%;
+  height: 9em;
+  display: block;
+  float: none;
+}
+
+.modifica_pulsante
+{
+  display: block;
+  float: left;
+  margin: 1em 0 0;
+  padding: .7em 15px;
+}
+
+#dati_profilo
+{
+  display: inline-block;
+  width: calc(81% - 4em);
+  padding-left: 4em;
+}
+
+#nome_profilo { padding: 0; }
+
+.info_profilo { padding-top: 1.9em; }
+
+.autenticazione { width: 37%; }
+
+#file_utente { width: 100%; }
+
+.titolo_autenticazione
+{
+  font-size: 1.7rem;
+  margin: 0 auto .7em;
+}
+
+#form_login input { font-size: .9rem; }
+
+#entra_login { width: 100%; }
+
+.recupero_password
+{
+  margin-left: 0;
+  margin-top: 2em;
+  font-size: .8rem;
+}
+
+#form_recupero input { font-size: .9rem; }
+
+#entra_recupero { width: 100%; }
+
+#email_login { padding: 1em 30px; }
+
+#email_recupero { padding: 1em 30px; }
+
+#password_login { padding: 1em 30px; }
+
+#registrazione .autenticazione { width: 76%; }
+
+.sottotitolo_autenticazione
+{
+  font-size: .9rem;
+  margin: 1.5em auto 1em;
+}
+
+#form_registrazione input[type="text"], #form_registrazione input[type="number"], #form_registrazione input[type="email"], #form_registrazione input[type="password"], #form_registrazione input[type="tel"] { width: calc(50% - 5.1em); }
+
+#form_registrazione input { font-size: .9rem; }
+
+#form_registrazione > div span { font-size: .8rem; }
+
+#form_registrazione > div span p { margin: 1em 0 1em 6px; }
+
+label[for="accettazione"] { line-height: 1rem; }
+
+#entra_registrazione { width: calc(51% - 16px); }
+
 .elenco_catalogo
 {
   padding: 3em;
@@ -4300,6 +4415,40 @@ label[for="accettazione"]:hover { cursor: pointer; }
 /* Inizio Smartphone ******************************/
 
 @media all and (max-width: 375px) { /* iPhone 6/7 */
+
+.autenticazione
+{
+  top: auto;
+  transform: none;
+  padding: 4em 0;
+}
+
+#form_registrazione input { display: block; }
+
+#form_registrazione input[type="text"], #form_registrazione input[type="number"], #form_registrazione input[type="email"], #form_registrazione input[type="password"], #form_registrazione input[type="tel"] { width: calc(100% - 5.1em); }
+
+#form_registrazione input:first-child { margin: 1em auto 0; }
+
+#form_registrazione input:last-child:not([type="submit"]) { margin: 1em auto 0; }
+
+#form_registrazione > div span
+{
+  display: block;
+  position: relative;
+  width: calc(100% - 8px);
+  margin: 0 auto;
+  float: none;
+}
+
+#form_registrazione > div span p { margin: 1em auto; }
+
+#accettazione { display: inline-block !important; }
+
+#entra_registrazione
+{
+  width: 94%;
+  margin: 2em auto 0;
+}
 
 .elenco_catalogo
 {

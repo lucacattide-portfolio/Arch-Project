@@ -112,6 +112,9 @@
         
         <p class="eccezioni"> <!--Notifiche-->        
         </p>
+        
+        <div class="clear"> <!--Clear-->
+        </div>
     
     </article>
     
