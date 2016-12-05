@@ -3845,6 +3845,52 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 768px) {
 
+.modale { top: 0; }
+
+.popup { width: 88%; }
+
+#file_utente #container_utente { max-height: calc(100% - 11em); }
+
+.header_admin_elemento
+{
+  width: calc(100% - 96px);
+  padding: .5em 48px;
+}
+
+.catalogo_admin_elemento
+{
+  width: calc(100% - 96px);
+  padding: .55em 48px;
+}
+
+#titolo_clienti { padding: .9em 16px; }
+
+#titolo_utente { padding: .9em 16px; }
+
+#titolo_admin { padding: .9em 16px; }
+
+#titolo_categorie_profilo { padding: .9em 16px; }
+
+.categorie_admin_elemento { width: 33.33%; }
+
+#file_utente
+{
+  width: calc(37% - 2px);
+  height: 22em;
+}
+
+.file { width: calc(33.33% - 2.5em); }
+
+#container_utente { padding: 2em 3em 0; }
+
+#container_admin_files { padding: 2em 3em 0; }
+
+#file_admin
+{
+  width: 100%;
+  height: 22em;
+}
+
 #profilo
 {
   display: block;
@@ -4415,6 +4461,139 @@ label[for="accettazione"] { line-height: 1rem; }
 /* Inizio Smartphone ******************************/
 
 @media all and (max-width: 375px) { /* iPhone 6/7 */
+
+#carica { font-size: .8rem; }
+
+#form_carica input:not(#carica) { padding: .7em 16px .7em 24px; }
+
+#form_carica label { font-size: .8rem; }
+
+.custom_input span { padding: 1.4em 20px; }
+
+.catalogo_admin_elemento
+{
+  width: calc(100% - 64px);
+  padding: .55em 32px;
+}
+
+.categorie_admin_elemento
+{
+  width: 100%;
+  display: block;
+  float: none;
+}
+
+.header_admin_elemento
+{
+  padding: .5em 48px;
+  text-align: center;
+}
+
+#titolo_categorie_profilo { display: none; }
+
+#container_admin_files
+{
+  padding: 1em 2em 0;
+  max-height: calc(100% - 7.5em);
+}
+
+#file_admin
+{
+  height: 27em;
+  display: block;
+  float: none;
+}
+
+#container_toolbar
+{
+  display: inline-block;
+  position: absolute;
+  float: none;
+  left: 0;
+  right: 0;
+  bottom: 2em;
+  margin: 0 auto;
+}
+
+#notifica_toolbar
+{
+  width: 100%;
+  text-align: center;
+}
+
+#toolbar_utente
+{
+  width: calc(100% - 64px);
+  min-height: 7.5em;
+  max-height: none;
+  text-align: center;
+}
+
+#navigazione_rapida { right: 0 !important; }
+
+#area_clienti
+{
+  display: block;
+  position: relative;
+  float: none;
+  width: 100%;
+}
+
+#container_utente { padding: 1em 2em 0; }
+
+.file
+{
+  padding: 1em 0;
+  width: 100%;
+}
+
+#file_utente
+{
+  height: 36em;
+  display: block;
+  float: none;
+}
+
+#cover_avatar
+{
+  width: 38px;
+  height: 38px;
+}
+
+.modifica_pulsante { padding: .7em 14px; }
+
+#area_clienti { height: auto; }
+
+.info_profilo
+{
+  width: 100%;
+  padding-right: 0;
+  padding-top: 2em;
+}
+
+#container_clienti
+{
+  width: calc(100% - 6em);
+  height: auto;
+}
+
+#container_avatar
+{
+  width: calc(46% - 16px);
+  padding: 0;
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+
+#dati_profilo
+{
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-top: 1em;
+  text-align: center;
+}
 
 .autenticazione
 {

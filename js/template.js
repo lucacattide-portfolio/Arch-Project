@@ -81,12 +81,12 @@ function inizializza() {
   
   // Admin - Navigazione Rapida
   
-  if ($(window).width() <= 768) { // Da tablet in giù
-  
+  if ($(window).width() <= 768 ) { // Da tablet in giù
+console.log("ok");
       if ($("#profilo").length > 0) { // Se siamo nella pagina account
-
+        
         $("#navigazione_rapida").css("right", "48px"); 
-        $("body").addClass("scrolla"); // Allora abilita lo scrolling
+        $("body").css("overflow", "auto"); // Allora abilita lo scrolling
         $("#container").css({
           
           "height": "auto",
@@ -101,7 +101,7 @@ function inizializza() {
       } else { // Altrimenti 
 
         $("#navigazione_rapida").css("right", "0");  
-        $("body").removeClass("scrolla"); // Disabilita lo scrolling
+        $("body").css("overflow", "hidden"); // Disabilita lo scrolling
         $("#container").css({
           
           "height": "100%",
@@ -345,7 +345,16 @@ function transizioni(contatoreClick) {
         
       });
       $("body").toggleClass("scrolla"); // Disattiva-Abilita scroll
-      $("#container_cataloghi").toggleClass("spaziatura_bassa"); // Padding bottom su container
+      
+      if ($("#container_cataloghi").hasClass("spaziatura_bassa")) {
+      
+        $("#container_cataloghi").removeClass("spaziatura_bassa"); // Padding bottom su container
+        
+      } else {
+        
+        $("#container_cataloghi").addClass("spaziatura_bassa"); // Padding bottom su container
+             
+      } 
       
     });
 		$(".pulsante_rapida").on("click tap", function() { // Al click sul pulsante
@@ -783,7 +792,7 @@ function transizioni(contatoreClick) {
 	// Controllo Scrolling
 	
 	if ($("#cookies_summary").length > 0) { // Se siamo nella sezione cookies
-		console.log("ok");
+
 		$("#container").addClass("scrolla"); // Attiva scrolling
 		
 	} else { // Altrimenti disattiva
