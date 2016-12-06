@@ -1816,6 +1816,9 @@
         </div>
         
     	<!--Fine Categoria-->
+    	
+    	<div class="clear">
+      </div>
     
     </div>
     

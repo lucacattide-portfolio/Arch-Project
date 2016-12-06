@@ -119,6 +119,9 @@
     </article>
     
     <!--Fine Autenticazione-->
+    
+    <div class="clear">
+    </div>
 
 </section>
 
