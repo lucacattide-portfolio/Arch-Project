@@ -1,17 +1,17 @@
 <?php
 
 if( $_SERVER['SERVER_NAME'] == "localhost" ){	
-	$host="localhost";
-    $user="luca";
-    $password="";
-    $db="archeproject";
+	$host="62.149.150.246";
+    $user="Sql903871";
+    $password="ia1wckpzg3";
+    $db="Sql903871_4";
 	
 }else{
 	
-    $host="";
-    $user="";
-    $password="";
-    $db="";
+    $host="62.149.150.246";
+    $user="Sql903871";
+    $password="ia1wckpzg3";
+    $db="Sql903871_4";
 }
 
 // mi connetto al database

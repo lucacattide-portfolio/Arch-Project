@@ -78,7 +78,7 @@
 					
 						while ($rowArticolo = $rArticolo->fetch_array()): // Allora finchè esistono pagine
 					
-							$siteurl = "http://localhost/archeproject/"; // Allora inizializza l'url	
+							$siteurl = "http://www.laboratorio-a.com/archeproject/"; // Allora inizializza l'url	
 							
 						endwhile;
 						
@@ -97,7 +97,7 @@
  	// Impostazioni URL  - Immagini
  
  	//$siteurl_base = "http://www.blancdesir.eu/"; // Inizializzazione URL base
-	$siteurl_base = "http://localhost/archeproject/";
+	$siteurl_base = "http://www.laboratorio-a.com/archeproject/";
 
 ?>
 
