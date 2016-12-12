@@ -1,4 +1,6 @@
 <!--
+  
+var indiceAttivo = 0;
 
 $(document).ready(function () {
 
@@ -443,7 +445,17 @@ function transizioni(contatoreClick) {
       $("#container_cataloghi").addClass("container_aperto"); // Apri le categorie
       $(".catalogo[rel='" + $(this).attr("rel") + "']").parent().siblings().children().removeClass("catalogo_aperto"); // Nascondi cataloghi precedentemente aperti
       $(".catalogo[rel='" + $(this).attr("rel") + "']").addClass("catalogo_aperto"); // Apri catalogo selezionato
+      
+      // SI APRE QUI LA PRIMA POPUP
+      
+      var azienda = $(".catalogo[rel='" + $(this).attr("rel") + "'] .container_fornitori:first-child .ragione_fornitore:first-child a").attr("data-azienda"); // Dichiarazione ed Inizializzazione ID Azienda
+      var categoria = $(".catalogo[rel='" + $(this).attr("rel") + "'] .container_fornitori:first-child .ragione_fornitore:first-child a").attr("data-categoria"); // Dichiarazione ed Inizializzazione ID Categoria
+      $(".catalogo[rel='" + $(this).attr("rel") + "'] .container_fornitori:first-child .ragione_fornitore:first-child a").addClass("ragione_attiva");
+      $("#popup_cataloghi").removeClass("animated slideOutDown"); // Rimuovi animazioni chiusura
+      $("#popup_cataloghi").addClass("presente visibile animated slideInUp"); // Mostra Popup
 
+      caricaCatalogo(azienda, categoria); // Invocazione Funzione Catalogo
+      
     }
 
     // Controllo Posizione Popup
@@ -667,7 +679,38 @@ function transizioni(contatoreClick) {
 
     }, "slow");
     $(".numero", this).addClass("numero_attivo"); // Rende voce attiva
-
+    
+    // Controllo Indice
+    
+    switch($(this).attr("rel")) {
+        
+      case "incontro":
+        
+        indiceAttivo = 1;
+        break;
+        
+      case "rilievo":
+        
+        indiceAttivo = 2;
+        break;
+      
+      case "progettazione_preliminare":
+        
+        indiceAttivo = 3;
+        break;
+        
+      case "progettazione_definitiva":
+        
+        indiceAttivo = 4;
+        break;
+        
+      case "progettazione_esecutiva":
+        
+        indiceAttivo = 5;
+        break; 
+        
+    }
+    
   });
 
   // Torna Su
@@ -688,6 +731,47 @@ function transizioni(contatoreClick) {
   $("#torna_su").on("click tap", function () { // Al click del pulsante
 
     if ($(window).width() > 480) { // Se non siamo su smartphone
+        
+      switch(indiceAttivo) {
+
+        case 0:
+
+          $(".menu_activities .numero").removeClass("numero_attivo");
+          $(".menu_activities .numero").eq(0).addClass("numero_attivo");
+
+          break;
+
+        case 1:
+
+          $(".menu_activities .numero").removeClass("numero_attivo");
+          $(".menu_activities .numero").eq(1).addClass("numero_attivo");
+
+          break;
+
+        case 2:
+
+          $(".menu_activities .numero").removeClass("numero_attivo");
+          $(".menu_activities .numero").eq(2).addClass("numero_attivo");
+
+          break;
+
+        case 3:
+
+          $(".menu_activities .numero").removeClass("numero_attivo");
+          $(".menu_activities .numero").eq(3).addClass("numero_attivo");
+
+          break;
+
+        case 4:
+
+          $(".menu_activities .numero").removeClass("numero_attivo");
+          $(".menu_activities .numero").eq(4).addClass("numero_attivo");
+
+          break;
+
+      }
+        
+      indiceAttivo++;
 
       // Controllo posizione pagina
 
@@ -715,6 +799,8 @@ function transizioni(contatoreClick) {
 
         }, "slow");
         $(".numero").removeClass("numero_attivo"); // Disattiva voci precedentemente selezionate
+        
+        indiceAttivo = 0; 
 
       }
 
@@ -725,6 +811,8 @@ function transizioni(contatoreClick) {
         scrollTop: 0
 
       }, "slow");
+      
+      indiceAttivo = 0; 
 
     }
 
