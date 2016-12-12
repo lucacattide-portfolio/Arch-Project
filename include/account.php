@@ -1,5 +1,16 @@
 <!--Inizio Account-->
 
+<?php 
+
+if(isset($_SESSION["id_utente"]) != ""):
+	
+      $sqlCli = "SELECT * FROM `cliente` WHERE cliente_id = '".$_SESSION["id_utente"]."' ";
+      $rCli = $mysqli->query($sqlCli);
+	  
+      while ($cli = $rCli->fetch_array()): 	
+
+?>
+
 <section id="profilo">
 
 	<h7> <!--Titolo-->
@@ -22,11 +33,13 @@
             
             <span id="logout" class="etichetta_pulsante deseleziona"> <!--Logout-->
             
-            	Logout
+            	<a href="http://www.laboratorio-a.com/archeproject/index.php?logoff">Logout</a>
             
             </span>
-            <span id="chiudi_profilo"> <!--Chiudi-->
-            </span>
+            
+            <a href="http://www.laboratorio-a.com/archeproject/index.php?logoff">
+				<span id="chiudi_profilo"></span>
+            </a>
             
         </div>
     
@@ -93,7 +106,7 @@
                         </h7>
                         <h2 id="nome_profilo" data-rel="nome_cognome">
                         
-                            Nome Cognome
+                            <?php echo $cli["cliente_nome"]." ".$cli["cliente_cognome"]; ?>
                             
                         </h2>
                     
@@ -101,42 +114,42 @@
                     
                     <p class="info_profilo" data-rel="email">
                     
-                    	Email
+                    	 <?php echo $cli["cliente_email"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="cap">
                     
-                    	CAP
+                    	<?php echo $cli["cliente_cap"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="relefono">
                     
-                    	Telefono
+                    	<?php echo $cli["cliente_telefono"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="ragione">
                     
-                    	Ragione sociale
+                    	<?php echo $cli["cliente_ragione_sociale"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="indirizzo">
                     
-                    	Indirizzo
+                    	<?php echo $cli["cliente_indirizzo"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="fiscale">
                     
-                    	Codice Fiscale
+                    	<?php echo $cli["cliente_codice_fiscale"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="provincia">
                     
-                    	Provincia
+                    	<?php echo $cli["cliente_provincia"]; ?>
                     
                     </p>
                     <p class="info_profilo" data-rel="iva">
                     
-                    	Partita IVA
+                    	<?php echo $cli["cliente_partita_iva"]; ?>
                     
                     </p>
                     
@@ -169,184 +182,71 @@
             
             <div id="container_utente">
             
-            	<!--Inizio Files-->
+            <!--Inizio Files-->
+          
             
-            	<div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
+            <?php 
+				
+				$sqlArticoloCliente = "SELECT * FROM `articolo` WHERE `articolo_cliente_id` = '".$_SESSION["id_utente"]."' AND articolo_url LIKE 'utente' ";
+   
+   						$rArticoloCliente = $mysqli->query($sqlArticoloCliente);
+   
+  					    $countArticoloCliente =  $rArticoloCliente->num_rows;
+						
+						if( $countArticoloCliente >= 1 ):
+							 while ( $articoloCliente = $rArticoloCliente->fetch_array() ):
+				
+									  $titolo = $articoloCliente["articolo_titolo"];
+				                      $articoloId = $articoloCliente["articolo_id"];
+			
+									   //GESTIONE IMMAGINI LOOP NELL ARTICOLO
+									   $sqlImmagine = "SELECT * FROM `immagine` WHERE `immagine_articolo_id` = ".$articoloCliente["articolo_id"]." ORDER BY `immagine_id` DESC";
+									   $rImmagine = $mysqli->query($sqlImmagine);
+									   $countImmagine =  $rImmagine->num_rows;
+									   if( $countImmagine >= 1 ):
+										while ( $rowImmagine = $rImmagine->fetch_array() ):
+											if(  $rowImmagine["immagine_tipo"] == "application/pdf" ): ?>
+												  <div class="file deseleziona">
+												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+															<span class="file_ico"> <!--Icona-->
+															</span>
+															<span class="file_nome"> <!--Nome-->
+
+																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+
+															</span>
+													</div>
+											<?php else: ?>
+												<div class="file deseleziona">
+												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+															<span class="file_ico"> <!--Icona-->
+															</span>
+															<span class="file_nome"> <!--Nome-->
+
+																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+
+															</span>
+													</div>
+											<?php 
+
+											 endif;
+										  endwhile;  
+										 endif; 
+          
+         
+
+							 endwhile;
+						  endif;
+
+			   ?>
+
+           
+           
+            
+            
+            
+            
+            	
                 
                 <!--Fine Files-->
                 
@@ -403,234 +303,63 @@
             <!--Inizio Container-->
             
             <div id="container_admin_files">
-            
-            	<!--Inizio Files-->
-            
-            	<div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                 <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                 <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                <div class="file deseleziona">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Lorem ipsum dolor sit amet, adipiscing elit
-                    
-                    </span>
-                
-            	</div>
-                
-                <!--Fine Files-->
-                
-                <div class="clear"> <!--Clear-->
-                </div>
+             
+                               <?php 
+				
+				$sqlArticoloCliente = "SELECT * FROM `articolo` WHERE `articolo_cliente_id` = '".$_SESSION["id_utente"]."' AND articolo_url LIKE 'amministratore' ";
+   
+   						$rArticoloCliente = $mysqli->query($sqlArticoloCliente);
+   
+  					    $countArticoloCliente =  $rArticoloCliente->num_rows;
+			
+						
+						if( $countArticoloCliente >= 1 ):
+							 while ( $articoloCliente = $rArticoloCliente->fetch_array() ):
+				                      
+				                      $articoloId = $articoloCliente["articolo_id"];
+				
+									  $titolo = $articoloCliente["articolo_titolo"];
+			
+									   //GESTIONE IMMAGINI LOOP NELL ARTICOLO
+									   $sqlImmagine = "SELECT * FROM `immagine` WHERE `immagine_articolo_id` = ".$articoloCliente["articolo_id"]." ORDER BY `immagine_id` DESC";
+									   $rImmagine = $mysqli->query($sqlImmagine);
+									   $countImmagine =  $rImmagine->num_rows;
+									   if( $countImmagine >= 1 ):
+										while ( $rowImmagine = $rImmagine->fetch_array() ):
+											if(  $rowImmagine["immagine_tipo"] == "application/pdf" ): ?>
+												  <div class="file deseleziona">
+												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+															<span class="file_ico"> <!--Icona-->
+															</span>
+															<span class="file_nome"> <!--Nome-->
+
+																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+
+															</span>
+													</div>
+											<?php else: ?>
+												<div class="file deseleziona">
+												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+															<span class="file_ico"> <!--Icona-->
+															</span>
+															<span class="file_nome"> <!--Nome-->
+
+																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+
+															</span>
+													</div>
+											<?php 
+
+											 endif;
+										  endwhile;  
+										 endif; 
+          
+         
+
+							 endwhile;
+						  endif;
+
+			   ?>
                                 
             </div>
             
@@ -659,6 +388,21 @@
     
     <div id="categorie_admin_container">
     
+
+      <?php
+	
+		$sqlCategoria = "SELECT * FROM `categoria`"; 
+		$rCategoria = $mysqli->query($sqlCategoria);
+		$countCategoria = $rCategoria->num_rows;
+
+	  	if($countCategoria >= 1):
+	        
+		    $j = 1;
+		
+			while ( $categoria = $rCategoria->fetch_array() ):
+		    
+	   
+		?>
     	<!--Inizio Houses-->
         
         <div class="categorie_admin_elemento">
@@ -669,12 +413,12 @@
             
             	<span class="numero_admin"> <!--Numero-->
                 
-                	01
+                	<?php echo "0".$j; ?>
                 
                 </span>
                 <span class="titolo_admin_elemento"> <!--Titolo-->
                 
-                	Houses
+                	<?php echo $categoria['categoria_nome']; ?>
                 
                 </span>
             
@@ -686,34 +430,46 @@
             
             <div class="wrapper_admin_elemento">
             
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
+            <?php 
+				
+				 $sqlMatch="SELECT * FROM `match_azienda_categoria_articolo` LEFT JOIN `articolo` ON `articolo`.articolo_categoria_id = `match_azienda_categoria_articolo`.match_categoria_id LEFT JOIN `azienda` ON `azienda`.azienda_id = `match_azienda_categoria_articolo`.match_azienda_id  WHERE `match_categoria_id` = '".$categoria["categoria_id"]."' ORDER BY `azienda`.`azienda_nome` ASC  "; 
+				 $rMatch = $mysqli->query($sqlMatch);
+		         $countMatch = $rMatch->num_rows;
+		        
+				if( $countMatch  >= 1 ):
+				 	while ( $Match = $rMatch ->fetch_array() ):
+				
+				      $sqlVisualizza="SELECT * FROM `match_cliente_cataloghi` WHERE `match_cli_cat_articolo_id`='".$Match["articolo_id"]."' ";
+				      $rVisu = $mysqli->query($sqlVisualizza);
+				      $countVisu = $rVisu->num_rows;
+				      while ( $vis = $rVisu->fetch_array() ): $visu = $vis["match_cli_cat_visibile"]; endwhile;
+				
+				
+				
+				       
+				    
+				    if( $countVisu >= 1 ):
+				    	if( $visu == "1"):
+				
+				
+				
+				
+							$sqlImmagine2 = "SELECT * FROM `immagine` WHERE `immagine_articolo_id` = ".$Match["articolo_id"]." ORDER BY `immagine_id` DESC";
+								   $rImmagine2 = $mysqli->query($sqlImmagine2);
+								   $countImmagine2 =  $rImmagine2->num_rows;
+								   if( $countImmagine2 >= 1 ):
+										while ( $rowImmagine2 = $rImmagine2->fetch_array() ):
+											$immagine2 = $rowImmagine2["immagine_label"];
+										endwhile;
+								   endif;
+				
+				
+			 ?>    
+             
+            
+           	 <a class="link_catalogo" target="_blank" href="<?php echo $siteurl_base.'img/'.$immagine2; ?>">
                 <div class="catalogo_admin_elemento">
-                
+               
                 	<span class="file_ico"> <!--Icona-->
                     </span>
                 	<span class="file_nome"> <!--Nome-->
@@ -722,7 +478,9 @@
                         
                         <span class="brand"> <!--Brand-->
                         
-                        	Nome Brand
+                        	
+                        		<?php echo $Match["azienda_nome"]; ?>
+								
                         
                         </span>
                     
@@ -732,1095 +490,42 @@
                     </div>
                 
                 </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
+              </a>
+              <?php 
+						endif;
+				   endif;
+				
+					endwhile;
+				endif;
+				
+			  ?>
                 
             	<!--Fine Catalogo-->
             
             </div>
             
         	<!--Inizio Wrapper-->
+        	
+        	<div class=”clear”></div>
+        	
         </div>
+
         
-    	<!--Fine Houses-->
-        
-        <!--Inizio Kitchen-->
-        
-        <div class="categorie_admin_elemento">
-        
-        	<!--Inizio Header-->
-        
-        	<h2 class="header_admin_elemento">
-            
-            	<span class="numero_admin"> <!--Numero-->
-                
-                	02
-                
-                </span>
-                <span class="titolo_admin_elemento"> <!--Titolo-->
-                
-                	Kitchen
-                
-                </span>
-            
-            </h2>
-            
-            <!--Fine Header-->
-        
-        	<!--Inizio Wrapper-->
-            
-            <div class="wrapper_admin_elemento">
-            
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                
-            	<!--Fine Catalogo-->
-            
-            </div>
-            
-        	<!--Inizio Wrapper-->
-        </div>
-        
-    	<!--Fine Kitchen-->
-        
-        <!--Inizio Bathroom-->
-        
-        <div class="categorie_admin_elemento">
-        
-        	<!--Inizio Header-->
-        
-        	<h2 class="header_admin_elemento">
-            
-            	<span class="numero_admin"> <!--Numero-->
-                
-                	03
-                
-                </span>
-                <span class="titolo_admin_elemento"> <!--Titolo-->
-                
-                	Bathroom
-                
-                </span>
-            
-            </h2>
-            
-            <!--Fine Header-->
-        
-        	<!--Inizio Wrapper-->
-            
-            <div class="wrapper_admin_elemento">
-            
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                
-            	<!--Fine Catalogo-->
-            
-            </div>
-            
-        	<!--Inizio Wrapper-->
-        </div>
-        
-    	<!--Fine Bathroom-->
-        
-        <!--Inizio Living Room-->
-        
-        <div class="categorie_admin_elemento">
-        
-        	<!--Inizio Header-->
-        
-        	<h2 class="header_admin_elemento">
-            
-            	<span class="numero_admin"> <!--Numero-->
-                
-                	04
-                
-                </span>
-                <span class="titolo_admin_elemento"> <!--Titolo-->
-                
-                	Living Room
-                
-                </span>
-            
-            </h2>
-            
-            <!--Fine Header-->
-        
-        	<!--Inizio Wrapper-->
-            
-            <div class="wrapper_admin_elemento">
-            
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                
-            	<!--Fine Catalogo-->
-            
-            </div>
-            
-        	<!--Inizio Wrapper-->
-        </div>
-        
-    	<!--Fine Living Room-->
-        
-        <!--Inizio Offices-->
-        
-        <div class="categorie_admin_elemento">
-        
-        	<!--Inizio Header-->
-        
-        	<h2 class="header_admin_elemento">
-            
-            	<span class="numero_admin"> <!--Numero-->
-                
-                	05
-                
-                </span>
-                <span class="titolo_admin_elemento"> <!--Titolo-->
-                
-                	Offices
-                
-                </span>
-            
-            </h2>
-            
-            <!--Fine Header-->
-        
-        	<!--Inizio Wrapper-->
-            
-            <div class="wrapper_admin_elemento">
-            
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                
-            	<!--Fine Catalogo-->
-            
-            </div>
-            
-        	<!--Inizio Wrapper-->
+    <?php 
+		
+		      $j++; 
+		  endwhile;
+	    endif;
+		
+	?>	
+           
         </div>
         
     	<!--Fine Offices-->
         
         <!--Inizio Various-->
         
-        <div class="categorie_admin_elemento">
-        
-        	<!--Inizio Header-->
-        
-        	<h2 class="header_admin_elemento">
-            
-            	<span class="numero_admin"> <!--Numero-->
-                
-                	06
-                
-                </span>
-                <span class="titolo_admin_elemento"> <!--Titolo-->
-                
-                	Various
-                
-                </span>
-            
-            </h2>
-            
-            <!--Fine Header-->
-        
-        	<!--Inizio Wrapper-->
-            
-            <div class="wrapper_admin_elemento">
-            
-            	<!--Inizio Catalogo-->
-                
-                <a href="#" title="">
-                
-                    <div class="catalogo_admin_elemento">
-                    
-                        <span class="file_ico"> <!--Icona-->
-                        </span>
-                        <span class="file_nome"> <!--Nome-->
-                        
-                            Catalogo 
-                            
-                            <span class="brand"> <!--Brand-->
-                            
-                                Nome Brand
-                            
-                            </span>
-                        
-                        </span>
-                    
-                        <div class="clear"> <!--Clear-->
-                        </div>
-                    
-                    </div>
-                
-                </a>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                 <div class="catalogo_admin_elemento">
-                
-                	<span class="file_ico"> <!--Icona-->
-                    </span>
-                	<span class="file_nome"> <!--Nome-->
-                    
-                    	Catalogo 
-                        
-                        <span class="brand"> <!--Brand-->
-                        
-                        	Nome Brand
-                        
-                        </span>
-                    
-                    </span>
-                
-                	<div class="clear"> <!--Clear-->
-                    </div>
-                
-                </div>
-                
-            	<!--Fine Catalogo-->
-            
-            </div>
-            
-        	<!--Inizio Wrapper-->
-        </div>
-        
-    	<!--Fine Categoria-->
-    	
-    	<div class="clear">
-      </div>
-    
-    </div>
+
     
     <!--Fine Container-->
 
@@ -1870,7 +575,10 @@
         
             <!--Inizio Form-->
               
-            <form id="form_carica">
+            <form id="form_carica" enctype="multipart/form-data" action="" method="post">
+                <input type="hidden" name="nuovoArticolo"/>
+                <input type="hidden" name="articolo_cliente_id" value="<?php echo $_SESSION["id_utente"]; ?>" />
+                <input type="hidden" name="articolo_url" value="utente"/>
               
                 <legend> <!--Legenda-->
                       
@@ -1886,7 +594,7 @@
                 
                         Rinomina File
                 
-                        <input name="rinomina" type="text" id="rinomina" form="form_carica" pattern="[a-zA-Zàèìòù' ]" tabindex="1" title="Inserire il nuovo nome del file">
+                        <input name="articolo_titolo" type="text" id="rinomina" form="form_carica" tabindex="1" title="Inserire il nuovo nome del file">
                     
                     </label>
                     <label for="inserisci">
@@ -1901,7 +609,7 @@
                                 
                             </span>
                             
-                        	<input form="form_carica" name="inserisci" type="file" required="required" id="inserisci" tabindex="2" title="Seleziona il file da caricare"> 
+                        	<input form="form_carica" name="file[]" type="file" required="required" id="inserisci" tabindex="2" title="Seleziona il file da caricare"> 
                         
                     	</div>
                                                 
@@ -1983,19 +691,24 @@
                 <!--Inizio Campi-->
                       
                 <fieldset> 
-                
-                    <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" placeholder="Nome*"  tabindex="1" title="Inserire il nuovo nome utente">
-                    <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica" placeholder="Cognome*" tabindex="2" title="Inserire il nuovo cognome utente">
-                 	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica" placeholder="E-Mail*" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente">         
-                 	<input name="telefono_utente_admin" type="tel" id="telefono_utente_admin" form="form_modifica" placeholder="Telefono" tabindex="4" title="Inserire il nuovo telefono utente">  
-                    <input name="indirizzo_utente_admin" type="text" required="required" id="indirizzo_utente_admin" form="form_modifica" placeholder="Indirizzo*" tabindex="5" title="Inserire il nuovo indirizzo utente">  
-                    <input name="cap_utente_admin" type="text" required="required" id="cap_utente_admin" form="form_modifica" placeholder="CAP*" tabindex="5" title="Inserire il nuovo CAP utente" size="5" maxlength="5">          			<input name="provincia_utente_admin" type="text" required="required" id="provincia_utente_admin" form="form_modifica" placeholder="Provincia*" tabindex="6" title="Inserire la nuova Provincia utente">
-                    <input name="ragione_utente_admin" type="text" id="ragione_utente_admin" form="form_modifica" placeholder="Ragione sociale" tabindex="7" title="Inserire la nuova Ragione sociale utente">
-                    <input name="fiscale_utente_admin" type="text" required="required" id="fiscale_utente_admin" form="form_modifica" placeholder="Codice Fiscale*" tabindex="8" title="Inserire il nuovo Codice Fiscale utente" size="16" maxlength="16">
-                    <input name="iva_utente_admin" type="text" id="iva_utente_admin" form="form_modifica" placeholder="Partita IVA" tabindex="9" title="Inserire la nuova Partita IVA utente">
-                    <input name="password_utente_admin" type="password" required="required" id="password_utente_admin" form="form_modifica" placeholder="Password*" tabindex="10" title="Inserire la nuova Password utente">
-                    <input name="conferma_utente_admin" type="password" required="required" id="conferma_utente_admin" form="form_modifica" placeholder="Conferma Password*" tabindex="11" title="Conferma la nuova Password utente">
-                 
+			   <?php 
+					 $sqlCli2 = "SELECT * FROM `cliente` WHERE cliente_id = '".$_SESSION["id_utente"]."' ";
+					 $rCli2 = $mysqli->query($sqlCli2);
+					 while ($cli2 = $rCli2->fetch_array()): 	
+				?>
+                    <input type="hidden" name="modificaREg">
+                    <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" value="<?php echo $cli2["cliente_nome"]; ?>"  tabindex="1" title="Inserire il nuovo nome utente">
+                    <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica"  value="<?php echo $cli2["cliente_cognome"]; ?>" tabindex="2" title="Inserire il nuovo cognome utente">
+                 	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_email"]; ?>" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente">         
+                 	<input name="telefono_utente_admin" type="tel" id="telefono_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_telefono"]; ?>" tabindex="4" title="Inserire il nuovo telefono utente">  
+                    <input name="indirizzo_utente_admin" type="text" required="required" id="indirizzo_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_indirizzo"]; ?>" tabindex="5" title="Inserire il nuovo indirizzo utente">  
+                    <input name="cap_utente_admin" type="text" required="required" id="cap_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_cap"]; ?>" tabindex="5" title="Inserire il nuovo CAP utente" size="5" maxlength="5">
+                    <input name="provincia_utente_admin" type="text" required="required" id="provincia_utente_admin" form="form_modifica" value="<?php echo $cli2["cliente_provincia"]; ?>" tabindex="6" title="Inserire la nuova Provincia utente">
+                    <input name="ragione_utente_admin" type="text" id="ragione_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_ragione_sociale"]; ?>" tabindex="7" title="Inserire la nuova Ragione sociale utente">
+                    <input name="fiscale_utente_admin" type="text" required="required" id="fiscale_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_codice_fiscale"]; ?>" tabindex="8" title="Inserire il nuovo Codice Fiscale utente" size="16" maxlength="16">
+                    <input name="iva_utente_admin" type="text" id="iva_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_partita_iva"]; ?>" tabindex="9" title="Inserire la nuova Partita IVA utente">
+
+                 <?php endwhile; ?>
                 </fieldset>
                 
                 <!--Fine Campi-->
@@ -2022,5 +735,18 @@
     <!--Fine Contenuti-->
 
 </aside>
+
+
+<?php 
+		endwhile;
+
+    else:
+
+    
+     include("include/login.php");
+     
+
+	endif;
+?>
 
 <!--Fine Popup Modifica-->

@@ -1,5 +1,12 @@
 <!--Inizio Login-->
 
+
+<?php
+
+
+
+?>
+
 <section id="login">
 
 	<h7>
@@ -23,8 +30,8 @@
         
         <!--Inizio Form-->
         
-        <form method="post" action="" enctype="application/x-www-form-urlencoded" id="form_login" autocomplete="on" title="Login" accept-charset="UTF-8" >
-        
+        <form method="post" action="" enctype="multipart/form-data" id="form_login" autocomplete="on" title="Login" accept-charset="UTF-8" >
+            <input type="hidden" name="login"/>
         	<legend>
             
             	Accesso all'area riservata
@@ -35,8 +42,8 @@
             
             <fieldset>
             
-            	<input name="email_login" type="email" required="required" id="email_login" form="form_login" placeholder="Email" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="1" title="Inserire l'indirizzo E-Mail" class="animated fadeInUp">
-                <input name="password_login" type="password" required="required" form="form_login" id="password_login" placeholder="Password" tabindex="2" title="Inserire la Password" class="animated fadeInUp">
+            	<input name="user" type="email" required="required" id="email_login" form="form_login" placeholder="Email" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="1" title="Inserire l'indirizzo E-Mail" class="animated fadeInUp">
+                <input name="psw" type="password" required="required" form="form_login" id="password_login" placeholder="Password" tabindex="2" title="Inserire la Password" class="animated fadeInUp">
             
             </fieldset>
             
@@ -62,5 +69,7 @@
     <!--Fine Autenticazione-->
 
 </section>
+
+
 
 <!--Fine Login-->

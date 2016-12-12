@@ -80,7 +80,35 @@ function inizializza() {
     theme: "light"
 
   });
+  
+  if ($("#conferma_form").length > 0) {
+  
+    $("#form_registrazione > div").addClass("riallinea");
 
+    setTimeout(function() {
+
+      $("#conferma_form").remove();
+
+    }, 3000);
+    
+  }
+  
+  // Form - Campi obbligatori 
+  
+  $("input[type='submit']").on("click tap", function() {
+
+    $("input[required]").each(function() {
+
+      if (!$(this).val()) {
+
+        $(this).addClass("obbligatorio");
+
+      }
+    
+    });
+    
+  });
+ 
   // Admin - Navigazione Rapida
 
   if ($(window).width() <= 768) { // Da tablet in giù
@@ -106,9 +134,17 @@ function inizializza() {
       $("#avatar").wrap("<div id='container_avatar'></div>");
       $(".modifica_pulsante").appendTo("#container_avatar");
 
-    } else if ($("#showroom").length > 0 || $("#progetti").length > 0 || $("#progetto_slides").length > 0 || $("#contacts_pagina").length > 0){ // Altrimenti 
+    } else if ($("#progetti").length > 0 || $("#progetto_slides").length > 0 || $("#contacts_pagina").length > 0){ // Altrimenti 
       $("#navigazione_rapida").css("right", "0");
       $("body").css("overflow", "hidden"); // Disabilita lo scrolling
+      $("#container").removeClass("container_auto");
+      $("#container").removeClass("container_pieno");
+      $("#container").addClass("container_ridotto");
+      $("#pulsante_menu").css("position", "fixed");
+
+    } else if ($("#showroom").length > 0) { // Altrimenti 
+      $("#navigazione_rapida").css("right", "0");
+      $("body, #container").css("overflow", "hidden"); // Disabilita lo scrolling
       $("#container").removeClass("container_auto");
       $("#container").removeClass("container_pieno");
       $("#container").addClass("container_ridotto");
@@ -123,7 +159,7 @@ function inizializza() {
       $("#container").addClass("container_pieno");
       $("#pulsante_menu").css("position", "fixed");
 
-    }
+    } 
 
     // Scrolling - Limitazione
 
@@ -141,7 +177,7 @@ function inizializza() {
 
     if ($("#mappa").length > 0) {
       
-      $("#container").css("min-height", "auto");
+      $("#container").css("min-height", "auto !important");
     
     }
 
@@ -218,7 +254,7 @@ function inizializza() {
 
     // Contatti
 
-    if ($("#login").length > 0 || $("#recupero").length > 0) { // Se siamo su mobile in area amministrativa
+    if ($("#login").length > 0 || $("#recupero").length > 0 || $("#showroom").length > 0 || $("#progetto_slides").length > 0) { // Se siamo su mobile in area amministrativa
 
       $("#container").css({ // Lascia la cenratura verticale
 
@@ -231,8 +267,8 @@ function inizializza() {
 
       $("#container").css({ // Altrimenti scrolla
 
-        "height": "auto",
-        "overflow": "auto"
+        "height": "auto !important",
+        "overflow": "auto !important"
 
       });
 
@@ -379,7 +415,8 @@ function transizioni(contatoreClick) {
         scrollTop: 0
 
       });
-      $("body").toggleClass("scrolla"); // Disattiva-Abilita scroll
+            
+      //$("body").toggleClass("scrolla"); // Disattiva-Abilita scroll
 
       if ($("#container_cataloghi").hasClass("spaziatura_bassa")) {
 
@@ -409,6 +446,14 @@ function transizioni(contatoreClick) {
         $(".categoria:nth-child(2) .catalogo").addClass("catalogo_aperto"); // Apri catalogo
 
       }
+      
+      var azienda = $(".catalogo.catalogo_aperto .container_fornitori:first-child .ragione_fornitore:first-child a").attr("data-azienda"); // Dichiarazione ed Inizializzazione ID Azienda
+      var categoria = $(".catalogo.catalogo_aperto .container_fornitori:first-child .ragione_fornitore:first-child a").attr("data-categoria"); // Dichiarazione ed Inizializzazione ID Categoria
+      $(".catalogo.catalogo_aperto .container_fornitori:first-child .ragione_fornitore:first-child a").addClass("ragione_attiva");
+      $("#popup_cataloghi").removeClass("animated slideOutDown"); // Rimuovi animazioni chiusura
+      $("#popup_cataloghi").addClass("presente visibile animated slideInUp"); // Mostra Popup
+
+      caricaCatalogo(azienda, categoria); // Invocazione Funzione Catalogo
 
     });
 
@@ -720,7 +765,7 @@ function transizioni(contatoreClick) {
     if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) { // Altrimenti se si è arrivati alla fine dello scroll ruota 
 
       $("#torna_su").removeClass("ruota"); // Ruota
-
+      
     } else { // Altrimenti
 
       $("#torna_su").addClass("ruota"); // Ruota
@@ -806,7 +851,7 @@ function transizioni(contatoreClick) {
 
     } else { // Altrimenti 
 
-      $("body").animate({ // Torna in cima alla pagina
+      $("body, #container").animate({ // Torna in cima alla pagina
 
         scrollTop: 0
 

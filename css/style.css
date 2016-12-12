@@ -25,6 +25,13 @@ body
 
 h7 { display: none; }
 
+.obbligatorio
+{
+  -webkit-box-shadow: 0px 0px 0px 2px #A00E0E !important;
+  -moz-box-shadow: 0px 0px 0px 2px #A00E0E !important;
+  box-shadow: 0px 0px 0px 2px #A00E0E !important;
+}
+
 #container
 {
   display: block;
@@ -64,6 +71,33 @@ h7 { display: none; }
 {
   pointer-events: none;
   cursor: default;
+}
+
+#conferma_form
+{
+  /*  display: block;
+  position: fixed; 
+  top: auto; 
+  bottom: 0; 
+  width: calc(100% - 32px); 
+  height: auto; 
+  background-color: #ccc; 
+  z-index: 9999; 
+  padding: 1em 16px;
+  text-align: center;
+*/display: block;
+  position: relative;
+  text-align: center;
+  font-family: "GothamCondensedLight", sans-serif;
+  letter-spacing: 2px;
+  font-size: .9rem;
+  color: #000;
+}
+
+.riallinea
+{
+  max-width: 792px;
+  margin: 0 auto;
 }
 
 /* Links */
@@ -604,7 +638,7 @@ a:link { text-decoration: none; }
 
 #account_mobile { display: none; }
 
-.etichetta_pulsante
+.etichetta_pulsante, .etichetta_pulsante a
 {
   font-family: "GothamCondensed", sans-serif;
   font-size: .9rem;
@@ -949,7 +983,7 @@ a:link { text-decoration: none; }
   min-height: 55px;
   text-align: center;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.1rem;
 }
 
 .menu_projects:nth-child(1) { background-color: #fff; }
@@ -1012,7 +1046,7 @@ a:link { text-decoration: none; }
 
 .menu_activities[rel="incontro"]
 {
-  top: 196px;
+  top: 197px;
   right: -140px;
   background-color: #fff;
 }
@@ -1816,7 +1850,9 @@ a:link { text-decoration: none; }
 #logo_mappa
 {
   width: 100%;
+  min-width: 150px;
   height: auto;
+  min-height: 150px;
   background-color: #000;
 }
 
@@ -2744,9 +2780,9 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 .brand { text-transform: uppercase; }
 
-.wrapper_admin_elemento a:hover .catalogo_admin_elemento { background-color: #f2f2f2; }
+/*.wrapper_admin_elemento a*/ .link_catalogo:hover .catalogo_admin_elemento { background-color: #f2f2f2; }
 
-.wrapper_admin_elemento a:hover .catalogo_admin_elemento .file_nome { color: #4D4D4D; }
+/*.wrapper_admin_elemento a*/ .link_catalogo:hover .catalogo_admin_elemento .file_nome { color: #4D4D4D; }
 
 /* Ridimensionamento Cataloghi - Categorie */
 
@@ -5037,12 +5073,50 @@ label[for="accettazione"] { line-height: 1rem; }
 
 /* Inizio Hacks ******************************/
 
+/* Mozilla */
+
 @-moz-document url-prefix() {
+ .descrizione {
+ bottom: 0;
+}
+ #progetto_slides.slideshow .slides-pagination {
+ bottom: 2em;
+}
+ .sezione_rapida h3 {
+ padding: 1.2em 48px;
+}
  .popup {
- top:25%;
+top: 25%;
 }
  .custom_input span {
- padding: 2.1em 38px;
+padding: 2.1em 38px;
+}
+ .autenticazione {
+ top: 25%;
+}
+ #registrazione .autenticazione {
+ top: 10%;
+}
+ @media all and (max-width: 768px) {
+ #menu_rapido {
+ line-height: 1.1em;
+}
+}
+ @media all and (max-width: 375px) {
+ .autenticazione {
+ top: 15%;
+}
+}
+}
+
+/* Safari */
+
+@media screen and (min-color-index:0) and (-webkit-min-device-pixel-ratio:0) {
+ @media {
+ .sezione_rapida h3 {
+ padding: 1.1em 48px;
+}
+}
 }
 
 /* Fine Hacks ******************************/

@@ -21,16 +21,34 @@
       	<div class="dingbat_4 animated fadeInDown"> <!--Separatore-->
         </div>
         
+        <?php 
+		  
+		  if(isset($pReg)):
+		     echo '<h2 class="sottotitolo_autenticazione animated fadeInUp">';
+		     echo $pReg;
+		     echo '</h2>';
+
+		?>
+        
+      
+        <!--Inizio Form-->
+        
+        <?php 
+		
+		
+		  
+		  else:
+		
+		?>
         <h2 class="sottotitolo_autenticazione animated fadeInUp"> <!--Sottotitolo-->
         
         	PER POTER VEDERE LA SEZIONE PARTNERS E’ OBBLIGATORIO REGISTRARSI
         
         </h2>
         
-        <!--Inizio Form-->
         
-        <form method="post" action="" enctype="application/x-www-form-urlencoded" id="form_registrazione" autocomplete="on" title="Login" accept-charset="UTF-8" >
-        
+        <form method="post" action="<?php echo @htmlspecialchars($_SERVER['PHP_SELF']."?pag=".$_GET['pag']); ?>" enctype="application/x-www-form-urlencoded" id="form_registrazione" autocomplete="on" title="Login" accept-charset="UTF-8" >
+            <input type="hidden" name="registrati" />
         	<legend>
             
             	Registrazione profilo utente
@@ -43,8 +61,8 @@
             	
             	<div>
               
-              		<input name="nome_registrazione" type="text" required="required" form="form_registrazione" id="nome_registrazione" placeholder="Nome*" tabindex="1" title="Inserire il nome" pattern="[a-zA-Zàèìòù' ]" class="animated fadeInLeft">
-              		<input name="cognome_registrazione" type="text" required="required" form="form_registrazione" id="cognome_registrazione" placeholder="Cognome*" tabindex="2" title="Inserire il cognome" pattern="[a-zA-Zàèìòù' ]" class="animated fadeInRight">
+              		<input name="nome_registrazione" type="text" required="required" form="form_registrazione" id="nome_registrazione" placeholder="Nome*" tabindex="1" title="Inserire il nome"  class="animated fadeInLeft">
+              		<input name="cognome_registrazione" type="text" required="required" form="form_registrazione" id="cognome_registrazione" placeholder="Cognome*" tabindex="2" title="Inserire il cognome"  class="animated fadeInRight">
                     
                 </div>
                 <div>
@@ -56,13 +74,19 @@
                	<div>
                
                     <input name="indirizzo_registrazione" type="text" required="required" form="form_registrazione" id="indirizzo_registrazione" placeholder="Indirizzo*" tabindex="5" title="Inserire l'indirizzo" class="animated fadeInLeft">
-                    <input name="cap_registrazione" type="number" required="required" id="cap_registrazione" form="form_registrazione" placeholder="CAP*" max="5" min="5" tabindex="6" title="Inserire il Codice di Avviamento Postale" class="animated fadeInRight">
+                    <input name="cap_registrazione" type="number" required="required" class="animated fadeInRight" id="cap_registrazione" form="form_registrazione" placeholder="CAP*" min="0" tabindex="6" title="Inserire il Codice di Avviamento Postale">
                     
+                </div>
+                <div>
+               
+                    <input name="citta_registrazione" type="text" required="required" form="form_registrazione" id="citta_registrazione" placeholder="Città*" tabindex="5" title="Inserire l'indirizzo" class="animated fadeInLeft">
+                    <input name="stato_registrazione" type="text" required="required" form="form_registrazione" id="stato_registrazione" placeholder="Stato*" tabindex="5" title="Inserire l'indirizzo" class="animated fadeInRight">
+
                 </div>
               	<div>
               
                   <input name="provincia_registrazione" type="text" required="required" form="form_registrazione" id="provincia_registrazione" placeholder="Provincia*" tabindex="7" title="Inserire la provincia" class="animated fadeInLeft">
-                  <input name="regione_registrazione" type="text" form="form_registrazione" id="regione_registrazione" placeholder="Ragione sociale" tabindex="8" title="Inserire la ragione sociale" class="animated fadeInRight">
+                  <input name="ragione_registrazione" type="text" form="form_registrazione" id="regione_registrazione" placeholder="Ragione sociale" tabindex="8" title="Inserire la ragione sociale" class="animated fadeInRight">
                   
                 </div>
                 <div>
@@ -108,20 +132,26 @@
         
         </form>
         
+        <?php 
+		
+		 endif;
+		
+		?>
+        
         <!--Fine Form-->
         
-        <p class="eccezioni"> <!--Notifiche-->        
+        <p class="eccezioni"> <!--Notifiche-->   
         </p>
-        
-        <div class="clear"> <!--Clear-->
-        </div>
+                     
+        <?php
+
+          include "conferma_registrazione.php";
+
+        ?>
     
     </article>
     
     <!--Fine Autenticazione-->
-    
-    <div class="clear">
-    </div>
 
 </section>
 

@@ -81,15 +81,15 @@
 			
 				<p style="margin: 0; color: #95989A; font-family: 'GothamCondensedLight', sans-serif; font-size: 1.1rem; width: auto; display: inline-block; margin: 0 auto; text-align: left;">
 				
-					Buongiorno, <br /><br />Grazie per avere acquistato i nostri prodotti, per scaricare i prodotti del tuo ordine puoi usare il link che trovi qui sotto:<br /><br />
+					Buongiorno, <br /><br />Grazie per essersi registrato ai nostri servizi, raggiungibili attraverso il link sottostante:<br /><br />
 
-					<a href="#" title="Conferma registrazione" target="new" tabindex="0" style="color: #A00E0E; text-decoration: none;">
+					<a href="http://www.archeproject.com/account" title="Conferma registrazione" target="new" tabindex="0" style="color: #A00E0E; text-decoration: none;">
 
-						http://www.arch&project.com/index.php?pag=conferma&code=
+						http://www.archeproject.com/account
 
 					</a>
 
-					<br /><br />In alternativa vai su http: //www.arch&project.com/, effettua l’accesso nella sezione <strong style="color: #000;">LOGIN</strong> e clicca su <strong style="color: #000;">ORDINI</strong> per scarica i tuoi acquisti.
+          <br /><br />In alternativa vai su <a href="http://www.archeproject.com" title="Arch & Project" target="new" tabindex="1" style="color: #A00E0E; text-decoration: none;">http://www.archeproject.com/</a>, effettua l’accesso nella sezione <strong style="color: #000;">LOGIN</strong> e clicca su <strong style="color: #000;">ACCOUNT</strong> per visualizzare i servizi online.
 
 
 					<!--Inizio Firma-->

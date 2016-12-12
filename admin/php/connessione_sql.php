@@ -8,7 +8,7 @@ if( $_SERVER['SERVER_NAME'] == "localhost" ){
 	
 }else{
 	
-    $host="62.149.150.246";
+	$host="62.149.150.246";
     $user="Sql903871";
     $password="ia1wckpzg3";
     $db="Sql903871_4";

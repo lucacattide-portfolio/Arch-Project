@@ -1,7 +1,5 @@
 <?php
-
 	// Funzione Estrazione Dati DB Pagine - Menu
-	
 	// Query - Switch
 	
 	$sqlPagina = "SELECT * FROM `pagina`"; // Assegnazione Query Pagina DB
@@ -57,8 +55,7 @@
 	
 	
 
-	
-	
-	
-			
+   /** FUNZIONE LOGIN ***********************************************/
+
+
 ?>

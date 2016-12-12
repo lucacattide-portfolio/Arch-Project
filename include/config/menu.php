@@ -2006,6 +2006,77 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 <!--Fine Navigazione Principale-->
 
 <!--Inizio Area Riservata-->
+<?php
+/*
+<a href="<?php echo $siteurl."registrazione"; ?>" title="Register" class="registrazione">
+
+    <aside id="account" class="animated fadeInDown">
+    
+        <!--Inizio Titoli-->
+    
+        <hgroup>
+    
+            <h7>
+            
+                Area Riservata
+            
+            </h7>
+            <h2 class="etichetta_pulsante"> 
+            
+                Register
+                
+            </h2>
+        
+        </hgroup>
+        
+        <!--Fine Titoli-->
+    
+    </aside>
+
+</a>
+*/
+?>
+
+<?php 
+
+if(isset($_SESSION['id_utente'])):
+
+?>
+
+
+<a href="<?php echo $siteurl."account"; ?>" title="Register" class="registrazione">
+
+    <aside id="account" class="animated fadeInDown">
+    
+        <!--Inizio Titoli-->
+    
+        <hgroup>
+    
+            <h7>
+            
+                Area Riservata
+            
+            </h7>
+            <h2 class="etichetta_pulsante"> 
+            
+                Account
+                
+            </h2>
+        
+        </hgroup>
+        
+        <!--Fine Titoli-->
+    
+    </aside>
+
+</a>
+
+
+<?php
+
+else:
+
+?>
 
 <a href="<?php echo $siteurl."registrazione"; ?>" title="Register" class="registrazione">
 
@@ -2033,5 +2104,13 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     </aside>
 
 </a>
+
+
+<?php 
+
+endif;
+
+?>
+
 
 <!--Fine Area Riservata-->

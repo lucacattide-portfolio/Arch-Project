@@ -273,7 +273,7 @@ if ( $countClientiAccount >= 1 ):
 									</div>
 									<?php  
 							    	endif;
-                                endwhile;  
+                                 endwhile;  
                                 endif; 
 					
                                ?>
