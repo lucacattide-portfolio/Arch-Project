@@ -170,6 +170,36 @@ function inizializza() {
     
     }
 
+  } 
+  
+  if ($(window).width() <= 375) { // Da smartphone in giù
+
+    if ($("#home").length > 0 || $("#activities_summary").length > 0 || $("#registrazione").length > 0) { // Se siamo nella pagina account
+
+      $("#navigazione_rapida").css("right", "48px");
+      //$("body").css("overflow", "auto"); // Allora abilita lo scrolling
+      $("body").addClass("scrolla");
+      $("#container").removeClass("container_pieno");
+      $("#container").removeClass("container_ridotto");
+      $("#container").addClass("container_auto");
+      // Raggruppa avatar e modifica in un container
+      $("#avatar").wrap("<div id='container_avatar'></div>");
+      $(".modifica_pulsante").appendTo("#container_avatar");
+
+    } 
+    
+    // Scrolling - Limitazione
+
+    if ($("#home").length > 0 || $("#registrazione").length > 0) {
+
+      $("#pulsante_menu").css("position", "absolute"); // Fissa in alto il pulsante menu 
+
+    } else {
+
+      $("#pulsante_menu").css("position", "fixed"); // Fissa in alto il pulsante menu 
+
+    }
+    
   }
 
   // Admin - Categorie
@@ -458,6 +488,18 @@ function transizioni(contatoreClick) {
 
     });
 
+  }
+  
+  if ($(window).width() <= 375) {
+    
+    // Menu Principale
+    
+    $(".hamburger").on("click tap", function() {
+      
+      $("body").toggleClass("scrolla");
+      
+    });
+    
   }
 
   $(".sezione_rapida").on("click tap", function () { // Al click sulla voce
