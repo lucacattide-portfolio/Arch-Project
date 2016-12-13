@@ -37,7 +37,7 @@ if(isset($_SESSION["id_utente"]) != ""):
             
             </span>
             
-            <a href="http://www.laboratorio-a.com/archeproject/index.php?logoff">
+            <a href="http://www.laboratorio-a.com/archeproject/index.php">
 				<span id="chiudi_profilo"></span>
             </a>
             
@@ -208,24 +208,34 @@ if(isset($_SESSION["id_utente"]) != ""):
 											if(  $rowImmagine["immagine_tipo"] == "application/pdf" ): ?>
 												  <div class="file deseleziona">
 												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
-															<span class="file_ico"> <!--Icona-->
-															</span>
-															<span class="file_nome"> <!--Nome-->
+												   
+												     	<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>">
+												   
+                                <span class="file_ico"> <!--Icona-->
+                                </span>
+                                <span class="file_nome"> <!--Nome-->
 
-																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+															    <?php echo $titolo;  ?>
 
 															</span>
+															
+															</a>
 													</div>
 											<?php else: ?>
 												<div class="file deseleziona">
 												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+												   
+												     <a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>">
+												   
 															<span class="file_ico"> <!--Icona-->
 															</span>
 															<span class="file_nome"> <!--Nome-->
 
-																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+																<?php echo $titolo;  ?>
 
 															</span>
+															
+														</a>
 													</div>
 											<?php 
 
@@ -329,24 +339,34 @@ if(isset($_SESSION["id_utente"]) != ""):
 											if(  $rowImmagine["immagine_tipo"] == "application/pdf" ): ?>
 												  <div class="file deseleziona">
 												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
-															<span class="file_ico"> <!--Icona-->
-															</span>
-															<span class="file_nome"> <!--Nome-->
+												   
+												     	<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>">
+												   
+                                <span class="file_ico"> <!--Icona-->
+                                </span>
+                                <span class="file_nome"> <!--Nome-->
 
-																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+                                <?php echo $titolo;  ?>
 
-															</span>
+                                </span>
+															
+															</a>
 													</div>
 											<?php else: ?>
 												<div class="file deseleziona">
 												   <input type="hidden" name="immagine_ordinamento[]" value="<?php echo $rowImmagine["immagine_id"];  ?>">
+												   
+												     <a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>">
+												   
 															<span class="file_ico"> <!--Icona-->
 															</span>
 															<span class="file_nome"> <!--Nome-->
 
-																<a target="_blank" href="<?php echo $siteurl_base.'img/'.$rowImmagine["immagine_label"]; ?>"><?php echo $titolo;  ?></a>
+																<?php echo $titolo;  ?>
 
 															</span>
+															
+														</a>
 													</div>
 											<?php 
 
@@ -696,17 +716,17 @@ if(isset($_SESSION["id_utente"]) != ""):
 					 $rCli2 = $mysqli->query($sqlCli2);
 					 while ($cli2 = $rCli2->fetch_array()): 	
 				?>
-                    <input type="hidden" name="modificaREg">
-                    <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" value="<?php echo $cli2["cliente_nome"]; ?>"  tabindex="1" title="Inserire il nuovo nome utente">
-                    <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica"  value="<?php echo $cli2["cliente_cognome"]; ?>" tabindex="2" title="Inserire il nuovo cognome utente">
-                 	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_email"]; ?>" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente">         
-                 	<input name="telefono_utente_admin" type="tel" id="telefono_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_telefono"]; ?>" tabindex="4" title="Inserire il nuovo telefono utente">  
-                    <input name="indirizzo_utente_admin" type="text" required="required" id="indirizzo_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_indirizzo"]; ?>" tabindex="5" title="Inserire il nuovo indirizzo utente">  
-                    <input name="cap_utente_admin" type="text" required="required" id="cap_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_cap"]; ?>" tabindex="5" title="Inserire il nuovo CAP utente" size="5" maxlength="5">
-                    <input name="provincia_utente_admin" type="text" required="required" id="provincia_utente_admin" form="form_modifica" value="<?php echo $cli2["cliente_provincia"]; ?>" tabindex="6" title="Inserire la nuova Provincia utente">
-                    <input name="ragione_utente_admin" type="text" id="ragione_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_ragione_sociale"]; ?>" tabindex="7" title="Inserire la nuova Ragione sociale utente">
-                    <input name="fiscale_utente_admin" type="text" required="required" id="fiscale_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_codice_fiscale"]; ?>" tabindex="8" title="Inserire il nuovo Codice Fiscale utente" size="16" maxlength="16">
-                    <input name="iva_utente_admin" type="text" id="iva_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_partita_iva"]; ?>" tabindex="9" title="Inserire la nuova Partita IVA utente">
+                    <input type="hidden" name="modificaREg" id="modificaREg">
+                    <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" value="<?php echo $cli2["cliente_nome"]; ?>"  tabindex="1" title="Inserire il nuovo nome utente" placeholder="Inserisci il Nome*">
+                    <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica"  value="<?php echo $cli2["cliente_cognome"]; ?>" tabindex="2" title="Inserire il nuovo cognome utente" placeholder="Inserisci il Cognome*">
+                 	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_email"]; ?>" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente" placeholder="Inserisci l'E-mail*">         
+                 	<input name="telefono_utente_admin" type="tel" id="telefono_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_telefono"]; ?>" tabindex="4" title="Inserire il nuovo telefono utente" placeholder="Inserisci il Telefono">  
+                    <input name="indirizzo_utente_admin" type="text" required="required" id="indirizzo_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_indirizzo"]; ?>" tabindex="5" title="Inserire il nuovo indirizzo utente" placeholder="Inserisci l'Indirizzo*">  
+                    <input name="cap_utente_admin" type="text" required="required" id="cap_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_cap"]; ?>" tabindex="5" title="Inserire il nuovo CAP utente" size="5" maxlength="5" placeholder="Inserisci il CAP*">
+                    <input name="provincia_utente_admin" type="text" required="required" id="provincia_utente_admin" form="form_modifica" value="<?php echo $cli2["cliente_provincia"]; ?>" tabindex="6" title="Inserire la nuova Provincia utente" placeholder="Inserisci la Provincia*">
+                    <input name="ragione_utente_admin" type="text" id="ragione_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_ragione_sociale"]; ?>" tabindex="7" title="Inserire la nuova Ragione sociale utente" placeholder="Inserisci la Ragione Sociale">
+                    <input name="fiscale_utente_admin" type="text" required="required" id="fiscale_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_codice_fiscale"]; ?>" tabindex="8" title="Inserire il nuovo Codice Fiscale utente" size="16" maxlength="16" placeholder="Inserisci il Codice Fiscale*">
+                    <input name="iva_utente_admin" type="text" id="iva_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_partita_iva"]; ?>" tabindex="9" title="Inserire la nuova Partita IVA utente" placeholder="Inserisci la P. IVA">
 
                  <?php endwhile; ?>
                 </fieldset>

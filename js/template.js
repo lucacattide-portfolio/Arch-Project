@@ -7,6 +7,7 @@ $(document).ready(function () {
   inizializza(); // Invocazione Funzione Inizializzazione
   transizioni(); // Invocazione Funzione Transizioni
   mappa(); // Inizializzazione Funzione Mappa
+  confermeForms(); // Invocazione Funzione Notifiche forms
 
 });
 
@@ -80,18 +81,6 @@ function inizializza() {
     theme: "light"
 
   });
-  
-  if ($("#conferma_form").length > 0) {
-  
-    $("#form_registrazione > div").addClass("riallinea");
-
-    setTimeout(function() {
-
-      $("#conferma_form").remove();
-
-    }, 3000);
-    
-  }
   
   // Form - Campi obbligatori 
   
@@ -924,7 +913,7 @@ function transizioni(contatoreClick) {
     $(".modale[rel='" + $(this).attr("rel") + "_popup']").addClass("presente animated slideInDown");
 
   });
-  $(".chiudi_modale, #salva").on("click tap", function () { // Al click sul pulsante
+  $(".chiudi_modale").on("click tap", function () { // Al click sul pulsante
 
     // Chiudi modale con animazione
 
@@ -1193,6 +1182,57 @@ function mappa() {
 
   }
 
+}
+
+
+// Funzione Gestione notifiche forms
+
+function confermeForms() {
+  
+  if ($("#conferma_form").length > 0) {
+  
+    $("#form_registrazione > div").addClass("riallinea");
+
+    setTimeout(function() {
+
+      $("#conferma_form").remove();
+
+    }, 3000);
+    
+  } 
+  
+  // Gestione Pulsante salva
+  
+  $("#salva").on("click tap", function(e) {
+    
+    e.preventDefault();
+    
+    $.ajax({
+      
+      url: "include/conferma_salva.php",
+      data: {
+        
+        "modificaREg": $("#modificaREg").val()
+        
+      },
+      type: "POST"
+      
+    }).done(function(data) {
+      
+      $(data).insertAfter("#form_modifica legend");
+      
+      setTimeout(function() {
+
+        $("#conferma_salva").fadeOut();
+
+      }, 3000);
+      
+    });
+        
+    return false;
+    
+  });
+  
 }
 
 //-->

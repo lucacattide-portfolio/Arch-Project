@@ -241,7 +241,7 @@ endif;
 
 
 //////////////////////////////////////////////// REGISTRATI ////////////////////////////////////////////// 
-if(isset($_POST["modificaREg"])):
+/*if(isset($_POST["modificaREg"])):
 
 
     $sqlArticolo = "UPDATE `cliente` SET `cliente_nome`='".$mysqli->real_escape_string($_POST["nome_utente_modifica"])."', `cliente_cognome`='".$mysqli->real_escape_string($_POST["cognome_utente"])."',`cliente_ragione_sociale`='".$mysqli->real_escape_string($_POST["ragione_utente_admin"])."',`cliente_indirizzo`='".$mysqli->real_escape_string($_POST["indirizzo_utente_admin"])."',`cliente_cap`='".$mysqli->real_escape_string($_POST["cap_utente_admin"])."', `cliente_provincia`='".$mysqli->real_escape_string($_POST["provincia_utente_admin"])."', `cliente_email`='".$mysqli->real_escape_string($_POST["email_utente_admin"])."', `cliente_telefono`='".$mysqli->real_escape_string($_POST["telefono_utente_admin"])."', `cliente_partita_iva`='".$mysqli->real_escape_string($_POST["iva_utente_admin"])."', `cliente_codice_fiscale`='".$mysqli->real_escape_string($_POST["fiscale_utente_admin"])."', `cliente_data_modifica`='".date("Y-m-d H:i:s")."' WHERE `cliente_id` = '".$_SESSION["id_utente"]."' ";
@@ -254,7 +254,7 @@ if(isset($_POST["modificaREg"])):
 
 
 endif;
-
+*/
 
 //////////////////////////////////////////////// LOGOFF ////////////////////////////////////////////// 
 

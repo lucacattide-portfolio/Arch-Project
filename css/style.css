@@ -75,23 +75,24 @@ h7 { display: none; }
 
 #conferma_form
 {
-  /*  display: block;
-  position: fixed; 
-  top: auto; 
-  bottom: 0; 
-  width: calc(100% - 32px); 
-  height: auto; 
-  background-color: #ccc; 
-  z-index: 9999; 
-  padding: 1em 16px;
-  text-align: center;
-*/display: block;
+  display: block;
   position: relative;
   text-align: center;
   font-family: "GothamCondensedLight", sans-serif;
   letter-spacing: 2px;
   font-size: .9rem;
   color: #000;
+}
+
+#conferma_salva
+{
+  display: block;
+  position: relative;
+  text-align: center;
+  font-family: "GothamCondensedLight", sans-serif;
+  letter-spacing: 2px;
+  font-size: .9rem;
+  color: #A00E0E;
 }
 
 .riallinea
@@ -3079,7 +3080,7 @@ label[for="accettazione"]:hover { cursor: pointer; }
   width: 100%;
   height: auto;
   background-color: #ccc;
-  z-index: 1000;
+  z-index: 2000;
   font-family: "GothamCondensedLight", sans-serif;
   letter-spacing: 2px;
   font-size: .9rem;
@@ -3606,6 +3607,8 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 @media all and (max-width: 1544px) {
 
+#form_modifica input:not(#salva) { width: calc(48% - 36px); }
+
 .modifica_pulsante { font-size: .7rem; }
 
 .file { padding: 0 1.5em 2em 0; }
@@ -3707,6 +3710,8 @@ label[for="accettazione"]:hover { cursor: pointer; }
 /* Inizio 13" ******************************/
 
 @media all and (max-width: 1280px) {
+
+#form_modifica input:not(#salva) { width: calc(48% - 36px); }
 
 #registrazione .autenticazione { min-width: 614px; }
 
@@ -3898,6 +3903,8 @@ label[for="accettazione"]:hover { cursor: pointer; }
 /* Fine 13" ******************************/
 
 @media all and (max-width: 1024px) {
+
+#form_modifica input:not(#salva) { width: calc(48% - 40px); }
 
 .elimina { padding: .7em 2px; }
 
@@ -4610,6 +4617,16 @@ label[for="accettazione"] { line-height: 1rem; }
 
 @media all and (max-width: 375px) { /* iPhone 6/7 */
 
+#form_modifica input:not(#salva) { width: calc(100% - 32px); }
+
+#form_modifica input:not(#salva):nth-child(even) { margin-left: 0; }
+
+#form_modifica
+{
+  overflow: scroll;
+  max-height: 396px;
+}
+
 #registrazione
 {
   height: auto;
@@ -5065,6 +5082,11 @@ label[for="accettazione"] { line-height: 1rem; }
   padding-left: 16px;
   width: calc(24% - 16px);
 }
+}
+
+@media all and (max-width: 320px) { /* iPhone 5 */
+
+#container_avatar { width: calc(56% - 16px); }
 }
 
 /* Fine Smartphone ******************************/
