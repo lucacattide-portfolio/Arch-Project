@@ -929,6 +929,11 @@ function transizioni(contatoreClick) {
       $(".modale").removeClass("presente");
 
     }, 1000);
+    setTimeout(function () {
+
+      window.location.reload();
+
+    }, 1500);
 
   });
 
@@ -1210,15 +1215,11 @@ function confermeForms() {
     $.ajax({
       
       url: "include/conferma_salva.php",
-      data: {
-        
-        "modificaREg": $("#modificaREg").val()
-        
-      },
+      data: $("#form_modifica").serialize(),
       type: "POST"
       
     }).done(function(data) {
-      
+
       $(data).insertAfter("#form_modifica legend");
       
       setTimeout(function() {

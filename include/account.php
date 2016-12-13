@@ -717,6 +717,7 @@ if(isset($_SESSION["id_utente"]) != ""):
 					 while ($cli2 = $rCli2->fetch_array()): 	
 				?>
                     <input type="hidden" name="modificaREg" id="modificaREg">
+                    <input type="hidden" name="id_utente" id="id_utente" value="<?php echo $_SESSION["id_utente"]; ?>">
                     <input name="nome_utente_modifica" type="text" required="required" id="nome_utente_modifica" form="form_modifica" value="<?php echo $cli2["cliente_nome"]; ?>"  tabindex="1" title="Inserire il nuovo nome utente" placeholder="Inserisci il Nome*">
                     <input name="cognome_utente" type="text" required="required" id="cognome_utente" form="form_modifica"  value="<?php echo $cli2["cliente_cognome"]; ?>" tabindex="2" title="Inserire il nuovo cognome utente" placeholder="Inserisci il Cognome*">
                  	<input name="email_utente_admin" type="email" required="required" id="email_utente_admin" form="form_modifica"  value="<?php echo $cli2["cliente_email"]; ?>" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="3" title="Inserire la nuova email utente" placeholder="Inserisci l'E-mail*">         
