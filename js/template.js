@@ -1,6 +1,6 @@
 <!--
   
-var indiceAttivo = 0;
+var indiceAttivo = 0; // Dichiarazione ed Inizializzazione Variabile indice globale
 
 $(document).ready(function () {
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     for (var i = 0; i < fileCount; i++) { // Per ogni file presente
 
-      if (typeof (FileReader) != "undefined") { // Se il file reader è supportato (JS attivo)
+      if (typeof (FileReader) !== "undefined") { // Se il file reader è supportato (JS attivo)
 
         var reader = new FileReader(); // Definisci un puntatore file
 
@@ -93,8 +93,15 @@ function inizializza() {
         $(this).addClass("obbligatorio");
 
       }
+      
+      if ($("#accettazione").prop("checked") === false) {
+        
+        $(this).addClass("obbligatorio");  
+        
+      }
     
     });
+
     
   });
  
@@ -177,12 +184,10 @@ function inizializza() {
     if ($("#home").length > 0 || $("#activities_summary").length > 0 || $("#registrazione").length > 0) { // Se siamo nella pagina account
 
       $("#navigazione_rapida").css("right", "48px");
-      //$("body").css("overflow", "auto"); // Allora abilita lo scrolling
       $("body").addClass("scrolla");
       $("#container").removeClass("container_pieno");
       $("#container").removeClass("container_ridotto");
       $("#container").addClass("container_auto");
-      // Raggruppa avatar e modifica in un container
       $("#avatar").wrap("<div id='container_avatar'></div>");
       $(".modifica_pulsante").appendTo("#container_avatar");
 
@@ -350,7 +355,7 @@ function controlloCataloghi() {
 
 // Funzione Transizioni
 
-function transizioni(contatoreClick) {
+function transizioni() {
 
   // Home - Logo (Animazione)
 
@@ -435,8 +440,6 @@ function transizioni(contatoreClick) {
 
       });
             
-      //$("body").toggleClass("scrolla"); // Disattiva-Abilita scroll
-
       if ($("#container_cataloghi").hasClass("spaziatura_bassa")) {
 
         $("#container_cataloghi").removeClass("spaziatura_bassa"); // Padding bottom su container
@@ -716,9 +719,7 @@ function transizioni(contatoreClick) {
     }, index * 200);
 
   });
-  $(".menu_projects").on("click tap", function ( /*e*/ ) { // Al click della voce 
-
-    //e.preventDefault(); // Disattiva funzione standard link
+  $(".menu_projects").on("click tap", function () { // Al click della voce 
 
     $(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
     $(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
@@ -739,7 +740,7 @@ function transizioni(contatoreClick) {
     }, index * 200);
 
   });
-  $(".menu_projects").on("click tap", function ( /*e*/ ) { // Al click della voce 
+  $(".menu_projects").on("click tap", function () { // Al click della voce 
     $(this).siblings().children().removeClass("lettera_attiva"); // Disattiva precedeti selezioni
     $(".lettera", this).addClass("lettera_attiva"); // Rende voce attiva
 

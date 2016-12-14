@@ -249,14 +249,6 @@ if(isset($_SESSION["id_utente"]) != ""):
 						  endif;
 
 			   ?>
-
-           
-           
-            
-            
-            
-            
-            	
                 
                 <!--Fine Files-->
                 
@@ -373,9 +365,6 @@ if(isset($_SESSION["id_utente"]) != ""):
 											 endif;
 										  endwhile;  
 										 endif; 
-          
-         
-
 							 endwhile;
 						  endif;
 
@@ -464,15 +453,8 @@ if(isset($_SESSION["id_utente"]) != ""):
 				      $countVisu = $rVisu->num_rows;
 				      while ( $vis = $rVisu->fetch_array() ): $visu = $vis["match_cli_cat_visibile"]; endwhile;
 				
-				
-				
-				       
-				    
 				    if( $countVisu >= 1 ):
 				    	if( $visu == "1"):
-				
-				
-				
 				
 							$sqlImmagine2 = "SELECT * FROM `immagine` WHERE `immagine_articolo_id` = ".$Match["articolo_id"]." ORDER BY `immagine_id` DESC";
 								   $rImmagine2 = $mysqli->query($sqlImmagine2);
@@ -482,7 +464,6 @@ if(isset($_SESSION["id_utente"]) != ""):
 											$immagine2 = $rowImmagine2["immagine_label"];
 										endwhile;
 								   endif;
-				
 				
 			 ?>    
              
@@ -514,7 +495,6 @@ if(isset($_SESSION["id_utente"]) != ""):
               <?php 
 						endif;
 				   endif;
-				
 					endwhile;
 				endif;
 				
@@ -529,7 +509,6 @@ if(isset($_SESSION["id_utente"]) != ""):
         	<div class=”clear”></div>
         	
         </div>
-
         
     <?php 
 		
@@ -544,8 +523,6 @@ if(isset($_SESSION["id_utente"]) != ""):
     	<!--Fine Offices-->
         
         <!--Inizio Various-->
-        
-
     
     <!--Fine Container-->
 
@@ -644,6 +621,7 @@ if(isset($_SESSION["id_utente"]) != ""):
                 <input type="submit" id="carica" form="form_carica" value="Carica">
             
              </form> 
+             
             <!--Fine Form-->
         
         </div>

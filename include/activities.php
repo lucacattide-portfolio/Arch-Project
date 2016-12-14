@@ -2,77 +2,6 @@
 
 <!--Inizio Menu Contestuale-->
     
-<!--<a class="menu_activities deseleziona occulta" href="#" title="Incontro" rel="incontro">
-
-    <span class="numero">
-    
-        1
-    
-    </span>
-    <span class="voce">
-    
-        Incontro
-    
-    </span>
-
-</a>
-<a class="menu_activities deseleziona occulta" href="#" title="Rilievo" rel="rilievo">
-
-    <span class="numero">
-    
-        2
-    
-    </span>
-    <span class="voce">
-    
-        Rilievo
-    
-    </span>
-
-</a>
-<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Preliminare" rel="preliminare">
-
-    <span class="numero">
-    
-        3
-    
-    </span>
-    <span class="voce">
-    
-        Progettazione Preliminare
-    
-    </span>
-
-</a>
-<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Definitiva" rel="definitiva">
-
-    <span class="numero">
-    
-        4
-    
-    </span>
-    <span class="voce">
-    
-        Progettazione Definitiva
-    
-    </span>
-
-</a>
-<a class="menu_activities deseleziona occulta" href="#" title="Progettazione Esecutiva" rel="esecutiva">
-
-    <span class="numero">
-    
-        5
-    
-    </span>
-    <span class="voce">
-    
-        Progettazione Esecutiva
-    
-    </span>
-
-</a>
--->
 <!--Fine Menu Contestuale-->
 
 <?php
@@ -192,8 +121,6 @@
 
 				endif;
 
-
-
 $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$articoloActivities["articolo_id"]." AND immagine_tipo = 'application/pdf' ";
 					$rImgActivities2 = $mysqli->query($sqlImgActivities2);
 					$countImgActivities2 =  $rImgActivities2->num_rows;
@@ -219,14 +146,14 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 															   
 															   $titolo = str_replace("<p>", "", $articoloActivities["articolo_titolo"]); $titolo = str_replace("</p>", "", $titolo); 
 															   
-															   echo $titolo; 
+															   echo strip_tags($titolo); 
 															   
 															   ?>" rel="<?php 
 																		
 																		$rel = str_replace(" ", "_", $titolo); 
 																		$rel = strtolower($rel);
 																		
-																		echo $rel; ?>">
+																		echo strip_tags($rel); ?>">
 
     <span class="numero">
     
@@ -262,7 +189,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
 										   
@@ -279,7 +206,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     
@@ -308,28 +235,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-               
-                <!--
-                <ul>
-                
-                    <li>
-                    
-                        Definizione delle premesse e della fattibilità
-                
-                    </li>
-                    <li>
-                    
-                        Planimetria catastale
-                
-                    </li>
-                    <li>
-                    
-                        Foto
-                
-                    </li>
-                
-                </ul>
-                -->
                 
                 <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
@@ -361,7 +266,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
                 
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo strip_tags($titoloPdf); ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -383,22 +288,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 					endif;
 					
 				?>
-               <!-- <a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
-                
-                    <span class="etichetta">
-                    
-                        Download
-                    
-                    </span>
-                    <span class="estensione">
-                    
-                        jpg
-                        
-                    </span>
-                    <span class="icona">
-                    </span>
-                
-                </a>-->
                        
                 <!--Fine Download-->  
                 
@@ -434,7 +323,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
 
@@ -454,7 +343,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     
@@ -483,27 +372,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-                <!--
-                <ul>
-                
-                    <li>
-                    
-                        Elaborazione grafici                
-                    
-                    </li>
-                    <li>
-                    
-                        Stato di fatto
-                
-                    </li>
-                    <li>
-                    
-                        Foto di Stato di fatto
-                
-                    </li>
-                
-                </ul>
-                -->
                 
                 <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
@@ -535,7 +403,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
                 
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo strip_tags($titoloPdf); ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -557,22 +425,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 					endif;
 					
 				?>
-                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
-                
-                    <span class="etichetta">
-                    
-                        Download
-                    
-                    </span>
-                    <span class="estensione">
-                    
-                        jpg
-                        
-                    </span>
-                    <span class="icona">
-                    </span>
-                
-                </a>-->
                        
                 <!--Fine Download-->  
                        
@@ -608,7 +460,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
 
@@ -621,7 +473,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     </div>
@@ -637,7 +489,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     
@@ -666,42 +518,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-                <!--
-                <ul>
-                
-                    <li>
-                    
-                        Elaborazione grafici
-                
-                    </li>
-                    <li>
-                    
-                       Planimetria arredata
-                
-                    </li>
-                    <li>
-                    
-                        Relazione
-                
-                    </li>
-                    <li>
-                    
-                        Obbiettivi
-                
-                    </li>
-                    <li>
-                    
-                        Indicazione progetto e materiali
-                
-                    </li>
-                    <li>
-                    
-                        Stima di spesa
-                
-                    </li>
-                
-                </ul>
-                -->
                 
                 <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
@@ -733,7 +549,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
                 
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo strip_tags($titoloPdf); ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -755,22 +571,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 					endif;
 					
 				?>
-                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
-                
-                    <span class="etichetta">
-                    
-                        Download
-                    
-                    </span>
-                    <span class="estensione">
-                    
-                        jpg
-                        
-                    </span>
-                    <span class="icona">
-                    </span>
-                
-                </a>-->
                        
                 <!--Fine Download-->  
             
@@ -805,7 +605,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
 
@@ -818,7 +618,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     </div>
@@ -834,7 +634,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     
@@ -863,37 +663,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-                <!--
-                <ul>
-                
-                    <li>
-                    
-                        Planimetria definitiva       
-                    
-                    </li>
-                    <li>
-                    
-                        Scelta materiali
-                
-                    </li>
-                    <li>
-                    
-                        Tavola impianti
-                
-                    </li>
-                    <li>
-                    
-                        CME
-                
-                    </li>
-                    <li>
-                    
-                        P. Sicurezza
-                
-                    </li>
-                
-                </ul>
-                -->
                 
                 <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
@@ -925,7 +694,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
                 
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo strip_tags($titoloPdf); ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -947,22 +716,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 					endif;
 					
 				?>
-                <!--<a class="download deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
-                
-                    <span class="etichetta">
-                    
-                        Download
-                    
-                    </span>
-                    <span class="estensione">
-                    
-                        jpg
-                        
-                    </span>
-                    <span class="icona">
-                    </span>
-                
-                </a>-->
                        
                 <!--Fine Download-->  
                                    
@@ -998,7 +751,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
 
@@ -1011,7 +764,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     </div>
@@ -1027,7 +780,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 										   $rel = str_replace(" ", "_", $titolo); 
 										   $rel = strtolower($rel);
 
-										   echo $rel;
+										   echo strip_tags($rel);
 					
 										   ?>">
     
@@ -1056,17 +809,6 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
             <h2 class="sottotitolo_paragrafo"> <!--Sottotitolo-->
             
                 <!--Inizio Elenco Sottotitolo-->
-                <!--
-                <ul>
-                
-                    <li>
-                    
-                        Tavole prospetti
-                
-                    </li>
-                
-                </ul>
-                -->
                 
                 <?php echo $articoloActivities["articolo_sottotitolo"]; ?>
                 
@@ -1098,7 +840,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
                 
                 <!--Inizio Download-->  
                   
-                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo $titoloPdf; ?>" tabindex="p" target="_blank"> <!--PDF-->
+                <a class="download_1 deseleziona" href="<?php echo $siteurl_base."img/".$immagineLabelActivities2; ?>" title="<?php $titoloPdf = str_replace("<p>", "", $immagineLabelActivities2); $titoloPdf = str_replace("</p>", "", $titoloPdf); echo strip_tags($titoloPdf); ?>" tabindex="p" target="_blank"> <!--PDF-->
                 
                     <span class="etichetta">
                     
@@ -1120,23 +862,7 @@ $sqlImgActivities2 = "SELECT * FROM `immagine` WHERE immagine_articolo_id = ".$a
 					endif;
 					
 				?>
-                <!--<a class="download_1 deseleziona" href="#" title="Download" tabindex="j"> <!--JPG--
                 
-                    <span class="etichetta">
-                    
-                        Download
-                    
-                    </span>
-                    <span class="estensione">
-                    
-                        jpg
-                        
-                    </span>
-                    <span class="icona">
-                    </span>
-                
-                </a>-->
-                       
                 <!--Fine Download-->  
                 
             </article>

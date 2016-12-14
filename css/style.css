@@ -484,8 +484,7 @@ a:link { text-decoration: none; }
   z-index: 5000;
 }
 
-.pulsante_attivo { left: calc(100% - 75px) !important;/*	left: auto !important;
-*/ }
+.pulsante_attivo { left: calc(100% - 75px) !important; }
 
 .hamburger
 {
@@ -593,6 +592,8 @@ a:link { text-decoration: none; }
 
 #menu_voci a:hover, #menu_voci a:focus { color: #fff; }
 
+.voce_attiva { color: #fff !important; }
+
 /* Social */
 
 #social
@@ -681,13 +682,7 @@ a:link { text-decoration: none; }
   min-width: 269px;
   height: auto;
   margin: 0 auto;
-  /*	padding-bottom: 20em;
-	background-image: url("../img/logo.svg");
-	background-attachment: scroll;
-	background-size: 100%;
-	background-position: 0 0;
-	background-repeat: no-repeat;
-*/	z-index: 1000;
+	z-index: 1000;
 }
 
 /* Animazione */
@@ -775,11 +770,7 @@ a:link { text-decoration: none; }
   max-height: 50%;
   float: left;
   background-color: #d1d1d1;
-  /*	background-attachment: scroll;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-*/	overflow: hidden;
+	overflow: hidden;
 }
 
 .box_foto
@@ -1812,7 +1803,7 @@ a:link { text-decoration: none; }
   top: 45%;
   transform: perspective(1px) translateY(-50%);
   color: #fff;
-  width: /*24%;*/100%;
+  width: 100%;
   height: auto;
   text-align: center;
   margin: 0 auto;
@@ -2491,7 +2482,7 @@ label[for="accettazione"]:hover { cursor: pointer; }
   display: block;
   position: relative;
   width: calc(100% - 4em);
-  height: /*auto;*/ 20em;
+  height: 20em;
   max-height: calc(100% - 5.5em);
   padding: 2em 2em 0;
   overflow: auto;
@@ -2669,7 +2660,7 @@ label[for="accettazione"]:hover { cursor: pointer; }
   display: block;
   position: relative;
   width: calc(100% - 4em);
-  height: /*auto;*/ 25em;
+  height: 25em;
   max-height: calc(100% - 4em);
   padding: 2em 2em 0;
   overflow: auto;
@@ -2781,9 +2772,9 @@ label[for="accettazione"]:hover { cursor: pointer; }
 
 .brand { text-transform: uppercase; }
 
-/*.wrapper_admin_elemento a*/ .link_catalogo:hover .catalogo_admin_elemento { background-color: #f2f2f2; }
+.link_catalogo:hover .catalogo_admin_elemento { background-color: #f2f2f2; }
 
-/*.wrapper_admin_elemento a*/ .link_catalogo:hover .catalogo_admin_elemento .file_nome { color: #4D4D4D; }
+.link_catalogo:hover .catalogo_admin_elemento .file_nome { color: #4D4D4D; }
 
 /* Ridimensionamento Cataloghi - Categorie */
 
@@ -3270,7 +3261,7 @@ label[for="accettazione"]:hover { cursor: pointer; }
   animation-delay: 3s;
 }
 
-#menu_principale { transition: all .3s ease-in-out; /*width .3s ease-in-out, height .3s ease-in-out .5s, min-height .3s ease-in-out .5s;*/ }
+#menu_principale { transition: all .3s ease-in-out; }
 
 .download { transition: all .3s ease-in-out; }
 

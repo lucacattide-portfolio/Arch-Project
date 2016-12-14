@@ -12,7 +12,20 @@
 </script>
 <script type="text/javascript" async defer src="js/template.js"> <!--Template-->
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALQ0QVFaY_Sp_wgnHqB9Fp046SxgQy7P0&callback=mappa" async defer> <!--Google Maps-->
+
+<?php 
+
+  if($_GET["pag"] == 5 ): 
+
+?>
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALQ0QVFaY_Sp_wgnHqB9Fp046SxgQy7P0&callback=mappa" async defer> <!--Google Maps-->
 </script>
+
+<?php 
+
+  endif; 
+
+?>
 
 <!--Fine Inclusione JavaScript-->

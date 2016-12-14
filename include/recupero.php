@@ -36,8 +36,6 @@
             <fieldset>
             
             	<input name="email_recupero" type="email" required="required" id="email_recupero" form="form_recupero" placeholder="Email" pattern="^[a-z0-9][_.a-z0-9-]+@([a-z0-9][0-9a-z-]+.)+([a-z]{2,4})" tabindex="1" title="Inserire l'indirizzo E-Mail" class="animated fadeInUp">
-               <!-- <input name="password_recupero_nuova" type="password" required="required" form="form_recupero" id="password_recupero_nuova" placeholder="Nuova Password" tabindex="2" title="Inserire la Password">
-                <input name="password_recupero_conferma" type="password" required="required" form="form_recupero" id="password_recupero_conferma" placeholder="Conferma Password" tabindex="3" title="Conferma la Password">-->
             
             </fieldset>
             

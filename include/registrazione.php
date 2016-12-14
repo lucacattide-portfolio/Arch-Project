@@ -29,13 +29,10 @@
 		     echo '</h2>';
 
 		?>
-        
       
         <!--Inizio Form-->
         
         <?php 
-		
-		
 		  
 		  else:
 		

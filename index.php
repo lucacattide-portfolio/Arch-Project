@@ -97,7 +97,6 @@
 	  
  	// Impostazioni URL  - Immagini
  
- 	//$siteurl_base = "http://www.blancdesir.eu/"; // Inizializzazione URL base
 	$siteurl_base = "http://www.laboratorio-a.com/archeproject/";
 
 //////////////////////////////////////////////// ACCEDI ////////////////////////////////////////////// 
@@ -114,9 +113,7 @@ if(isset($_POST["login"])):
 	
 	
 	if( $loginCli < 1) : 
-	 
-	   // header("Location: http://localhost/archeproject/login");
-   
+	    
      else: 
 
 
@@ -160,18 +157,10 @@ if(isset($_POST["registrati"])):
 
 		  $mail->setFrom('info@archeproject.it', 'ARCH & PROJECT');
 		  $mail->CharSet= 'UTF-8';
-		  $mail->addAddress('luca@laboratorio-a.it', 'Luca Cattide');     // Add a recipient
-		  $mail->addAddress('luca@laboratorio-a.it');               // Name is optional
-		  /* $mail->addReplyTo('info@example.com', 'Information');
-		  $mail->addCC('cc@example.com');
-		  $mail->addBCC('bcc@example.com');*/
-
-		  /*$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-		  $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-		  */
-
-          $body = file_get_contents('mail/mail.php');
-          $body = eregi_replace("[\]",'',$body);
+		  $mail->addAddress('info@archeproject.it', 'Arch & Project');     // Add a recipient
+		  $mail->addAddress('claudio@laboratorio-a.it');               // Name is optional
+      $body = file_get_contents('mail/mail.php');
+      $body = eregi_replace("[\]",'',$body);
 
 		  $mail->isHTML(true);                                  // Set email format to HTM
 
@@ -238,23 +227,6 @@ endif;
 	  endif;
 	endif;
 	/* END AGGIUNGI ARTICOLO DB BACKEND *******************/	
-
-
-//////////////////////////////////////////////// REGISTRATI ////////////////////////////////////////////// 
-/*if(isset($_POST["modificaREg"])):
-
-
-    $sqlArticolo = "UPDATE `cliente` SET `cliente_nome`='".$mysqli->real_escape_string($_POST["nome_utente_modifica"])."', `cliente_cognome`='".$mysqli->real_escape_string($_POST["cognome_utente"])."',`cliente_ragione_sociale`='".$mysqli->real_escape_string($_POST["ragione_utente_admin"])."',`cliente_indirizzo`='".$mysqli->real_escape_string($_POST["indirizzo_utente_admin"])."',`cliente_cap`='".$mysqli->real_escape_string($_POST["cap_utente_admin"])."', `cliente_provincia`='".$mysqli->real_escape_string($_POST["provincia_utente_admin"])."', `cliente_email`='".$mysqli->real_escape_string($_POST["email_utente_admin"])."', `cliente_telefono`='".$mysqli->real_escape_string($_POST["telefono_utente_admin"])."', `cliente_partita_iva`='".$mysqli->real_escape_string($_POST["iva_utente_admin"])."', `cliente_codice_fiscale`='".$mysqli->real_escape_string($_POST["fiscale_utente_admin"])."', `cliente_data_modifica`='".date("Y-m-d H:i:s")."' WHERE `cliente_id` = '".$_SESSION["id_utente"]."' ";
-	
-    if($mysqli->query($sqlArticolo)):
-
-    else:
-
-    endif;
-
-
-endif;
-*/
 
 //////////////////////////////////////////////// LOGOFF ////////////////////////////////////////////// 
 

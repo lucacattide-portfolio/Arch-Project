@@ -28,7 +28,8 @@
 
 		<style>
 			
-			/* Webfont: GothamCondensed-Light */@font-face
+			/* Webfont: GothamCondensed-Light */
+      @font-face
 			{
 				font-family: 'GothamCondensedLight';
 				src: url('fonts/Gotham Condensed Light/GothamCondensed-Light.eot'); /* IE9 Compat Modes */
@@ -122,4 +123,4 @@
 
 <!--Fine HTML-->
 
-<!--Inizio Templte Email-->
+<!--Fine Templte Email-->

@@ -81,33 +81,6 @@
 			endif;
 		
 		?>
-    
-        <!--<a class="download_contestuale occulta" href="#" title="Documento 1" rel="casa_1">
-            
-            <span class="etichetta_download">
-            
-                Download
-            
-            </span>
-        
-        </a>
-        <a class="download_contestuale occulta" href="#" title="Documento 2" rel="casa_1">
-        
-            <span class="etichetta_download">
-            
-                Download
-            
-            </span>    
-        </a>
-        <a class="download_contestuale occulta" href="#" title="Documento 3" rel="casa_1">
-        
-            <span class="etichetta_download">
-            
-                Download
-            
-            </span>
-    
-        </a>-->
         
         <!--Fine Voci-->
         
@@ -152,7 +125,7 @@
 		
 		?>
        
-        <a class="menu_projects occulta" href="<?php echo $siteurl_base.$articolo["articolo_url"]; ?>" title="<?php $title= str_replace ("<p>", "", $articolo["articolo_titolo"]); $title= str_replace ("</p>", "", $title); echo $title; ?>" rel="<?php echo $articolo["articolo_id"]; ?>">
+        <a class="menu_projects occulta" href="<?php echo $siteurl_base.$articolo["articolo_url"]; ?>" title="<?php $title= str_replace ("<p>", "", $articolo["articolo_titolo"]); $title= str_replace ("</p>", "", $title); echo strip_tags($title); ?>" rel="<?php echo $articolo["articolo_id"]; ?>">
         
             <span class="lettera <?php 
 
@@ -169,23 +142,6 @@
             </span>
         
         </a>
-        <!--<a class="menu_projects occulta" href="#" title="House 2" rel="casa_2">
-        
-            <span class="lettera">
-            
-                A2
-            
-            </span>    
-        </a>
-        <a class="menu_projects occulta" href="#" title="House 3" rel="casa_3">
-        
-            <span class="lettera">
-            
-                A3
-            
-            </span>
-    
-        </a>-->
         
         <?php
 		
@@ -257,11 +213,6 @@
     
 			?>
    		
-    		<!--<div class="foto" style="background-image: url('img/house.png');"> <!--Immagine--
-            </div>
-            <div class="foto" style="background-image: url('img/activities_home.png');"> <!--Immagine--
-            </div>-->
-            
   		</div>
         
         <!--Fine Foto-->
@@ -298,7 +249,7 @@
 					$testo = str_replace("<p>", "", $articolo3["articolo_testo"]);
 					$testo = str_replace("</p>", "", $testo);
 				
-					echo $testo; 
+					echo strip_tags($testo); 
 				
 				?>
             

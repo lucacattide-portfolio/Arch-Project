@@ -1,0 +1,13 @@
+User-agent: *
+Sitemap: http://archeproject/sitemap.xml
+Allow: /css/
+Allow: /img/
+Allow: /include/
+Allow: /js/
+Allow: /index.php
+Allow: /favicon.png
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /landing/
+Disallow: /mail/
+Disallow: /PHPMailer-master/

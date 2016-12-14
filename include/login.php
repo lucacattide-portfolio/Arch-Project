@@ -1,12 +1,5 @@
 <!--Inizio Login-->
 
-
-<?php
-
-
-
-?>
-
 <section id="login">
 
 	<h7>

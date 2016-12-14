@@ -145,7 +145,7 @@ in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 	<!--Inizio Voci-->
 
-	<a class="download_contestuale" href="<?php echo "http://localhost/archeproject/img/".$linkDocument; ?>" title="<?php $pdf = str_replace("<p>", "", $linkDocument); $pdf = str_replace("</p>", "", $pdf); echo $pdf; ?>" rel="casa_1" target="_blank">
+	<a class="download_contestuale" href="<?php echo $siteurl_base."img/".$linkDocument; ?>" title="<?php $pdf = str_replace("<p>", "", $linkDocument); $pdf = str_replace("</p>", "", $pdf); echo $pdf; ?>" rel="casa_1" target="_blank">
 
 		<span class="etichetta_download">
 
